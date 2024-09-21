@@ -135,16 +135,12 @@ Papa.parse<LibraryRecord>(URL_DA_PLANILHA, {
 					}
 				},
 				responsive: true,
-				columnDefs: [
-					{ responsivePriority: 1, targets: -2 },
-					{ responsivePriority: 2, targets: -1 },
-					{ responsivePriority: 3, targets: -3 },
-				],
 				fixedHeader: true,
 				data: results.data,
-				columns: Object.keys(results.data[0]).map(x => ({
+				columns: Object.keys(results.data[0]).map((x, i) => ({
 					data: x,
 					title: x,
+					className: ['desktop', 'min-tablet-p', 'min-tablet-l', 'all', 'min-mobile-l'][i],
 					render: (d, t) =>
 						t === 'display' ?
 							['Categoria', 'Idioma'].includes(x) ?
