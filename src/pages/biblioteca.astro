@@ -6,8 +6,8 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Biblioteca IsF - Idiomas sem Fronteiras">
     <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/jq-3.7.0/dt-2.1.6/b-3.1.2/cr-2.0.4/fh-4.0.1/r-3.0.3/sb-1.8.0/datatables.min.css" slot="head" />
     
-	<Observacao title="Colabore!">
-		Possui material que gostaria de compartilhar? Colabore enviando-o <a href="https://forms.gle/d4KfCsrDfZC4dnkM6" target="_blank">aqui</a>.
+	<Observacao title="Esta é uma biblioteca pública. Compartilhe com quem quiser!">
+		Se você possui algum trabalho sobre ou do IsF que gostaria de compartilhar, colabore enviando-o <a href="https://forms.gle/d4KfCsrDfZC4dnkM6" target="_blank">aqui</a>.
 	</Observacao>
 
 	<Carregando id="data-table-loader" />
@@ -62,7 +62,6 @@ import 'datatables.net-buttons-dt'
 import 'datatables.net-colreorder-dt'
 import 'datatables.net-fixedheader-dt'
 import 'datatables.net-responsive-dt'
-import 'datatables.net-searchbuilder-dt'
 import Papa from 'papaparse'
 
 const ID_DA_PLANILHA = '1zL6CXcemierW0aKoGgYMJ2U0iAn_89QF9EVOPniPk34'
@@ -115,31 +114,14 @@ Papa.parse<LibraryRecord>(URL_DA_PLANILHA, {
 			new DataTable('#data', {
 				language: {
 					url: '//cdn.datatables.net/plug-ins/2.1.6/i18n/pt-BR.json',
-					searchBuilder: {
-						button: {
-							0: 'Busca avançada',
-							_: 'Busca avançada (%d)'
-						}
-					}
 				},
 				layout: {
-					topStart: {
-						buttons: [
-							{
-								extend: 'searchBuilder',
-								config: {
-                					greyscale: true,
-								}
-							}
-						],
-						pageLength: {}
-					},
 					topEnd: {
 						search: {
 							processing: true,
 							placeholder: "Buscar na biblioteca"
 						}
-					}
+					},
 				},
 				responsive: true,
 				fixedHeader: true,
