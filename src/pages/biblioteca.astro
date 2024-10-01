@@ -4,7 +4,7 @@ import Observacao from '../components/Observacao.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="Biblioteca IsF - Idiomas sem Fronteiras">
-    <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/jq-3.7.0/dt-2.1.6/b-3.1.2/cr-2.0.4/fh-4.0.1/r-3.0.3/sb-1.8.0/datatables.min.css" slot="head" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/jq-3.7.0/dt-2.1.6/b-3.1.2/cr-2.0.4/fh-4.0.1/r-3.0.3/sp-2.3.2/sl-2.1.0/datatables.min.css" slot="head" />
     
 	<Observacao title="Esta é uma biblioteca pública. Compartilhe com quem quiser!">
 		Se você possui algum trabalho sobre ou do IsF que gostaria de compartilhar, colabore enviando-o <a href="https://forms.gle/d4KfCsrDfZC4dnkM6" target="_blank">aqui</a>.
@@ -27,7 +27,7 @@ main {
 }
 
 div:has(table#data) {
-	overflow-x: auto;
+	/* overflow-x: auto; */
 }
 table#data a {
     word-break: break-all;
@@ -62,6 +62,8 @@ import 'datatables.net-buttons-dt'
 import 'datatables.net-colreorder-dt'
 import 'datatables.net-fixedheader-dt'
 import 'datatables.net-responsive-dt'
+import 'datatables.net-searchpanes-dt'
+import 'datatables.net-select-dt';
 import Papa from 'papaparse'
 
 const ID_DA_PLANILHA = '1zL6CXcemierW0aKoGgYMJ2U0iAn_89QF9EVOPniPk34'
@@ -114,8 +116,25 @@ Papa.parse<LibraryRecord>(URL_DA_PLANILHA, {
 			new DataTable('#data', {
 				language: {
 					url: '//cdn.datatables.net/plug-ins/2.1.6/i18n/pt-BR.json',
+					// @ts-ignore
+					searchPanes: {
+						// @ts-ignore
+						collapse: { 0: 'Filtros', _: 'Filtros (%d)' }
+					},
 				},
 				layout: {
+					topStart: {
+						buttons: [
+							{
+								extend: 'searchPanes',
+								config: {
+									cascadePanes: true,
+									collapse: false,
+								},
+							}
+						],
+						pageLength: {},
+					},
 					topEnd: {
 						search: {
 							processing: true,
