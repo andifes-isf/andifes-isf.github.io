@@ -1,0 +1,179 @@
+---
+import { type T } from "../../i18n/utils";
+import { getQuestions, type QuestionId } from "../../services/questions";
+
+interface Props {
+	t: T;
+	n: QuestionId;
+}
+
+const { t, n } = Astro.props;
+
+const questions = getQuestions(t);
+---
+
+<div id="data" data-area={questions[n - 1].area} data-id={questions[n - 1].id}>
+</div>
+<div class="text-content marginbot">
+	<h3>
+		{t("testtool.question_n.title")}<span
+			class="skeleton"
+			style="width: 100px">[loading]</span
+		>?
+	</h3>
+	<p class="section-title">{questions[n - 1].section_title}</p>
+	<p>{questions[n - 1].description}</p>
+</div>
+<div class="button-group">
+	<a class="btn btn-success" data-continue="S" href="#">
+		{t("testtool.question_n.yes_button")}
+	</a>
+	<a class="btn btn-warning" data-continue="N" href="#">
+		{t("testtool.question_n.not_yet_button")}
+	</a>
+</div>
+<script>
+	import { shuffle, type Path } from "../../utils";
+	import {
+		getLangFromUrl,
+		getLangUrl,
+		useTranslations,
+	} from "../../i18n/utils";
+	import {
+		buildQuestionsPath,
+		getPathHistory,
+		setPathHistory,
+		type Question,
+		type AreasType,
+		type LangCodeToEvaluate,
+	} from "../../services/questions";
+
+	const dataTag = document.getElementById("data") as HTMLDivElement;
+	if (!dataTag) throw new Error("Data tag not found");
+	const { area, id } = dataTag.dataset as { area: AreasType; id: unknown };
+
+	if (!area || !id) throw new Error("Invalid page data.");
+
+	const lang = getLangFromUrl(new URL(window.location.href));
+	const t = useTranslations(lang);
+	const parentPathname = '/'+[
+		...getLangUrl(window.location.pathname, lang).split("/").slice(0, -1),
+	].join("/");
+
+	const langElem = document.querySelector("h3 span") as HTMLSpanElement;
+	if (!langElem) throw new Error("Name element not found.");
+
+	const langChoosenStr = sessionStorage.getItem("langChoosen");
+	if (!langChoosenStr) throw new Error("No language was choosen."); // TODO: redirect instead
+	const langChoosen = JSON.parse(langChoosenStr) as {
+		code?: LangCodeToEvaluate;
+		name?: string;
+	};
+	if (!langChoosen.code && !langChoosen.name)
+		throw new Error("Invalid choosen language.");
+	const langName = langChoosen.code
+		? t(`language.list.${langChoosen.code}`)
+		: langChoosen.name || "";
+	if (!langName) throw new Error("Invalid choosen language.");
+	langElem.innerText = langName;
+	langElem.classList.remove("skeleton");
+
+	const pathHistory = getPathHistory();
+
+	const questionsPath = buildQuestionsPath(t);
+
+	function recurPathLookup(path: Path<Question>[]) {
+		for (const entry of path) {
+			if (entry.pergunta.area === area && entry.pergunta.id === +id!)
+				continue;
+			const { pergunta } = entry;
+			const historyEntry = pathHistory.find(
+				(h) => h.area === pergunta.area && h.id === pergunta.id,
+			);
+			if (historyEntry) {
+				if (historyEntry.resposta === "N")
+					return recurPathLookup(entry.caminhosNao);
+				else return recurPathLookup(entry.caminhosSim);
+			}
+			return entry;
+		}
+	}
+
+	const nextPathOptions = questionsPath
+		.map(({ path }) => recurPathLookup(path))
+		.filter((x) => !!x);
+
+	const nextPage = nextPathOptions.length
+		? `pergunta-${shuffle(nextPathOptions).at(0)?.pergunta.id}`
+		: "fim-perguntas";
+
+	const btns = document.querySelectorAll(
+		"a[data-continue]",
+	) as NodeListOf<HTMLAnchorElement>;
+	btns.forEach((btn) => {
+		btn.href = `${parentPathname}/${nextPage}`;
+		btn.addEventListener("click", (evt) => {
+			evt.preventDefault();
+			const elem = evt.target as HTMLAnchorElement;
+			const { continue: cont } = elem.dataset;
+
+			pathHistory.push({ area, id: +id, resposta: cont as "S" | "N" });
+			setPathHistory(pathHistory);
+			window.location.replace(elem.href);
+		});
+	});
+</script>
+
+<style>
+	.text-content {
+		flex: 1;
+		padding-right: 20px;
+	}
+
+	.section-title {
+		font-size: 16px;
+		font-weight: bold;
+	}
+
+	.button-group {
+		display: flex;
+		justify-content: center;
+		gap: 5px;
+		margin-top: 20px;
+	}
+
+	.btn {
+		padding: 10px 20px;
+		font-size: 16px;
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+	.btn-success {
+		background-color: #28a745;
+		color: #fff;
+		border: none;
+	}
+
+	.btn-warning {
+		background-color: #ffc107;
+		color: #fff;
+		border: none;
+	}
+
+	.btn-success:hover {
+		background-color: #218838;
+	}
+
+	.btn-warning:hover {
+		background-color: #e0a800;
+	}
+
+	@media (max-width: 768px) {
+		.text-content,
+		.image-content {
+			flex: 100%;
+			padding-right: 0;
+		}
+	}
+</style>

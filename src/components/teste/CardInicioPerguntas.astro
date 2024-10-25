@@ -1,0 +1,100 @@
+---
+import type { T } from "../../i18n/utils";
+
+interface Props {
+	t: T;
+}
+
+const { t } = Astro.props;
+---
+
+<div class="text-content">
+	<p>{t("testtool.start_questions.intro")}</p>
+	<p>
+		<span class="highlight"
+			>{t("testtool.start_questions.question_range")}</span
+		>
+	</p>
+	<p>{t("testtool.start_questions.description")}</p>
+	<input name="level_help" id="level_help" type="hidden" value="6" />
+</div>
+<div class="button-group">
+	<a class="btn btn-danger" id="continue_button" href="#">
+		{t("testtool.start_questions.continue_button")}
+	</a>
+</div>
+<script>
+	import {
+		getLangFromUrl,
+		getLangUrl,
+		useTranslations,
+	} from "../../i18n/utils";
+	import { buildQuestionsPath } from "../../services/questions";
+	import { shuffle } from "../../utils";
+
+	const lang = getLangFromUrl(new URL(window.location.href));
+	const t = useTranslations(lang);
+	const parentPathname = '/'+[
+		...getLangUrl(window.location.pathname, lang).split("/").slice(0, -1),
+	].join("/");
+
+	const questionsPath = buildQuestionsPath(t);
+
+	const firstArea = shuffle(questionsPath).at(0);
+	if (!firstArea) throw new Error("Invalid path.");
+
+	const question =
+		firstArea.path.length > 1
+			? shuffle(firstArea.path).at(0)
+			: firstArea.path.at(0);
+	if (!question) throw new Error("Invalid path.");
+
+	const btn = document.getElementById("continue_button") as HTMLAnchorElement;
+	if (!btn) throw new Error("Link element not found.");
+
+	btn.href = `${parentPathname}/pergunta-${question.pergunta.id}`;
+
+	sessionStorage.removeItem("path-history");
+</script>
+
+<style>
+	.text-content {
+		flex: 1;
+		padding-right: 20px;
+	}
+
+	.highlight {
+		font-size: 26px;
+		font-weight: bold;
+		color: #666666;
+	}
+
+	.button-group {
+		display: flex;
+		justify-content: center;
+		gap: 5px;
+		margin-top: 20px;
+	}
+
+	.btn {
+		background-color: #dc3545;
+		color: #fff;
+		border: none;
+		padding: 10px 20px;
+		font-size: 16px;
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+	.btn:hover {
+		background-color: #c82333;
+	}
+
+	@media (max-width: 768px) {
+		.text-content,
+		.image-content {
+			flex: 100%;
+			padding-right: 0;
+		}
+	}
+</style>

@@ -1,0 +1,31 @@
+---
+import Layout from "../../../../layouts/Layout.astro";
+import type { Lang } from "../../../../i18n/ui";
+import { useTranslations, getLanguages } from "../../../../i18n/utils";
+import SeletorIdiomaUI from "../../../../components/teste/SeletorIdiomaUI.astro";
+import CardInicioPerguntas from "../../../../components/teste/CardInicioPerguntas.astro";
+
+export function getStaticPaths() {
+	return getLanguages().map((lang) => ({ params: { lang: lang as Lang } }));
+}
+
+const { lang } = Astro.params;
+
+const t = useTranslations(lang);
+---
+
+<Layout title={t("testtool.home.title")}>
+	<SeletorIdiomaUI t={t} lang={lang} slot="before-main" />
+	<CardInicioPerguntas t={t} />
+</Layout>
+
+<style is:global>
+	main {
+		background: #fff;
+		border: 1px solid #bbb;
+		border-radius: 10px;
+		padding: 20px;
+		margin: 30px auto 60px;
+		box-shadow: 0px 2px 8px 2px lightgrey;
+	}
+</style>

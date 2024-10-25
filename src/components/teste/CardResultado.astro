@@ -1,0 +1,324 @@
+---
+import type { Lang } from "../../i18n/ui";
+import { getLangUrl, type T } from "../../i18n/utils";
+
+interface Props {
+	t: T;
+	lang: Lang;
+}
+
+const { t, lang } = Astro.props;
+
+const parentPath = getLangUrl(Astro.url.pathname, lang).split("/").slice(0, -1);
+const startUrl = '/'+[...parentPath, "inicio"].join("/");
+const certificateUrl = '/'+[...parentPath, "certificado"].join("/");
+const perfilUrl = '/'+[...parentPath, "dados-perfil"].join("/");
+---
+
+<div class="results-header">
+	<h3>{t("testtool.results.title")}<span class="skeleton"></span></h3>
+</div>
+
+<div class="results-content">
+	<div class="language-result">
+		<div class="language-header">
+			<b class="skeleton"></b>
+		</div>
+		<div class="row">
+			<div class="col-sm-7">
+				{t("testtool.question.understanding.listening.section_title")}
+			</div>
+			<div
+				class="col-sm-5 skeleton"
+				style="width: 2em"
+				data-result="understanding.listening"
+			>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-7">
+				{t("testtool.question.understanding.reading.section_title")}
+			</div>
+			<div
+				class="col-sm-5 skeleton"
+				style="width: 2em"
+				data-result="understanding.reading"
+			>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-7">
+				{
+					t(
+						"testtool.question.speaking.spoken_interaction.section_title",
+					)
+				}
+			</div>
+			<div
+				class="col-sm-5 skeleton"
+				style="width: 2em"
+				data-result="speaking.spoken_interaction"
+			>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-7">
+				{
+					t(
+						"testtool.question.speaking.spoken_production.section_title",
+					)
+				}
+			</div>
+			<div
+				class="col-sm-5 skeleton"
+				style="width: 2em"
+				data-result="speaking.spoken_production"
+			>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-7">
+				{t("testtool.question.writing.section_title")}
+			</div>
+			<div
+				class="col-sm-5 skeleton"
+				style="width: 2em"
+				data-result="writing"
+			>
+			</div>
+		</div>
+	</div>
+	<p id="conclusion" class="skeleton"></p>
+</div>
+<div class="button-group text-right ptop20">
+	<a id="print-results-link" href="#" class="btn btn-dark">
+		{t("testtool.results.download")}
+		<img src="/assets/img/pdf-file.svg" />
+	</a>
+	<a href={startUrl} class="btn btn-success">
+		{t("testtool.results.start_again")}
+	</a>
+	<a href={perfilUrl} class="btn btn-light">
+		{t("testtool.results.update_profile")}
+	</a>
+</div>
+<iframe id="certificate" src={certificateUrl}></iframe>
+
+<script>
+	import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+	import {
+		getResults,
+		type AreasType,
+		type LangCodeToEvaluate,
+		type LevelsType,
+	} from "../../services/questions";
+
+	const lang = getLangFromUrl(new URL(window.location.href));
+	const t = useTranslations(lang);
+
+	const resultado = getResults(t);
+
+	console.log(resultado);
+
+	const nameElem = document.querySelector("h3 span") as HTMLSpanElement;
+	if (!nameElem) throw new Error("Name element not found.");
+
+	const languageElem = document.querySelector(
+		".language-header b",
+	) as HTMLElement;
+	if (!languageElem) throw new Error("Language element not found.");
+
+	const conclusionElem = document.getElementById(
+		"conclusion",
+	) as HTMLParagraphElement;
+	if (!conclusionElem) throw new Error("Conclusion element not found.");
+
+	const linkElem = document.getElementById(
+		"print-results-link",
+	) as HTMLAnchorElement;
+	if (!linkElem) throw new Error("Print element not found.");
+
+	const certificateElem = document.getElementById(
+		"certificate",
+	) as HTMLIFrameElement;
+	if (!certificateElem) throw new Error("Certificate iframe not found.");
+
+	const profileStr = sessionStorage.getItem("profile");
+	if (!profileStr) throw new Error("Profile data not found.");
+	const profileData = JSON.parse(profileStr);
+	if (
+		!profileData.name ||
+		!profileData.country ||
+		typeof profileData.age !== "number"
+	)
+		throw new Error("Invalid profile data.");
+	nameElem.innerText = profileData.name;
+	nameElem.classList.remove("skeleton");
+
+	const langChoosenStr = sessionStorage.getItem("langChoosen");
+	if (!langChoosenStr) throw new Error("No language was choosen."); // TODO: redirect instead
+	const langChoosen = JSON.parse(langChoosenStr) as {
+		code?: LangCodeToEvaluate;
+		name?: string;
+	};
+	if (!langChoosen.code && !langChoosen.name)
+		throw new Error("Invalid choosen language.");
+	const langName = langChoosen.code
+		? t(`language.list.${langChoosen.code}`)
+		: langChoosen.name || "";
+	if (!langName) throw new Error("Invalid choosen language.");
+	languageElem.innerText = langName;
+	languageElem.classList.remove("skeleton");
+
+	let conclusionList = [] as string[];
+	const resultElemts = document.querySelectorAll(
+		"[data-result]",
+	) as NodeListOf<HTMLDivElement>;
+	for (const elem of resultElemts) {
+		const { result } = elem.dataset;
+		if (!result) throw new Error("Invalid result type.");
+		elem.innerText = resultado[result];
+		elem.classList.remove("skeleton");
+		conclusionList.push(
+			t(
+				`testtool.result.${result as AreasType}.${resultado[result] as LevelsType}.conclusion`,
+			),
+		);
+	}
+	const conclusion = conclusionList.join(" ");
+	conclusionElem.innerText = conclusion;
+	conclusionElem.classList.remove("skeleton");
+
+	function setupIframe() {
+		/** @ts-ignore */
+		certificateElem.contentWindow!.loadData({
+			userName: profileData.name,
+			country: profileData.country,
+			language: langName,
+			results: {
+				listening: resultado["understanding.listening"],
+				reading: resultado["understanding.reading"],
+				spokenInteraction: resultado["speaking.spoken_interaction"],
+				spokenProduction: resultado["speaking.spoken_production"],
+				writing: resultado["writing"],
+			},
+			conclusion,
+		});
+	}
+
+	// Sometimes it still gets "Uncaught TypeError: r.contentWindow.loadData is not a function" (after build)
+	certificateElem.addEventListener("load", setupIframe)
+	if (certificateElem.contentDocument?.readyState === "complete") setupIframe()
+
+	linkElem.addEventListener("click", (evt) => {
+		evt.preventDefault();
+		certificateElem.contentWindow!.print();
+	});
+</script>
+
+<style>
+	.results-container {
+		position: relative;
+	}
+
+	.results-header {
+		margin-bottom: 20px;
+	}
+	.results-header span.skeleton:empty {
+		width: 12em;
+		height: 1.2em;
+	}
+
+	.language-result {
+		margin-bottom: 20px;
+		max-width: 250px;
+		width: 100%;
+	}
+
+	.language-header {
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+	.language-header b.skeleton:empty {
+		width: 7em;
+		height: 1.2em;
+	}
+
+	.row {
+		display: flex;
+		justify-content: space-between;
+		margin: 5px 0;
+		padding: 0 3px;
+		background-color: #eee;
+	}
+
+	.results-content {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		gap: 10px;
+	}
+	#conclusion {
+		max-width: 440px;
+	}
+	#conclusion.skeleton:empty {
+		height: 12em;
+		width: 100%;
+	}
+
+	.button-group {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 5px;
+		margin-top: 20px;
+	}
+
+	.button-group .btn {
+		display: flex;
+		width: fit-content;
+		align-items: center;
+		gap: 10px;
+	}
+	.btn {
+		padding: 10px 20px;
+		font-size: 16px;
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+	.btn-success {
+		background-color: #28a745;
+		color: #fff;
+		border: none;
+	}
+	.btn-dark {
+		background-color: #23272b;
+		color: #fff;
+		border: none;
+	}
+	.btn-light {
+		background-color: #e2e6ea;
+		color: #212529;
+    	border-color: none;
+	}
+
+	.button-group img {
+		width: 24px; /* Adjust as needed */
+		height: auto;
+	}
+
+	#certificate {
+		display: none;
+	}
+	@media (max-width: 768px) {
+		.results-content {
+			flex-direction: column;
+		}
+	}
+	@media (max-width: 575px) {
+		.button-group {
+			flex-direction: column;
+		}
+	}
+</style>

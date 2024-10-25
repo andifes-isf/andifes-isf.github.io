@@ -1,0 +1,78 @@
+---
+import type { Lang } from "../../i18n/ui";
+import {
+	getLanguages,
+	type T,
+	getLangUrl,
+} from "../../i18n/utils";
+
+interface Props {
+	t: T;
+	lang: Lang;
+}
+
+const { t, lang } = Astro.props;
+
+const languages = getLanguages();
+const activeLang = lang
+---
+
+<div class="language-tabs">
+	{
+		languages.map((lang) => (
+			<a
+				href={'/'+getLangUrl(Astro.url.pathname, lang)}
+				class={`tab ${lang === activeLang ? "active" : ""}`}
+				aria-current={lang === activeLang ? "true" : "false"}
+			>
+				{t(`language.list.${lang}`)}
+			</a>
+		))
+	}
+</div>
+
+<style is:global>
+	main {
+		position: relative;
+		z-index: 1;
+	}
+</style>
+<style>
+	.language-tabs {
+		display: flex;
+		margin: 20px 0 -32px;
+		justify-content: center;
+	}
+
+	.tab {
+		padding: 5px 10px;
+		text-decoration: none;
+		color: #555;
+		border: 1px solid #ddd;
+		transition:
+			background-color 0.3s,
+			color 0.3s;
+		background-color: white;
+		cursor: pointer;
+	}
+	.tab:first-child {
+		border-top-left-radius: 5px;
+	}
+	.tab:not(:first-child) {
+		border-left-width: 0;
+	}
+	.tab:last-child {
+		border-top-right-radius: 5px;
+	}
+
+	.tab:hover {
+		background-color: #f9f9f9;
+		color: #333;
+	}
+
+	.active {
+		background-color: #3ab1be;
+		color: white;
+		font-weight: bold;
+	}
+</style>

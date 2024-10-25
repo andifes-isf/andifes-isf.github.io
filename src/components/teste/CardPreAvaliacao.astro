@@ -1,0 +1,214 @@
+---
+import type { Lang } from "../../i18n/ui";
+import { getLangUrl, type T } from "../../i18n/utils";
+
+interface Props {
+	t: T;
+	lang: Lang;
+}
+
+const { t, lang } = Astro.props;
+
+const parentPath = getLangUrl(Astro.url.pathname, lang).split("/").slice(0, -1);
+const inicioPerguntasUrl = '/'+[...parentPath, "inicio-perguntas"].join("/");
+---
+
+<h3>
+	{t("testtool.auto_proficiency.title")}<span
+		class="skeleton"
+		style="width: 100px">[loading]</span
+	>?
+</h3>
+<output for="self-proficency"></output>
+<div class="range-container">
+	<span class="range-label">{t("testtool.auto_proficiency.low_label")}</span>
+	<input
+		type="range"
+		id="self-proficency"
+		class="range-slider"
+		min="1"
+		max="10"
+		value="6"
+	/>
+	<span class="range-label">{t("testtool.auto_proficiency.high_label")}</span>
+</div>
+<div class="help-text">{t("testtool.auto_proficiency.move_slider_prompt")}</div>
+
+<div class="button-group">
+	<a id="continue_button" class="btn btn-danger" href={inicioPerguntasUrl}>
+		{t("testtool.auto_proficiency.continue_button")}
+	</a>
+</div>
+
+<script>
+	import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+	import type { LangCodeToEvaluate } from "../../services/questions";
+
+	const lang = getLangFromUrl(new URL(window.location.href));
+	const t = useTranslations(lang);
+
+	const langElem = document.querySelector("h3 span") as HTMLSpanElement;
+	if (!langElem) throw new Error("Name element not found.");
+
+	const selfProficencyInput = document.getElementById(
+		"self-proficency",
+	) as HTMLInputElement;
+	if (!selfProficencyInput)
+		throw new Error("Self proficency input not found.");
+
+	const btn = document.getElementById("continue_button") as HTMLAnchorElement;
+	if (!btn) throw new Error("Link element not found.");
+
+	const langChoosenStr = sessionStorage.getItem("langChoosen");
+	if (!langChoosenStr) throw new Error("No language was choosen."); // TODO: redirect instead
+	const langChoosen = JSON.parse(langChoosenStr) as {
+		code?: LangCodeToEvaluate;
+		name?: string;
+	};
+	if (!langChoosen.code && !langChoosen.name)
+		throw new Error("Invalid choosen language.");
+	const langName = langChoosen.code
+		? t(`language.list.${langChoosen.code}`)
+		: langChoosen.name || "";
+	if (!langName) throw new Error("Invalid choosen language.");
+	langElem.innerText = langName;
+	langElem.classList.remove("skeleton");
+
+	selfProficencyInput.addEventListener("input", () => {
+		updateOutputValue(selfProficencyInput);
+	});
+
+	function updateOutputValue(input: HTMLInputElement) {
+		const outputElem = document.querySelector(
+			`[for="${input.id}"]`,
+		) as HTMLOutputElement;
+		if (!outputElem) return;
+		outputElem.innerText = input.value;
+		applyFill(input);
+	}
+	updateOutputValue(selfProficencyInput);
+
+	function applyFill(input: HTMLInputElement) {
+		const percentage =
+			(100 * (+input.value - +input.min)) / (+input.max - +input.min);
+		const styles = getComputedStyle(input);
+		const color = styles.getPropertyValue("--color");
+		const background = styles.getPropertyValue("--background");
+		const bg = `linear-gradient(90deg, ${color} ${percentage}%, ${background} ${percentage + 0.1}%)`;
+		input.style.background = bg;
+	}
+
+	btn.addEventListener("click", (evt) => {
+		evt.preventDefault();
+		const elem = evt.target as HTMLAnchorElement;
+
+		sessionStorage.setItem("selfProficency", selfProficencyInput.value);
+
+		window.location.replace(elem.href);
+	});
+</script>
+
+<style>
+	.range-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 20px;
+	}
+
+	output[for] {
+		display: block;
+		height: 1em;
+		text-align: center;
+		margin-bottom: 15px;
+		font-size: 1.2em;
+		font-weight: bold;
+	}
+
+	.range-slider {
+		flex: 1;
+		-webkit-appearance: none;
+		width: calc(100% - (73px));
+		height: 10px;
+		border-radius: 5px;
+		background: var(--background);
+		outline: none;
+		padding: 0;
+		margin: 0;
+
+		--color: #3ab1be;
+		--background: #d7dcdf;
+	}
+	.range-slider::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background: #2c3e50;
+		cursor: pointer;
+		-webkit-transition: background 0.15s ease-in-out;
+		transition: background 0.15s ease-in-out;
+	}
+	.range-slider::-webkit-slider-thumb:hover {
+		background: var(--color);
+	}
+	.range-slider:active::-webkit-slider-thumb {
+		background: var(--color);
+	}
+	.range-slider::-moz-range-thumb {
+		width: 20px;
+		height: 20px;
+		border: 0;
+		border-radius: 50%;
+		background: #2c3e50;
+		cursor: pointer;
+		-moz-transition: background 0.15s ease-in-out;
+		transition: background 0.15s ease-in-out;
+	}
+	.range-slider::-moz-range-thumb:hover {
+		background: var(--color);
+	}
+	.range-slider:active::-moz-range-thumb {
+		background: var(--color);
+	}
+	.range-slider:focus::-webkit-slider-thumb {
+		box-shadow:
+			0 0 0 3px #fff,
+			0 0 0 6px var(--color);
+	}
+	.range-slider::-moz-range-track {
+		background: var(--background);
+		border: 0;
+	}
+
+	.range-slider::-moz-focus-inner,
+	.range-slider::-moz-focus-outer {
+		border: 0;
+	}
+
+	.help-text {
+		display: block;
+		text-align: center;
+	}
+	.button-group {
+		display: flex;
+		justify-content: center;
+		gap: 5px;
+		margin-top: 20px;
+	}
+
+	.btn {
+		background-color: #dc3545;
+		color: #fff;
+		border: none;
+		padding: 10px 20px;
+		font-size: 16px;
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+	.btn:hover {
+		background-color: #c82333;
+	}
+</style>

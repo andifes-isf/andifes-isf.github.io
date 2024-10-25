@@ -1,0 +1,120 @@
+---
+import type { T } from "../../i18n/utils";
+
+interface Props {
+	t: T;
+}
+
+const { t } = Astro.props;
+---
+
+<div class="text-content">
+	<h3>{t("testtool.end_questions.title")}</h3>
+	<p>{t("testtool.end_questions.description")}</p>
+	<p>
+		<span class="highlight skeleton" style="width: 100px; height: 1.5em"
+		></span>
+	</p>
+	<p>{t("testtool.end_questions.call_to_action")}</p>
+</div>
+<div class="button-group">
+	<a id="continue_button" class="btn btn-success" href="#">
+		{t("testtool.end_questions.view_results")}
+	</a>
+</div>
+
+<script>
+	import {
+		getLangFromUrl,
+		getLangUrl,
+		useTranslations,
+	} from "../../i18n/utils";
+	import type { LangCodeToEvaluate } from "../../services/questions";
+
+	const lang = getLangFromUrl(new URL(window.location.href));
+	const t = useTranslations(lang);
+	const parentPathname = '/'+[
+		...getLangUrl(window.location.pathname, lang).split("/").slice(0, -1),
+	].join("/");
+
+	const langElem = document.querySelector(
+		"p span.highlight",
+	) as HTMLSpanElement;
+	if (!langElem) throw new Error("Name element not found.");
+
+	const btn = document.getElementById("continue_button") as HTMLAnchorElement;
+	if (!btn) throw new Error("Link element not found.");
+
+	const langChoosenStr = sessionStorage.getItem("langChoosen");
+	if (!langChoosenStr) throw new Error("No language was choosen."); // TODO: redirect instead
+	const langChoosen = JSON.parse(langChoosenStr) as {
+		code?: LangCodeToEvaluate;
+		name?: string;
+	};
+	if (!langChoosen.code && !langChoosen.name)
+		throw new Error("Invalid choosen language.");
+	const langName = langChoosen.code
+		? t(`language.list.${langChoosen.code}`)
+		: langChoosen.name || "";
+	if (!langName) throw new Error("Invalid choosen language.");
+	langElem.innerText = langName;
+	langElem.classList.remove("skeleton");
+
+	let destination = "dados-perfil";
+	const profileStr = sessionStorage.getItem("profile");
+	if (profileStr) {
+		const profileData = JSON.parse(profileStr);
+		if (
+			profileData.name &&
+			profileData.country &&
+			typeof profileData.age === "number"
+		) {
+			destination = "resultado";
+		}
+	}
+	btn.href = `${parentPathname}/${destination}`;
+</script>
+
+<style>
+	.text-content {
+		flex: 1;
+		padding-right: 20px;
+	}
+
+	.highlight {
+		font-size: 26px;
+		font-weight: bold;
+		color: #666666;
+	}
+
+	.button-group {
+		display: flex;
+		justify-content: center;
+		gap: 5px;
+		margin-top: 20px;
+	}
+
+	.btn {
+		padding: 10px 20px;
+		font-size: 16px;
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+	.btn-success {
+		background-color: #28a745;
+		color: #fff;
+		border: none;
+	}
+
+	.btn-success:hover {
+		background-color: #218838;
+	}
+
+	@media (max-width: 768px) {
+		.text-content {
+			flex: 100%;
+			padding-right: 0;
+		}
+	}
+</style>

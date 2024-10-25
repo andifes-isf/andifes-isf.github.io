@@ -35,9 +35,11 @@ const { title, description } = Astro.props;
 				</nav>
 			</div>
 		</header>
+		<slot name="before-main" />
 		<main class="container">
 			<slot />
 		</main>
+		<slot name="after-main" />
 	</body>
 </html>
 
@@ -90,6 +92,9 @@ const { title, description } = Astro.props;
 	}
 </style>
 <style is:global>
+	* {
+		box-sizing: border-box;
+	}
 	.container {
 		--gutter-x: 1.5rem;
 		--gutter-y: 0;
@@ -102,7 +107,7 @@ const { title, description } = Astro.props;
 
 	@media (max-width: 576px) {
 		.container-sm, .container {
-			width: fit-content;
+			/* width: fit-content; */
 		}
 	}
 
@@ -133,6 +138,26 @@ const { title, description } = Astro.props;
 	@media (min-width: 1400px) {
 		.container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
 			max-width: 1320px;
+		}
+	}
+
+	.skeleton {
+		display: inline-block;
+		background-color: #e0e0e0;
+		color: transparent;
+		border-radius: 4px;
+		animation: pulse 1.5s infinite ease-in-out;
+	}
+
+	@keyframes pulse {
+		0% {
+			background-color: #e0e0e0;
+		}
+		50% {
+			background-color: #d0d0d0;
+		}
+		100% {
+			background-color: #e0e0e0;
 		}
 	}
 </style>

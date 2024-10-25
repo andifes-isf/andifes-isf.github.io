@@ -1,0 +1,406 @@
+---
+// Esta página não utiliza Layouts ou Componentes do Astro para facilitar a compreensão e sugestão de mudanças pela equipe de design. Apenas os textos internacionalizados exigirão uma compreensão mais detalhada.
+
+import type { Lang } from "../../../../i18n/ui";
+import { useTranslations, getLanguages } from "../../../../i18n/utils";
+
+export function getStaticPaths() {
+	return getLanguages().map((lang) => ({ params: { lang: lang as Lang } }));
+}
+
+const { lang } = Astro.params;
+
+const t = useTranslations(lang);
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{t("testtool.certificate.title")}</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				background-color: #f4f4f4;
+			}
+			.certificate {
+				--margin: 30px;
+
+				box-sizing: border-box;
+				width: calc(100vw - 2 * var(--margin));
+				height: calc(100vh - 2 * var(--margin));
+				display: flex;
+				flex-direction: column;
+				margin: var(--margin);
+				background-color: white;
+				border: 10px solid #333;
+				padding: 40px;
+			}
+			.striped-background {
+				background-image: repeating-linear-gradient(
+					45deg,
+					#ffba2f,
+					#ffba2f 10px,
+					#f86b26 10px,
+					#f86b26 20px,
+					#0091f4 20px,
+					#0091f4 30px,
+					#7145e8 30px,
+					#7145e8 40px,
+					#ee2c29 40px,
+					#ee2c29 50px,
+					#ff75df 50px,
+					#ff75df 60px,
+					#1cb63f 60px,
+					#1cb63f 70px
+				);
+			}
+			.striped-radial-background {
+				background: repeating-conic-gradient(
+					from 0deg,
+					#ffba2f 0deg 5deg,
+					#f86b26 5deg 10deg,
+					#ee2c29 10deg 15deg,
+					#ff75df 15deg 20deg,
+					#7145e8 20deg 25deg,
+					#0091f4 25deg 30deg,
+					#1cb63f 30deg 35deg,
+					#ffba2f 35deg 40deg,
+					#f86b26 40deg 45deg,
+					#ee2c29 45deg 50deg,
+					#ff75df 50deg 55deg,
+					#7145e8 55deg 60deg,
+					#0091f4 60deg 65deg,
+					#1cb63f 65deg 70deg,
+					#ffba2f 70deg 75deg,
+					#f86b26 75deg 80deg,
+					#ee2c29 80deg 85deg,
+					#ff75df 85deg 90deg,
+					#7145e8 90deg 95deg,
+					#0091f4 95deg 100deg,
+					#1cb63f 100deg 105deg,
+					#ffba2f 105deg 110deg,
+					#f86b26 110deg 115deg,
+					#ee2c29 115deg 120deg,
+					#ff75df 120deg 125deg,
+					#7145e8 125deg 130deg,
+					#0091f4 130deg 135deg,
+					#1cb63f 135deg 140deg,
+					#ffba2f 140deg 145deg,
+					#f86b26 145deg 150deg,
+					#ee2c29 150deg 155deg,
+					#ff75df 155deg 160deg,
+					#7145e8 160deg 165deg,
+					#0091f4 165deg 170deg,
+					#1cb63f 170deg 175deg,
+					#ffba2f 175deg 180deg,
+					#f86b26 180deg 185deg,
+					#ee2c29 185deg 190deg,
+					#ff75df 190deg 195deg,
+					#7145e8 195deg 200deg,
+					#0091f4 200deg 205deg,
+					#1cb63f 205deg 210deg,
+					#ffba2f 210deg 215deg,
+					#f86b26 215deg 220deg,
+					#ee2c29 220deg 225deg,
+					#ff75df 225deg 230deg,
+					#7145e8 230deg 235deg,
+					#0091f4 235deg 240deg,
+					#1cb63f 240deg 245deg,
+					#ffba2f 245deg 250deg,
+					#f86b26 250deg 255deg,
+					#ee2c29 255deg 260deg,
+					#ff75df 260deg 265deg,
+					#7145e8 265deg 270deg,
+					#0091f4 270deg 275deg,
+					#1cb63f 275deg 280deg,
+					#ffba2f 280deg 285deg,
+					#f86b26 285deg 290deg,
+					#ee2c29 290deg 295deg,
+					#ff75df 295deg 300deg,
+					#7145e8 300deg 305deg,
+					#0091f4 305deg 310deg,
+					#1cb63f 310deg 315deg,
+					#ffba2f 315deg 320deg,
+					#f86b26 320deg 325deg,
+					#ee2c29 325deg 330deg,
+					#ff75df 330deg 335deg,
+					#7145e8 335deg 340deg,
+					#0091f4 340deg 345deg,
+					#1cb63f 345deg 350deg,
+					#ffba2f 350deg 355deg,
+					#f86b26 355deg 360deg
+				);
+			}
+			.cube-background {
+				--color1: white;
+				--color2: hsl(240deg 11% 98%);
+				--color3: hsl(240deg 9% 97%);
+				--sizeW: 30px;
+				--sizeH: 44px;
+				background-color: var(--color1);
+				background-image: linear-gradient(
+						30deg,
+						var(--color2) 12%,
+						transparent 12.5%,
+						transparent 87%,
+						var(--color2) 87.5%,
+						var(--color2)
+					),
+					linear-gradient(
+						150deg,
+						var(--color2) 12%,
+						transparent 12.5%,
+						transparent 87%,
+						var(--color2) 87.5%,
+						var(--color2)
+					),
+					linear-gradient(
+						30deg,
+						var(--color2) 12%,
+						transparent 12.5%,
+						transparent 87%,
+						var(--color2) 87.5%,
+						var(--color2)
+					),
+					linear-gradient(
+						150deg,
+						var(--color2) 12%,
+						transparent 12.5%,
+						transparent 87%,
+						var(--color2) 87.5%,
+						var(--color2)
+					),
+					linear-gradient(
+						60deg,
+						var(--color3) 25%,
+						transparent 25.5%,
+						transparent 75%,
+						var(--color3) 75%,
+						var(--color3)
+					),
+					linear-gradient(
+						60deg,
+						var(--color3) 25%,
+						transparent 25.5%,
+						transparent 75%,
+						var(--color3) 75%,
+						var(--color3)
+					);
+				background-size: var(--sizeW) var(--sizeH);
+				background-position:
+					0 0,
+					0 0,
+					calc(var(--sizeW) / 2) calc(var(--sizeH) / 2),
+					calc(var(--sizeW) / 2) calc(var(--sizeH) / 2),
+					0 0,
+					calc(var(--sizeW) / 2) calc(var(--sizeH) / 2);
+			}
+
+			header {
+				display: flex;
+				align-items: center;
+				gap: 5px;
+				text-align: center;
+			}
+			header h1 {
+				flex: 1;
+				margin: 0;
+				color: #333;
+			}
+			h2 {
+				color: #104770;
+			}
+			h3 {
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+			section.details {
+				text-align: center;
+			}
+			section.details h3 {
+				margin-top: 1em;
+			}
+			main {
+				flex: 1;
+				display: flex;
+				align-items: center;
+			}
+			p {
+				margin: 0;
+			}
+			.results {
+				text-align: left;
+				font-size: 18px;
+				max-width: 250px;
+				width: 100%;
+			}
+			.results h3 {
+				margin-bottom: 20px;
+			}
+			.results ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+			}
+			.results li {
+				display: flex;
+				gap: 20px;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.results span[id] {
+				display: inline-block;
+				color: white;
+				background-color: #104770;
+				padding: 5px 6px;
+				border-radius: 6px;
+				font-family: monospace;
+			}
+			.conclusion {
+				flex: 1;
+			}
+			.conclusion p {
+				max-width: 400px;
+				margin-left: auto;
+			}
+			footer {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				text-align: initial;
+			}
+			.validity {
+				width: 300px;
+			}
+			footer img {
+				filter: invert(1) opacity(0.2);
+			}
+			.contact-info {
+				font-size: 14px;
+				color: #777;
+				width: 300px;
+				text-align: right;
+			}
+			.contact-info a {
+				color: inherit;
+			}
+			@media print {
+				@page {
+					size: landscape; /* Set the page size to landscape */
+				}
+			}
+		</style>
+	</head>
+	<body class="striped-radial-background">
+		<div class="certificate cube-background">
+			<header>
+				<img
+					src="/assets/img/andifes-400.png"
+					height="64"
+					alt={t("testtool.certificate.logo_andifes")}
+				/>
+				<h1>{t("testtool.certificate.heading")}</h1>
+				<img
+					src="/assets/img/isf-150.png"
+					height="80"
+					alt={t("testtool.certificate.logo_isf")}
+				/>
+			</header>
+			<section class="details">
+				<p>{t("testtool.certificate.certifies")}</p>
+				<h2><span id="user_name">[User Name]</span></h2>
+				<p>
+					{t("testtool.certificate.from")} <span id="country">[Country]</span>, {t("testtool.certificate.completed")}
+				</p>
+				<h3><span id="language">[Language]</span></h3>
+			</section>
+			<main>
+				<div class="results">
+					<h3>{t("testtool.certificate.scores")}</h3>
+					<ul>
+						<li>
+							<span>{t("testtool.question.understanding.listening.section_title")}</span><span id="result_listening"
+								>--</span
+							>
+						</li>
+						<li>
+							<span>{t("testtool.question.understanding.reading.section_title")}</span><span id="result_reading"
+								>--</span
+							>
+						</li>
+						<li>
+							<span>{t("testtool.question.speaking.spoken_interaction.section_title")}</span><span
+								id="result_spoken_interaction">--</span
+							>
+						</li>
+						<li>
+							<span>{t("testtool.question.speaking.spoken_production.section_title")}</span><span
+								id="result_spoken_production">--</span
+							>
+						</li>
+						<li>
+							<span>{t("testtool.question.writing.section_title")}</span><span id="result_writing"
+								>--</span
+							>
+						</li>
+					</ul>
+				</div>
+				<div class="conclusion">
+					<p id="conclusion">
+						...
+					</p>
+				</div>
+			</main>
+			<footer>
+				<div class="validity">
+					<!-- <p>Issued on: <span id="date">[Date]</span></p> -->
+					<!-- <p>Valid for: 1 year</p> -->
+				</div>
+				<img
+					src="/assets/img/andifes-isf-400x200-branco.png"
+					height="50"
+					alt={t("testtool.certificate.logo_andifes_isf")}
+				/>
+				<div class="contact-info">
+					<p>
+						{t("testtool.certificate.learn_more")} <a
+							href="https://www.andifes.org.br/institucional/redeisf/"
+							>www.andifes.org.br/institucional/redeisf/</a
+						>
+					</p>
+				</div>
+			</footer>
+		</div>
+
+		<script is:inline>
+			function loadData(data) {
+				document.getElementById("user_name").textContent =
+					data.userName;
+				document.getElementById("country").textContent = data.country;
+				document.getElementById("language").textContent = data.language;
+				document.getElementById("result_listening").textContent =
+					data.results.listening;
+				document.getElementById("result_reading").textContent =
+					data.results.reading;
+				document.getElementById(
+					"result_spoken_interaction",
+				).textContent = data.results.spokenInteraction;
+				document.getElementById(
+					"result_spoken_production",
+				).textContent = data.results.spokenProduction;
+				document.getElementById("result_writing").textContent =
+					data.results.writing;
+				document.getElementById("conclusion").textContent =
+					data.conclusion;
+				// document.getElementById("date").textContent =
+				// 	new Date().toLocaleString();
+			}
+		</script>
+	</body>
+</html>
