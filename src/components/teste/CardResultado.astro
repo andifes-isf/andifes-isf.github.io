@@ -10,9 +10,9 @@ interface Props {
 const { t, lang } = Astro.props;
 
 const parentPath = getLangUrl(Astro.url.pathname, lang).split("/").slice(0, -1);
-const startUrl = '/'+[...parentPath, "inicio"].join("/");
-const certificateUrl = '/'+[...parentPath, "certificado"].join("/");
-const perfilUrl = '/'+[...parentPath, "dados-perfil"].join("/");
+const startUrl = "/" + [...parentPath, "inicio"].join("/");
+const certificateUrl = "/" + [...parentPath, "certificado"].join("/");
+const perfilUrl = "/" + [...parentPath, "dados-perfil"].join("/");
 ---
 
 <div class="results-header">
@@ -177,11 +177,11 @@ const perfilUrl = '/'+[...parentPath, "dados-perfil"].join("/");
 	for (const elem of resultElemts) {
 		const { result } = elem.dataset;
 		if (!result) throw new Error("Invalid result type.");
-		elem.innerText = resultado[result];
+		elem.innerText = resultado[result] || "--";
 		elem.classList.remove("skeleton");
 		conclusionList.push(
 			t(
-				`testtool.result.${result as AreasType}.${resultado[result] as LevelsType}.conclusion`,
+				`testtool.result.${result as AreasType}.${(resultado[result] as LevelsType) || "below"}.conclusion`,
 			),
 		);
 	}
@@ -189,29 +189,39 @@ const perfilUrl = '/'+[...parentPath, "dados-perfil"].join("/");
 	conclusionElem.innerText = conclusion;
 	conclusionElem.classList.remove("skeleton");
 
+	let loaded = false;
 	function setupIframe() {
-		/** @ts-ignore */
-		certificateElem.contentWindow!.loadData({
-			userName: profileData.name,
-			country: profileData.country,
-			language: langName,
-			results: {
-				listening: resultado["understanding.listening"],
-				reading: resultado["understanding.reading"],
-				spokenInteraction: resultado["speaking.spoken_interaction"],
-				spokenProduction: resultado["speaking.spoken_production"],
-				writing: resultado["writing"],
-			},
-			conclusion,
-		});
+		if (
+			certificateElem.contentWindow &&
+			"loadData" in certificateElem.contentWindow &&
+			typeof certificateElem.contentWindow!.loadData === "function"
+		) {
+			certificateElem.contentWindow!.loadData({
+				userName: profileData.name,
+				country: profileData.country,
+				language: langName,
+				results: {
+					listening: resultado["understanding.listening"] || "--",
+					reading: resultado["understanding.reading"] || "--",
+					spokenInteraction:
+						resultado["speaking.spoken_interaction"] || "--",
+					spokenProduction:
+						resultado["speaking.spoken_production"] || "--",
+					writing: resultado["writing"] || "--",
+				},
+				conclusion,
+			});
+			loaded = true;
+		}
 	}
 
-	// Sometimes it still gets "Uncaught TypeError: r.contentWindow.loadData is not a function" (after build)
-	certificateElem.addEventListener("load", setupIframe)
-	if (certificateElem.contentDocument?.readyState === "complete") setupIframe()
+	certificateElem.addEventListener("load", setupIframe);
+	if (certificateElem.contentDocument?.readyState === "complete")
+		setupIframe();
 
 	linkElem.addEventListener("click", (evt) => {
 		evt.preventDefault();
+		if (!loaded) setupIframe();
 		certificateElem.contentWindow!.print();
 	});
 </script>
@@ -300,7 +310,7 @@ const perfilUrl = '/'+[...parentPath, "dados-perfil"].join("/");
 	.btn-light {
 		background-color: #e2e6ea;
 		color: #212529;
-    	border-color: none;
+		border-color: none;
 	}
 
 	.button-group img {
