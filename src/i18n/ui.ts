@@ -13,8 +13,8 @@ export const ui = {
         'language.list.ja': "Japonês",
 
         'testtool.home.title': "Autoavalie suas Habilidades Linguísticas",
+        'testtool.home.tool_developed_by': "Esta ferramenta <b>não</b> vale como exame de proficiência, mas sim como nivelamento para os cursos da Rede IsF. Foi desenvolvida pela equipe de apoio da Rede. Saiba mais sobre nós em <a href=\"https://www.andifes.org.br/institucional/redeisf/\" target=\"_blank\">www.andifes.org.br/institucional/redeisf/</a>.",
         'testtool.home.description': "A ferramenta 'Autoavalie suas habilidades linguísticas' ajuda você a avaliar seu nível de proficiência nos idiomas que conhece de acordo com seis níveis de referência descritos no Quadro Europeu Comum de Referência para Línguas (CEFR). A ferramenta utiliza a grade de autoavaliação do CEFR.",
-        'testtool.home.tool_developed_by': "Esta ferramenta foi desenvolvida pelo grupo Andifes-IsF, ",
         'testtool.home.image_alt': "Logo do ECML",
         'testtool.home.start_button': "Começar",
 
@@ -153,8 +153,8 @@ export const ui = {
         'language.list.ja': "Japanese",
 
         'testtool.home.title': "Self-Evaluate Your Language Skills",
+        "testtool.home.tool_developed_by": "This tool <b>does not</b> serve as a proficiency exam, but rather as a leveling tool for the courses of the IsF Network. It was developed by the support team of the Network. Learn more about us at <a href=\"https://www.andifes.org.br/institucional/redeisf/\" target=\"_blank\">www.andifes.org.br/institucional/redeisf/</a>.",
         'testtool.home.description': "The 'Self-evaluate your language skills' tool helps you to assess your level of proficiency in the languages you know according to six reference levels described in the Common European Framework of Reference for Languages (CEFR). The tool draws on the CEFR's self-assessment grid.",
-        'testtool.home.tool_developed_by': "This tool was developed by the Andifes-IsF group, ",
         'testtool.home.image_alt': "ECML Logo",
         'testtool.home.start_button': "Start",
 
@@ -294,8 +294,8 @@ export const ui = {
         'language.list.ja': "Japonés",
 
         'testtool.home.title': "Autoevalúa tus Habilidades Lingüísticas",
+        "testtool.home.tool_developed_by": "Esta herramienta <b>no</b> sirve como examen de competencia, sino como nivelación para los cursos de la Red IsF. Fue desarrollada por el equipo de apoyo de la Red. Aprende más sobre nosotros en <a href=\"https://www.andifes.org.br/institucional/redeisf/\" target=\"_blank\">www.andifes.org.br/institucional/redeisf/</a>.",
         'testtool.home.description': "La herramienta 'Autoevalúa tus habilidades lingüísticas' te ayuda a evaluar tu nivel de competencia en los idiomas que conoces de acuerdo con seis niveles de referencia descritos en el Marco Común Europeo de Referencia para las Lenguas (MCER). La herramienta se basa en la cuadrícula de autoevaluación del MCER.",
-        'testtool.home.tool_developed_by': "Esta herramienta fue desarrollada por el grupo Andifes-IsF, ",
         'testtool.home.image_alt': "Logo del ECML",
         'testtool.home.start_button': "Comenzar",
 

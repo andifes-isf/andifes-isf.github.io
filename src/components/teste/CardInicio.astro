@@ -15,18 +15,9 @@ const idiomaUrl = '/'+[...parentPath, "seletor-idioma"].join("/");
 
 <div class="text-content">
 	<h3>{t("testtool.home.title")}</h3>
+	<p set:html={t("testtool.home.tool_developed_by")}></p>
 	<p>
 		{t("testtool.home.description")}
-		<br /><br />
-		{t("testtool.home.tool_developed_by")}
-		<a
-			href="https://www.andifes.org.br/institucional/redeisf/"
-			target="_blank"
-		>
-			<font color="#3AB1BE"
-				><b>www.andifes.org.br/institucional/redeisf/</b></font
-			>
-		</a>
 	</p>
 </div>
 <div class="button-group">

@@ -39,9 +39,9 @@ export const isB2 = (s: number) => !!((s & FLAGS.B2) && !(s & FLAGS.C1))
 export const isC1 = (s: number) => !!((s & FLAGS.C1) && !(s & FLAGS.C2))
 export const isC2 = (s: number) => !!(s & FLAGS.C2)
 export const computeState = (s: number) => {
-    const checks = [[isInsuficient, "-"], [isA1, "A1"], [isA2, "A2"], [isB1, "B1"], [isB2, "B2"], [isC1, "C1"], [isC2, "C2"]] as [(s: number) => boolean, string][]
+    const checks = [[isInsuficient, "--"], [isA1, "A1"], [isA2, "A2"], [isB1, "B1"], [isB2, "B2"], [isC1, "C1"], [isC2, "C2"]] as [(s: number) => boolean, string][]
     const result = checks.reverse().find(([func]) => func(s))
-    return result?.[1] || "-"
+    return result?.[1] || "--"
 }
 
 export function buildQuestionsPath(t: T) {
