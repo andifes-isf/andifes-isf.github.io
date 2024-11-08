@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Relatório Mundial de Humanidades - Rede Andifes IsF - Idiomas Sem Fronteiras">
+    <h1>Relatório Mundial de Humanidades</h1>
+
+    <p>Quer conhecer mais como funciona a rede <abbr title="Associação Nacional dos Dirigentes das Instituições Federais de Ensino Superior">Andifes</abbr>-<abbr title="Idiomas sem Fronteiras">IsF</abbr>?! Acesse o artigo <cite>The Languages without Borders Network in Brazil</cite> publicado na revista <em>The World Humanities Report</em>, na íntegra ou no idioma de sua preferência com uma de nossas traduções:</p>
+    <ul>
+        <li><a href="/drive/German.pdf" data-lang="ale"><span>German</span>Das Idioms Without Borders-Netzwerk in Brasilien</a></li>
+        <li><a href="/drive/Español.pdf" data-lang="esp"><span>Español</span>La Red Idiomas Sin Fronteras en Brasil</a></li>
+        <li><a href="/drive/Italian.pdf" data-lang="ita"><span>Italian</span>La Rete Idiomi Senza Frontiere in Brasile</a></li>
+        <li><a href="/drive/Japanese.pdf" data-lang="jap"><span>Japanese</span>ブラジル の国境なき言語ネットワーク</a></li>
+        <li><a href="https://worldhumanitiesreport.org/wp-content/uploads/2023/01/WHR-SouthAmerica7_Abreau-e-Lima-Morales-Filho.pdf" data-fallback-url="/drive/WHR-SouthAmerica7_Abreau-e-Lima-Morales-Filho%20(2).pdf" data-lang="ing"><span>English (original)</span>The Languages without Borders Network in Brazil</a></li>
+        <li><a href="/drive/French.pdf" data-lang="fra"><span>French</span>Le Réseau Idiomas Sem Fronteiras au Brésil</a></li>
+        <li><a href="/drive/Português.pdf" data-lang="por"><span>Portuguese</span>A Rede Idiomas sem Fronteiras no Brasil</a></li>
+    </ul>
+    <p>Não deixe de ver também, os demais artigos da revista <a href="https://worldhumanitiesreport.org/research/" target="_blank">aqui</a>.</p>
+</Layout>
+
+<style is:global>
+main {
+	background: #fff;
+    border: 1px solid #bbb;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px auto 60px;
+	box-shadow: 0px 2px 8px 2px lightgrey;
+}
+</style>
+
+<style lang="scss">
+abbr {
+  cursor: help;
+  text-decoration: underline dotted;
+}
+
+abbr[title]:hover {
+  text-decoration: underline;
+}
+
+cite {
+  font-style: normal;
+  color: #333;
+  background-color: #f2f2f2;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    list-style: none;
+}
+li a {
+    position: relative;
+    background-color: var(--color, #eee);
+    background-image: var(--bgImg, url("/assets/img/balao/preto.png"));
+    background-position: 12px 10px;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 40px 12px 10px 12px;
+    border-radius: 6px;
+    line-height: initial;
+    transition: all .4s;
+
+    &:hover {
+        box-shadow: 1px 1px 6px 3px #00000033;
+    }
+
+    &[data-lang="ale"] {
+        --color: #ffe499;
+        --bgImg: url("/assets/img/balao/amarelo.png");
+
+        span {
+            color: #ffba2f;
+        }
+    }
+
+    &[data-lang="esp"] {
+        --color: #fcc4a4;
+        --bgImg: url("/assets/img/balao/laranja.png");
+
+        span {
+            color: #f86b26;
+        }
+    }
+
+    &[data-lang="ita"] {
+        --color: #f8a9a9;
+        --bgImg: url("/assets/img/balao/vermelho.png");
+
+        span {
+            color: #ee2c29;
+        }
+    }
+
+    &[data-lang="jap"] {
+        --color: #ffc6f4;
+        --bgImg: url("/assets/img/balao/rosa.png");
+
+        span {
+            color: #ff75df;
+        }
+    }
+
+    &[data-lang="ing"] {
+        --color: #c6b1f8;
+        --bgImg: url("/assets/img/balao/roxo.png");
+
+        span {
+            color: #7145e8;
+        }
+    }
+
+    &[data-lang="fra"] {
+        --color: #99d2fc;
+        --bgImg: url("/assets/img/balao/azul.png");
+
+        span {
+            color: #0091f4;
+        }
+    }
+
+    &[data-lang="por"] {
+        --color: #a7e3aa;
+        --bgImg: url("/assets/img/balao/verde.png");
+
+        span {
+            color: #1cb63f;
+        }
+    }
+
+    span {
+        position: absolute;
+        left: 42px;
+        top: 11px;
+        font-weight: bold;
+    }
+}
+
+</style>

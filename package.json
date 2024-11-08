@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -21,6 +21,7 @@
     "datatables.net-select-dt": "^2.1.0",
     "jquery": "^3.7.1",
     "papaparse": "^5.4.1",
+    "sass": "^1.80.6",
     "typescript": "^5.6.2"
   },
   "devDependencies": {

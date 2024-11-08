@@ -3,7 +3,6 @@ export const defaultLang = 'en';
 export const ui = {
     pt: {
         'language.current.code': "pt",
-        'language.current.name': "Português",
         'language.list.pt': "Português",
         'language.list.en': "Inglês",
         'language.list.es': "Espanhol",
@@ -143,7 +142,6 @@ export const ui = {
     },
     en: {
         'language.current.code': "en",
-        'language.current.name': "English",
         'language.list.pt': "Portuguese",
         'language.list.en': "English",
         'language.list.es': "Spanish",
@@ -284,7 +282,6 @@ export const ui = {
     },
     es: {
         'language.current.code': "es",
-        'language.current.name': "Español",
         'language.list.pt': "Portugués",
         'language.list.en': "Inglés",
         'language.list.es': "Español",
