@@ -54,6 +54,11 @@ ul {
     justify-content: center;
     gap: 6px;
     list-style: none;
+
+    @media (max-width: 576px) {
+        flex-direction: column;
+        align-items: stretch;
+    }
 }
 li a {
     position: relative;
