@@ -419,6 +419,61 @@ export const ui = {
         "testtool.certificate.scores": "Resultados",
         "testtool.certificate.logo_andifes_isf": "Logo de Andifes junto al logo del programa Idiomas Sin Fronteras",
         "testtool.certificate.learn_more": "Aprenda más sobre el grupo Andifes-IsF en"
+    },
+    "fr": {
+        "language.current.code": "fr",
+        "language.list.pt": "Portugais",
+        "language.list.en": "Anglais",
+        "language.list.es": "Espagnol",
+        "language.list.de": "Allemand",
+        "language.list.fr": "Français",
+        "language.list.it": "Italien",
+        "language.list.ja": "Japonais",
+
+        "testtool.home.title": "Évaluez vos Compétences Linguistiques",
+        "testtool.home.tool_developed_by": "Cet outil <b>n'est pas</b> un test de compétence officiel, mais un test de positionnement pour les cours du Réseau IsF. Il a été développé par l'équipe de soutien du Réseau. En savoir plus sur nous sur <a href=\"https://www.andifes.org.br/institucional/redeisf/\" target=\"_blank\">www.andifes.org.br/institucional/redeisf/</a>.",
+        "testtool.home.description": "L'outil 'Évaluez vos compétences linguistiques' vous aide à évaluer votre niveau de compétence dans les langues que vous connaissez selon les six niveaux de référence décrits dans le Cadre européen commun de référence pour les langues (CECR). L'outil utilise la grille d'auto-évaluation du CECR.",
+        "testtool.home.image_alt": "Logo du CELV",
+        "testtool.home.start_button": "Commencer",
+
+        "testtool.language_selection.title": "Évaluez-vous dans l'une des langues suivantes :",
+        "testtool.language_selection.choose_different": "Ou choisissez une langue différente :",
+        "testtool.language_selection.start_button": "Démarrer",
+
+        "testtool.auto_proficiency.title": "À quel point pensez-vous être bon en ",
+        "testtool.auto_proficiency.low_label": "pas très bon",
+        "testtool.auto_proficiency.high_label": "très bon",
+        "testtool.auto_proficiency.move_slider_prompt": "Veuillez déplacer le curseur",
+        "testtool.auto_proficiency.continue_button": "Continuer",
+
+        "testtool.start_questions.intro": "Vous recevrez maintenant une série de",
+        "testtool.start_questions.question_range": "10 à 15 questions",
+        "testtool.start_questions.description": "pour évaluer vos compétences linguistiques dans ces 5 domaines : Compréhension Orale, Lecture, Interaction Orale, Production Orale et Écriture.",
+        "testtool.start_questions.continue_button": "Continuer",
+
+        "testtool.question_n.title": "Pouvez-vous faire cela en ",
+        "testtool.question_n.yes_button": "Oui, je peux",
+        "testtool.question_n.not_yet_button": "Pas encore",
+
+        "testtool.question.understanding.listening.section_title": "Compréhension Orale",
+        "testtool.question.understanding.listening.A1.description": "Je peux reconnaître des mots familiers et des phrases très simples concernant moi-même, ma famille et mon environnement immédiat lorsque les gens parlent lentement et distinctement.",
+        "testtool.question.understanding.listening.A2.description": "Je peux comprendre des phrases et un vocabulaire fréquemment utilisés en rapport avec des domaines d'importance immédiate (par exemple, informations personnelles et familiales de base, achats, environnement local, travail). Je peux saisir l'essentiel de messages courts, clairs et simples.",
+        "testtool.question.understanding.listening.B1.description": "Je peux comprendre les points essentiels d'un discours clair et standard sur des sujets familiers que je rencontre régulièrement au travail, à l'école, dans les loisirs, etc. Je peux comprendre l'essentiel de nombreuses émissions de radio ou de télévision sur l'actualité ou sur des sujets d'intérêt personnel ou professionnel lorsque la langue est relativement lente et claire.",
+        "testtool.question.understanding.listening.B2.description": "Je peux comprendre des conférences et des discours assez longs et suivre une argumentation complexe à condition que le sujet soit relativement familier. Je peux comprendre la plupart des journaux télévisés et des programmes d'actualité à la télévision et la plupart des films en langue standard.",
+        "testtool.question.understanding.listening.C1.description": "Je peux comprendre des discours longs, même lorsqu'ils ne sont pas clairement structurés et que les relations ne sont qu'implicites et non signalées explicitement. Je peux comprendre les émissions de télévision et les films sans trop d'effort.",
+        "testtool.question.understanding.listening.C2.description": "Je n'ai aucune difficulté à comprendre toute langue parlée, que ce soit en direct ou diffusée, même à un débit rapide, à condition d'avoir un peu de temps pour m'habituer à l'accent.",
+
+        "testtool.question.understanding.reading.section_title": "Lecture",
+        "testtool.question.understanding.reading.A1.description": "Je peux comprendre des noms familiers, des mots et des phrases très simples, par exemple sur des panneaux, des affiches ou dans des catalogues.",
+        "testtool.question.understanding.reading.A2.description": "Je peux lire des textes courts et simples. Je peux trouver une information spécifique et prévisible dans des documents courants tels que des publicités, des prospectus, des menus et des horaires, et je peux comprendre des lettres personnelles courtes et simples.",
+        "testtool.question.understanding.reading.B1.description": "Je peux comprendre des textes qui contiennent principalement un langage courant ou relatif au travail. Je peux comprendre la description d'événements, de sentiments et de souhaits dans des lettres personnelles.",
+        "testtool.question.understanding.reading.B2.description": "Je peux lire des articles et des rapports sur des questions contemporaines dans lesquels les auteurs adoptent des attitudes ou des points de vue particuliers. Je peux comprendre la prose littéraire contemporaine.",
+        "testtool.question.understanding.reading.C1.description": "Je peux comprendre des textes longs et complexes, qu'ils soient factuels ou littéraires, et apprécier des différences de style. Je peux comprendre des articles spécialisés et des instructions techniques longues, même lorsqu'ils ne relèvent pas de mon domaine.",
+        "testtool.question.understanding.reading.C2.description": "Je peux lire sans difficulté pratiquement toutes les formes d'écrit, y compris les textes abstraits, complexes sur le plan structurel ou linguistique, comme les manuels, les articles spécialisés et les œuvres littéraires.",
+
+        "testtool.question.speaking.spoken_interaction.section_title": "Interaction Orale",
+        "testtool.question.speaking.spoken_production.section_title": "Production Orale",
+        "testtool.question.writing.section_title": "Écriture"
     }
 } as const;
 
