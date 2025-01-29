@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const permalinks = await getCollection("permalinks");
+  return permalinks.map(({ id, data }) => ({
+    params: { slug: data.slug },
+    props: { target: data.target, permanent: data.permanent },
+  }));
+}
+
+const { target, permanent } = Astro.props;
+const redirectType = permanent ? "permanente" : "temporário";
+---
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content={`0;url=${target}`} />
+  {permanent && <link rel="canonical" href={target} />}
+  <meta name="robots" content={permanent ? 'index, follow' : 'noindex, follow'} />
+  <title>Redirecionando...</title>
+</head>
+<body>
+  <h1>Redirecionamento {redirectType}.</h1>
+  <p>Se você não for redirecionado, <a href={target}>clique aqui</a> ou copie manualmente o endereço <output>{target}</output>.</p>
+</body>
+</html>

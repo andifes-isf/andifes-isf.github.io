@@ -1,0 +1,38 @@
+[{
+	"permanent": true,
+	"slug": "home",
+	"target": "https://www.andifes.org.br/institucional/redeisf/"
+}, {
+	"permanent": true,
+	"slug": "ouvidoria",
+	"target": "https://forms.gle/GfeJnbvyHGogsosf7"
+}, {
+	"slug": "credenciamento/especialista",
+	"target": "https://forms.gle/J7YRVFc6jQYU6ra16"
+}, {
+	"permanent": true,
+	"slug": "credenciamento/ifes",
+	"target": "https://forms.gle/XSC7xYVRZMwLxNuH9"
+}, {
+	"permanent": true,
+	"slug": "credenciamento/professor",
+	"target": "https://forms.office.com/r/Mp1BkirCT8"
+}, {
+	"permanent": true,
+	"slug": "credenciamento/atualizacao",
+	"target": "https://forms.gle/oGghYmomGmgFx1xR7"
+}, {
+	"slug": "form-biblioteca",
+	"target": "https://forms.gle/m4HgPSwBsD2xXi7D6"
+}, {
+	"permanent": true,
+	"slug": "oc/2024-2/feedback",
+	"target": "https://forms.gle/RQQHnqNSQKb5Jv7m7"
+}, {
+	"slug": "oc/feedback",
+	"target": "/p/oc/2024-2/feedback"
+}, {
+	"permanent": true,
+	"slug": "ol/form-relatorio",
+	"target": "https://forms.office.com/r/iPb0st5TT2"
+}]
