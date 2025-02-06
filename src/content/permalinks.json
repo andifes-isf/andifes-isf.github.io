@@ -40,8 +40,12 @@
 	"slug": "oc/2024-2/acompanhamento-adesao",
 	"target": "https://sinufscar.sharepoint.com/:x:/s/GESTOISF/EbCyFP-yvy5AkXnconUI0SoBU7DWl24xhrHFhxbVE16Mmg?e=4sKDYJ"
 }, {
+	"permanent": true,
+	"slug": "oc/2025-1/acompanhamento-adesao",
+	"target": "https://sinufscar.sharepoint.com/:x:/s/GESTOISF/EdezmkPdZ6RDg_MqcuihMz4BiA12cdiLf3bzJQu0csyraQ?e=HTfJ6V"
+}, {
 	"slug": "oc/acompanhamento-adesao",
-	"target": "/p/oc/2024-2/acompanhamento-adesao"
+	"target": "/p/oc/2025-1/acompanhamento-adesao"
 }, {
 	"permanent": true,
 	"slug": "oc/2025-1/form-adesao",
