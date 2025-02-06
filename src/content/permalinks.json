@@ -35,4 +35,29 @@
 	"permanent": true,
 	"slug": "ol/form-relatorio",
 	"target": "https://forms.office.com/r/iPb0st5TT2"
+}, {
+	"permanent": true,
+	"slug": "oc/2024-2/acompanhamento-adesao",
+	"target": "https://sinufscar.sharepoint.com/:x:/s/GESTOISF/EbCyFP-yvy5AkXnconUI0SoBU7DWl24xhrHFhxbVE16Mmg?e=4sKDYJ"
+}, {
+	"slug": "oc/acompanhamento-adesao",
+	"target": "/p/oc/2024-2/acompanhamento-adesao"
+}, {
+	"permanent": true,
+	"slug": "oc/2025-1/form-adesao",
+	"target": "https://forms.office.com/r/P1uv97xnHQ"
+}, {
+	"slug": "oc/form-adesao",
+	"target": "/p/oc/2025-1/form-adesao"
+}, {
+	"permanent": true,
+	"slug": "oc/2025-1/calendario",
+	"target": "https://sinufscar.sharepoint.com/:b:/s/GESTOISF/ERdexeeM1tJLvq0q6qFvBwMBRrJQODQcL7VdSRJKxQD3HQ?e=CAug4I"
+}, {
+	"slug": "oc/calendario",
+	"target": "/p/oc/2025-1/calendario"
+}, {
+	"permanent": true,
+	"slug": "catalogo-cursos",
+	"target": "https://sinufscar.sharepoint.com/:x:/s/GESTOISF/EbRHQ_wYtKpOhaJb8TJhJCgB5n6yOtctBvJIAs7TIW8Hyw?e=YpBlQt"
 }]
