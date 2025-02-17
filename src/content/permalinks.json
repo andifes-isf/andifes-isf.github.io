@@ -54,6 +54,9 @@
 	"slug": "oc/form-adesao",
 	"target": "/p/oc/2025-1/form-adesao"
 }, {
+	"slug": "oc/form-adesao.",
+	"target": "/p/oc/2025-1/form-adesao"
+}, {
 	"permanent": true,
 	"slug": "oc/2025-1/calendario",
 	"target": "https://sinufscar.sharepoint.com/:b:/s/GESTOISF/ERdexeeM1tJLvq0q6qFvBwMBRrJQODQcL7VdSRJKxQD3HQ?e=CAug4I"
