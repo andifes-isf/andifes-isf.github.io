@@ -1,12 +1,12 @@
 ---
-import Layout from "../../../../layouts/Layout.astro";
-import { useTranslations, getLanguages } from "../../../../i18n/utils";
-import SeletorIdiomaUI from "../../../../components/teste/SeletorIdiomaUI.astro";
-import CardPerguntaN from "../../../../components/teste/CardPerguntaN.astro";
-import type { QuestionId } from "../../../../services/questions";
+import Layout from "../../../layouts/Layout.astro";
+import { useTranslations, getLanguages } from "../../../i18n/utils";
+import SeletorIdiomaUI from "../../../components/teste/SeletorIdiomaUI.astro";
+import CardPerguntaN from "../../../components/teste/CardPerguntaN.astro";
+import type { QuestionId } from "../../../services/questions";
 
 export function getStaticPaths() {
-	const result = [];
+	const result = [] as any[];
 	const langs = getLanguages();
 	for (let n = 1; n <= 30; n++) {
 		for (const lang of langs) {

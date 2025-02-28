@@ -1,6 +1,6 @@
 ---
-import type { Lang } from "../../../i18n/ui";
-import { getLanguages } from "../../../i18n/utils";
+import type { Lang } from "../../i18n/ui";
+import { getLanguages } from "../../i18n/utils";
 
 export function getStaticPaths() {
 	return getLanguages().map((lang) => ({ params: { lang: lang as Lang } }));
@@ -12,6 +12,6 @@ const { lang } = Astro.params;
 <body data-lang={lang}>
 	<script>
 		const { lang } = document.body.dataset
-		window.location.replace(`/alfa/teste/${lang}/inicio`)
+		window.location.replace(`/autoavaliacao/${lang}/inicio`)
 	</script>
 </body>

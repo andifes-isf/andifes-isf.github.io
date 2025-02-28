@@ -1,8 +1,8 @@
 ---
 // Esta página não utiliza Layouts ou Componentes do Astro para facilitar a compreensão e sugestão de mudanças pela equipe de design. Apenas os textos internacionalizados exigirão uma compreensão mais detalhada.
 
-import type { Lang } from "../../../../i18n/ui";
-import { useTranslations, getLanguages } from "../../../../i18n/utils";
+import type { Lang } from "../../../i18n/ui";
+import { useTranslations, getLanguages } from "../../../i18n/utils";
 
 export function getStaticPaths() {
 	return getLanguages().map((lang) => ({ params: { lang: lang as Lang } }));

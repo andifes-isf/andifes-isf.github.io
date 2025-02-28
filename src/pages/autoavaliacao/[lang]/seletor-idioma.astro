@@ -1,9 +1,9 @@
 ---
-import Layout from "../../../../layouts/Layout.astro";
-import type { Lang } from "../../../../i18n/ui";
-import { useTranslations, getLanguages } from "../../../../i18n/utils";
-import SeletorIdiomaUI from "../../../../components/teste/SeletorIdiomaUI.astro";
-import CardResultado from "../../../../components/teste/CardResultado.astro";
+import Layout from "../../../layouts/Layout.astro";
+import type { Lang } from "../../../i18n/ui";
+import { useTranslations, getLanguages } from "../../../i18n/utils";
+import SeletorIdiomaUI from "../../../components/teste/SeletorIdiomaUI.astro";
+import CardSeletorIdiomaAvaliacao from "../../../components/teste/CardSeletorIdiomaAvaliacao.astro";
 
 export function getStaticPaths() {
 	return getLanguages().map((lang) => ({ params: { lang: lang as Lang } }));
@@ -16,7 +16,7 @@ const t = useTranslations(lang);
 
 <Layout title={t("testtool.home.title")}>
 	<SeletorIdiomaUI t={t} lang={lang} slot="before-main" />
-	<CardResultado t={t} lang={lang} />
+	<CardSeletorIdiomaAvaliacao t={t} lang={lang} />
 </Layout>
 
 <style is:global>
