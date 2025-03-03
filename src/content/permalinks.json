@@ -65,6 +65,13 @@
 	"target": "/p/oc/2025-1/calendario"
 }, {
 	"permanent": true,
+	"slug": "oc/2025-1/quadro-de-vagas",
+	"target": "/404"
+}, {
+	"slug": "oc/quadro-de-vagas",
+	"target": "/p/oc/2025-1/quadro-de-vagas"
+}, {
+	"permanent": true,
 	"slug": "catalogo-cursos",
 	"target": "https://sinufscar.sharepoint.com/:x:/s/GESTOISF/EbRHQ_wYtKpOhaJb8TJhJCgB5n6yOtctBvJIAs7TIW8Hyw?e=YpBlQt"
 }]
