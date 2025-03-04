@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { fetchMeta } from "../../utils/fetchMeta";
+import Redirecionamento from "../../components/Redirecionamento.astro"
 
 export type Props = {
   target: string;
@@ -27,7 +28,6 @@ export async function getStaticPaths() {
 const { target, permanent, meta } = Astro.props;
 const redirectType = permanent ? "permanente" : "temporário";
 ---
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -44,7 +44,14 @@ const redirectType = permanent ? "permanente" : "temporário";
   {meta.image && <meta property="og:image" content={meta.image} />}
 </head>
 <body>
-  <h1>Redirecionamento {redirectType}.</h1>
-  <p>Se você não for redirecionado, <a href={target}>clique aqui</a> ou copie manualmente o endereço <output>{target}</output>.</p>
+  <Redirecionamento>
+    <Fragment slot="title">
+      Redirecionamento {redirectType}.
+    </Fragment>
+
+    <Fragment slot="description">
+      Se você não for redirecionado, <a href={target}>clique aqui</a> ou copie manualmente o endereço <output>{target}</output>.
+    </Fragment>
+  </Redirecionamento>
 </body>
 </html>
