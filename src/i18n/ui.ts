@@ -3,6 +3,7 @@ export const defaultLang = 'en';
 export const ui = {
     pt: {
         "language.current.code": "pt",
+        "language.change_lang": "Mudar idioma do site:",
         "language.list.pt": "Português",
         "language.list.en": "Inglês",
         "language.list.es": "Espanhol",
@@ -89,9 +90,12 @@ export const ui = {
         "testtool.profile_data.see_results": "Ver resultados",
 
         "testtool.results.title": "Estes são os seus resultados, ",
+        "testtool.results.average": "Média Geral",
         "testtool.results.download": "Baixar",
         "testtool.results.start_again": "Começar novamente",
         "testtool.results.update_profile": "Atualizar perfil",
+
+        "testtool.result.fail": "Atualmente, o teste indica que você pode ter dificuldades em compreensão e produção na língua avaliada. No entanto, isso é apenas o começo! Com prática e dedicação, você pode desenvolver suas habilidades e avançar nos níveis. Considere iniciar com conteúdos básicos e, se possível, buscar apoio de um professor ou materiais educativos.",
 
         "testtool.result.understanding.listening.below.conclusion": "Indivíduos neste nível têm dificuldade em entender até mesmo frases faladas simples e geralmente dependem de gestos.",
         "testtool.result.understanding.listening.A1.conclusion": "Indivíduos neste nível conseguem entender instruções básicas e perguntas simples.",
@@ -142,6 +146,7 @@ export const ui = {
     },
     en: {
         "language.current.code": "en",
+        "language.change_lang": "Change website language:",
         "language.list.pt": "Portuguese",
         "language.list.en": "English",
         "language.list.es": "Spanish",
@@ -229,9 +234,12 @@ export const ui = {
         "testtool.profile_data.see_results": "See results",
 
         "testtool.results.title": "These are your results, ",
+        "testtool.results.average": "Overall Average",
         "testtool.results.download": "Download",
         "testtool.results.start_again": "Start again",
         "testtool.results.update_profile": "Update profile",
+
+        "testtool.result.fail": "Currently, the test indicates that you may have difficulties in comprehension and production in the assessed language. However, this is just the beginning! With practice and dedication, you can develop your skills and advance through the levels. Consider starting with basic content and, if possible, seeking support from a teacher or educational materials.",
 
         "testtool.result.understanding.listening.below.conclusion":"Individuals at this level struggle to understand even simple spoken phrases and often rely on gestures.",
         "testtool.result.understanding.listening.A1.conclusion":"Individuals at this level can understand basic instructions and simple questions.",
@@ -282,6 +290,7 @@ export const ui = {
     },
     es: {
         "language.current.code": "es",
+        "language.change_lang": "Cambiar el idioma del sitio:",
         "language.list.pt": "Portugués",
         "language.list.en": "Inglés",
         "language.list.es": "Español",
@@ -369,9 +378,12 @@ export const ui = {
         "testtool.profile_data.see_results": "Ver resultados",
 
         "testtool.results.title": "Estos son tus resultados, ",
+        "testtool.results.average": "Promedio General",
         "testtool.results.download": "Descargar",
         "testtool.results.start_again": "Empezar de nuevo",
         "testtool.results.update_profile": "Actualizar perfil",
+
+        "testtool.result.fail": "Actualmente, la prueba indica que puedes tener dificultades en la comprensión y producción en el idioma evaluado. ¡Sin embargo, esto es solo el comienzo! Con práctica y dedicación, puedes desarrollar tus habilidades y avanzar en los niveles. Considera comenzar con contenidos básicos y, si es posible, buscar apoyo de un profesor o materiales educativos.",
 
         "testtool.result.understanding.listening.below.conclusion": "Las personas en este nivel tienen dificultades para entender incluso frases habladas simples y a menudo dependen de gestos.",
         "testtool.result.understanding.listening.A1.conclusion": "Las personas en este nivel pueden entender instrucciones básicas y preguntas simples.",
@@ -422,6 +434,7 @@ export const ui = {
     },
     "fr": {
         "language.current.code": "fr",
+        "language.change_lang": "Changer la langue du site :",
         "language.list.pt": "Portugais",
         "language.list.en": "Anglais",
         "language.list.es": "Espagnol",
@@ -508,9 +521,12 @@ export const ui = {
         "testtool.profile_data.see_results": "Voir les résultats",
 
         "testtool.results.title": "Voici vos résultats, ",
+        "testtool.results.average": "Moyenne Générale",
         "testtool.results.download": "Télécharger",
         "testtool.results.start_again": "Recommencer",
         "testtool.results.update_profile": "Mettre à jour le profil",
+
+        "testtool.result.fail": "Actuellement, le test indique que vous pourriez avoir des difficultés de compréhension et de production dans la langue évaluée. Cependant, ce n'est que le début ! Avec de la pratique et de la détermination, vous pouvez développer vos compétences et progresser dans les niveaux. Envisagez de commencer par des contenus de base et, si possible, de chercher le soutien d'un professeur ou de supports éducatifs.",
 
         "testtool.result.understanding.listening.below.conclusion": "Les individus à ce niveau ont du mal à comprendre même des phrases simples et dépendent généralement des gestes.",
         "testtool.result.understanding.listening.A1.conclusion": "Les individus à ce niveau peuvent comprendre des instructions de base et des questions simples.",

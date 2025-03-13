@@ -262,6 +262,10 @@ const t = useTranslations(lang);
 				border-radius: 6px;
 				font-family: monospace;
 			}
+
+			.results .bold {
+				font-weight: bold;
+			}
 			.conclusion {
 				flex: 1;
 			}
@@ -349,6 +353,11 @@ const t = useTranslations(lang);
 								>--</span
 							>
 						</li>
+						<li class="bold">
+							<span>{t("testtool.results.average")}</span><span id="average"
+								>--</span
+							>
+						</li>
 					</ul>
 				</div>
 				<div class="conclusion">
@@ -396,6 +405,8 @@ const t = useTranslations(lang);
 				).textContent = data.results.spokenProduction;
 				document.getElementById("result_writing").textContent =
 					data.results.writing;
+				document.getElementById("average").textContent =
+					data.results.average;
 				document.getElementById("conclusion").textContent =
 					data.conclusion;
 				// document.getElementById("date").textContent =

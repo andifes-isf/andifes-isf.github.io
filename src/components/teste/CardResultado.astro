@@ -87,6 +87,17 @@ const perfilUrl = "/" + [...parentPath, "dados-perfil"].join("/");
 			>
 			</div>
 		</div>
+		<div class="row bold">
+			<div class="col-sm-7">
+				{t("testtool.results.average")}
+			</div>
+			<div
+				class="col-sm-5 skeleton"
+				style="width: 2em"
+				data-result="average"
+			>
+			</div>
+		</div>
 	</div>
 	<p id="conclusion" class="skeleton"></p>
 </div>
@@ -185,7 +196,7 @@ const perfilUrl = "/" + [...parentPath, "dados-perfil"].join("/");
 			),
 		);
 	}
-	const conclusion = conclusionList.join(" ");
+	const conclusion = conclusionList.join(" ").trim() || t("testtool.result.fail");
 	conclusionElem.innerText = conclusion;
 	conclusionElem.classList.remove("skeleton");
 
@@ -208,6 +219,7 @@ const perfilUrl = "/" + [...parentPath, "dados-perfil"].join("/");
 					spokenProduction:
 						resultado["speaking.spoken_production"] || "--",
 					writing: resultado["writing"] || "--",
+					average: resultado["average"] || "--",
 				},
 				conclusion,
 			});
@@ -260,6 +272,9 @@ const perfilUrl = "/" + [...parentPath, "dados-perfil"].join("/");
 		margin: 5px 0;
 		padding: 0 3px;
 		background-color: #eee;
+	}
+	.bold {
+		font-weight: bold;
 	}
 
 	.results-content {

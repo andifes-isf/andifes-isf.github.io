@@ -25,10 +25,10 @@ const questions = getQuestions(t);
 	<p>{questions[n - 1].description}</p>
 </div>
 <div class="button-group">
-	<a class="btn btn-success" data-continue="S" href="#">
+	<a class="btn btn-success disabled" data-continue="S" href="#">
 		{t("testtool.question_n.yes_button")}
 	</a>
-	<a class="btn btn-warning" data-continue="N" href="#">
+	<a class="btn btn-warning disabled" data-continue="N" href="#">
 		{t("testtool.question_n.not_yet_button")}
 	</a>
 </div>
@@ -112,6 +112,7 @@ const questions = getQuestions(t);
 	) as NodeListOf<HTMLAnchorElement>;
 	btns.forEach((btn) => {
 		btn.href = `${parentPathname}/${nextPage}`;
+		btn.classList.remove("disabled");
 		btn.addEventListener("click", (evt) => {
 			evt.preventDefault();
 			const elem = evt.target as HTMLAnchorElement;
@@ -147,6 +148,11 @@ const questions = getQuestions(t);
 		font-size: 16px;
 		cursor: pointer;
 		text-decoration: none;
+	}
+	.btn.disabled {
+		pointer-events: none;
+		cursor: default;
+		filter: saturate(0);
 	}
 
 	.btn-success {

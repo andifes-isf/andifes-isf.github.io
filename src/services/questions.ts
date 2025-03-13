@@ -121,9 +121,13 @@ export function getResults(t: T) {
     }),{} as Record<AreasType, number>)
 
     const result = {} as { [area: string]: string }
+    let sum = 0
     for (const category in categories) {
         result[category] = computeState(categories[category as AreasType])
+        sum += categories[category as AreasType]
     }
+    const avg = Math.round(sum / Object.keys(categories).length)
+    result['average'] = computeState(avg)
 
     return result
 }
