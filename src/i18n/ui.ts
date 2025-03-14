@@ -253,6 +253,34 @@ export const ui = {
         "testtool.question.writing.C1.description": "I can express myself in clear, well-structured text, expressing points of view at some length. I can write about complex subjects in a letter, an essay or a report, underlining what I consider to be the salient issues. I can select style appropriate to the reader in mind.",
         "testtool.question.writing.C2.description": "I can write clear, smoothly flowing text in an appropriate style. I can write complex letters, reports or articles which present a case with an effective logical structure which helps the recipient to notice and remember significant points. I can write summaries and reviews of professional or literary works.",
 
+        "testtool.custom_course.start_questions.description": "to assess your language skills for the following course: ",
+
+        "testtool.custom_course.ja.JFACJ.title": "Japanese for Academic Purposes: Getting to Know Japan",
+        "testtool.custom_course.ja.JFAMRJ.title": "Japanese for Academic Purposes: My Routine in Japan",
+        "testtool.custom_course.ja.JFAPC.title": "Japanese for Academic Purposes: First Contacts",
+
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.basic_greetings.description": "I am able to naturally exchange basic daily greetings, using expressions such as 'good morning,' 'good afternoon,' and 'good evening' appropriately in different contexts and social situations.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.thanks_apologies.description": "I have the ability to express gratitude and apologize appropriately and politely, demonstrating respect and consideration in various daily interactions.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.language_comprehension.description": "I can clearly state whether I understand Japanese or not, facilitating communication and avoiding misunderstandings during conversations.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.asking_meaning.description": "I am able to ask how to say a specific expression in Japanese and understand the response, contributing to my learning and language improvement.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.food_preferences.description": "I have the ability to ask and answer about food and drink preferences, engaging in conversations about menu choices and personal tastes in an articulate manner.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.food_recommendation.description": "I am able to suggest food and drink recommendations, explaining the reasons behind each suggestion and adapting them to the social context.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.fast_food_order.description": "I can place an order at a fast-food restaurant, clearly and concisely communicating my choices and specifications, even in a fast-paced environment.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.invitation.description": "I can invite someone to events or activities, using a polite and context-appropriate approach to encourage participation and facilitate social interaction.",
+
+        "testtool.custom_course.ja.question.speaking.spoken_production.introduction.description": "I have the ability to introduce myself clearly and coherently, describing relevant information about my identity, background, and interests in an articulate manner.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.family_introduction.description": "I can introduce my family members to others, providing contextual information and creating interpersonal connections naturally and engagingly.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.home_description.description": "I can simply and accurately describe the type of home I live in, whether a house, apartment, or another type of residence, using appropriate vocabulary and structuring my ideas coherently.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.spatial_description.description": "I have the ability to indicate the location of people and objects in a simple and clear way, using expressions that facilitate understanding of the environment and spatial relationships.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.week_plans.description": "I am able to talk about my plans for the week in an organized manner, using simple language to describe commitments, activities, and future goals.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.birthdate_description.description": "I can accurately communicate my birthdate, using expressions to describe the day, month, and year, contextualizing this information when necessary.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.hobbies_description.description": "I have the ability to talk simply and engagingly about my hobbies, describing activities I enjoy and my interests in a way that is clear and interesting.",
+
+        "testtool.custom_course.ja.question.understanding.reading.hiragana_most.description": "I am able to read and understand most hiragana characters, allowing me to interpret simple texts and recognize basic words easily.",
+        "testtool.custom_course.ja.question.understanding.reading.hiragana_half.description": "I can identify and read at least half of the hiragana characters, enabling me to grasp the general meaning of texts written in this system.",
+        "testtool.custom_course.ja.question.understanding.reading.katakana_most.description": "I have the ability to read most words written in katakana, making it easier to understand foreign terms and technical expressions in Japanese writing.",
+        "testtool.custom_course.ja.question.understanding.reading.katakana_some.description": "I can identify and read some words in katakana, helping me recognize terms and proper names that use this writing system.",
+
         "testtool.end_questions.title": "All done!",
         "testtool.end_questions.description": "You just evaluated:",
         "testtool.end_questions.call_to_action": "Let's see the results?",
@@ -267,6 +295,7 @@ export const ui = {
 
         "testtool.results.title": "These are your results, ",
         "testtool.results.average": "Overall Average",
+        "testtool.results.result": "Result",
         "testtool.results.download": "Download",
         "testtool.results.start_again": "Start again",
         "testtool.results.update_profile": "Update profile",
@@ -308,6 +337,9 @@ export const ui = {
         "testtool.result.writing.B2.conclusion":"They can write clear, detailed texts on a variety of subjects related to their interests.",
         "testtool.result.writing.C1.conclusion":"They can write complex texts in a style appropriate to the reader in mind.",
         "testtool.result.writing.C2.conclusion":"They can write detailed and well-structured texts on complex subjects, achieving a high degree of style and accuracy.",
+        
+        "testtool.custom_course.result.pass": "Congratulations! You have demonstrated excellent performance and are eligible to enroll in this course and take the next step in your learning journey. Take advantage of this opportunity to expand your knowledge and improve your skills!",
+        "testtool.custom_course.result.fail": "Unfortunately, you did not reach the minimum required score for this course. But don’t be discouraged! We suggest exploring other course options that may be more suitable for your current level. Keep studying and improving—learning is a continuous journey, and every step is progress!",
 
         "testtool.certificate.title": "Language Skill Self-Evaluation Certificate",
         "testtool.certificate.logo_andifes": "Andifes logo",
@@ -397,6 +429,34 @@ export const ui = {
         "testtool.question.writing.C1.description": "Puedo expresarme en un texto claro y bien estructurado, expresando puntos de vista de forma extensa. Puedo escribir sobre temas complejos en una carta, ensayo o informe, subrayando lo que considero los temas más relevantes. Puedo elegir el estilo adecuado para el lector previsto.",
         "testtool.question.writing.C2.description": "Puedo escribir textos claros y fluidos en un estilo adecuado. Puedo redactar cartas, informes o artículos complejos que presenten un caso con una estructura lógica eficaz que ayude al receptor a notar y recordar puntos importantes. Puedo escribir resúmenes y reseñas de trabajos profesionales o literarios.",
 
+        "testtool.custom_course.start_questions.description": "para verificar sus habilidades lingüísticas para el siguiente curso: ",
+
+        "testtool.custom_course.ja.JFACJ.title": "Japonés con fines académicos: Conociendo Japón",
+        "testtool.custom_course.ja.JFAMRJ.title": "Japonés con fines académicos: Mi Rutina en Japón",
+        "testtool.custom_course.ja.JFAPC.title": "Japonés con fines académicos: Primeros contactos",
+
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.basic_greetings.description": "Soy capaz de realizar saludos básicos del día a día con naturalidad, utilizando expresiones como 'buenos días', 'buenas tardes' y 'buenas noches' de manera adecuada a cada contexto y situación social.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.thanks_apologies.description": "Tengo la habilidad de agradecer y pedir disculpas de manera apropiada y cordial, demostrando respeto y consideración en diversas interacciones cotidianas.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.language_comprehension.description": "Puedo informar de manera clara si comprendo o no el idioma japonés, facilitando la comunicación y evitando malentendidos durante las conversaciones.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.asking_meaning.description": "Soy capaz de formular preguntas para descubrir cómo se dice determinada expresión en japonés y comprender la respuesta, contribuyendo a mi aprendizaje y mejora en el idioma.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.food_preferences.description": "Tengo la habilidad de preguntar y responder sobre preferencias alimenticias y de bebidas, contribuyendo a diálogos que involucran elecciones de menú y gustos personales de manera articulada.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.food_recommendation.description": "Soy capaz de sugerir recomendaciones de comidas y bebidas, explicando los motivos detrás de cada sugerencia y adaptando mis recomendaciones al contexto social.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.fast_food_order.description": "Puedo realizar un pedido en un restaurante de comida rápida, comunicando de forma clara y objetiva mis elecciones y especificaciones, incluso en entornos de ritmo acelerado.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.invitation.description": "Soy capaz de invitar a alguien a participar en eventos o actividades, utilizando un enfoque cordial y adecuado al contexto, fomentando la participación y facilitando la interacción social.",
+
+        "testtool.custom_course.ja.question.speaking.spoken_production.introduction.description": "Tengo la capacidad de hacer una presentación personal de manera clara y organizada, describiendo información relevante sobre mi identidad, orígenes e intereses de forma articulada.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.family_introduction.description": "Soy capaz de presentar a los miembros de mi familia a otras personas, proporcionando información contextual y creando conexiones interpersonales de forma natural y atractiva.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.home_description.description": "Puedo describir de manera simple y detallada el tipo de vivienda en la que resido, ya sea una casa, un apartamento u otra forma de residencia, utilizando vocabulario adecuado y estructurando mis ideas de forma coherente.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.spatial_description.description": "Tengo la habilidad de indicar de manera sencilla y clara la ubicación de personas y objetos, empleando expresiones que faciliten la comprensión del entorno y las relaciones espaciales.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.week_plans.description": "Soy capaz de relatar mis planes para la semana de manera organizada, utilizando un lenguaje simple para describir compromisos, actividades y metas futuras.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.birthdate_description.description": "Puedo comunicar de manera precisa la fecha de mi cumpleaños, utilizando expresiones que describen el día, el mes y el año, contextualizando esta información cuando sea necesario.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.hobbies_description.description": "Tengo la capacidad de hablar de manera sencilla y atractiva sobre mis pasatiempos, describiendo las actividades que practico y los intereses que cultivo, de manera que la información sea clara e interesante.",
+
+        "testtool.custom_course.ja.question.understanding.reading.hiragana_most.description": "Tengo la capacidad de leer y comprender la mayoría de los caracteres hiragana, lo que me permite interpretar textos simples y reconocer palabras básicas con facilidad.",
+        "testtool.custom_course.ja.question.understanding.reading.hiragana_half.description": "Soy capaz de identificar y leer al menos la mitad de los caracteres hiragana, lo que me permite captar el sentido general de los textos escritos en este sistema.",
+        "testtool.custom_course.ja.question.understanding.reading.katakana_most.description": "Poseo aptitud para leer la mayoría de las palabras escritas en katakana, facilitando la comprensión de términos extranjeros y expresiones técnicas presentes en la escritura japonesa.",
+        "testtool.custom_course.ja.question.understanding.reading.katakana_some.description": "Puedo identificar y leer algunas palabras en katakana, lo que me ayuda a reconocer términos y nombres propios que utilizan este sistema de escritura.",
+
         "testtool.end_questions.title": "¡Todo listo!",
         "testtool.end_questions.description": "Acabas de evaluar:",
         "testtool.end_questions.call_to_action": "¿Vamos a ver los resultados?",
@@ -411,6 +471,7 @@ export const ui = {
 
         "testtool.results.title": "Estos son tus resultados, ",
         "testtool.results.average": "Promedio General",
+        "testtool.results.result": "Resultado",
         "testtool.results.download": "Descargar",
         "testtool.results.start_again": "Empezar de nuevo",
         "testtool.results.update_profile": "Actualizar perfil",
@@ -452,7 +513,10 @@ export const ui = {
         "testtool.result.writing.B2.conclusion": "Pueden escribir textos claros y detallados sobre una variedad de temas relacionados con sus intereses.",
         "testtool.result.writing.C1.conclusion": "Pueden escribir textos complejos en un estilo adecuado para el lector previsto.",
         "testtool.result.writing.C2.conclusion": "Pueden escribir textos detallados y bien estructurados sobre temas complejos, logrando un alto grado de estilo y precisión.",
-        
+
+        "testtool.custom_course.result.pass": "¡Felicidades! Has demostrado un gran desempeño y estás listo para inscribirte en este curso y dar el siguiente paso en tu camino de aprendizaje. ¡Aprovecha esta oportunidad para expandir tus conocimientos y mejorar tus habilidades!",
+        "testtool.custom_course.result.fail": "Lamentablemente, no alcanzaste la cantidad mínima de respuestas correctas necesarias para este curso. ¡Pero no te desanimes! Te sugerimos explorar otras opciones de cursos que puedan ser más adecuados para tu nivel actual. Sigue estudiando y mejorando, el aprendizaje es un camino continuo y cada paso es un avance.",
+
         "testtool.certificate.title": "Certificado de Autoevaluación de Habilidades Lingüísticas",
         "testtool.certificate.logo_andifes": "Logo de Andifes",
         "testtool.certificate.heading": "Certificado de Autoevaluación de Habilidades Lingüísticas",
@@ -539,6 +603,34 @@ export const ui = {
         "testtool.question.writing.B2.description": "Je peux écrire des textes clairs et détaillés sur une grande variété de sujets liés à mes intérêts. Je peux rédiger un essai ou un rapport en transmettant des informations ou en donnant des raisons pour ou contre un certain point de vue. Je peux écrire des lettres mettant en avant l'importance personnelle d'événements et d'expériences.",
         "testtool.question.writing.C1.description": "Je peux m'exprimer dans un texte clair et bien structuré, en exposant mes points de vue de manière détaillée. Je peux écrire sur des sujets complexes dans une lettre, un essai ou un rapport, en soulignant les points saillants. Je peux choisir un style adapté au lecteur visé.",
         "testtool.question.writing.C2.description": "Je peux écrire un texte clair et fluide dans un style approprié. Je peux rédiger des lettres, rapports ou articles complexes présentant un argument avec une structure logique efficace qui aide le destinataire à remarquer et retenir les points essentiels. Je peux rédiger des résumés et critiques d'œuvres professionnelles ou littéraires.",
+        
+        "testtool.custom_course.start_questions.description": "pour vérifier vos compétences linguistiques pour le cours suivant : ",
+
+        "testtool.custom_course.ja.JFACJ.title": "Japonais à des fins académiques : Découvrir le Japon",
+        "testtool.custom_course.ja.JFAMRJ.title": "Japonais à des fins académiques : Ma Routine au Japon",
+        "testtool.custom_course.ja.JFAPC.title": "Japonais à des fins académiques : Premiers contacts",
+
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.basic_greetings.description": "Je suis capable de faire des salutations de base au quotidien de manière naturelle, en utilisant des expressions comme 'bonjour', 'bon après-midi' et 'bonsoir' de manière appropriée à chaque contexte et situation sociale.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.thanks_apologies.description": "J'ai la capacité de remercier et de présenter des excuses de manière appropriée et courtoise, en montrant du respect et de la considération dans diverses interactions quotidiennes.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.language_comprehension.description": "Je peux indiquer clairement si je comprends ou non la langue japonaise, facilitant ainsi la communication et évitant les malentendus lors des conversations.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.asking_meaning.description": "Je suis capable de poser des questions pour découvrir comment dire une expression en japonais et de comprendre la réponse, contribuant ainsi à mon apprentissage et à mon amélioration dans la langue.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.food_preferences.description": "J'ai la capacité de poser des questions et de répondre sur les préférences alimentaires et de boissons, contribuant à des dialogues impliquant des choix de menu et des goûts personnels de manière articulée.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.food_recommendation.description": "Je suis capable de suggérer des recommandations de plats et de boissons, en expliquant les raisons derrière chaque suggestion et en adaptant mes recommandations au contexte social.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.fast_food_order.description": "Je peux passer une commande dans un restaurant fast-food, en communiquant mes choix et spécifications de manière claire et objective, même dans un environnement à rythme rapide.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.invitation.description": "Je peux inviter quelqu'un à participer à des événements ou à des activités, en utilisant une approche courtoise et adaptée au contexte, afin d'encourager la participation et de faciliter l'interaction sociale.",
+
+        "testtool.custom_course.ja.question.speaking.spoken_production.introduction.description": "Je suis capable de me présenter de manière claire et organisée, en décrivant des informations pertinentes sur mon identité, mes origines et mes intérêts de manière articulée.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.family_introduction.description": "Je peux présenter les membres de ma famille à d'autres personnes, en fournissant des informations contextuelles et en créant des connexions interpersonnelles de manière naturelle et engageante.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.home_description.description": "Je peux décrire de manière simple et détaillée le type de logement dans lequel je réside, qu'il s'agisse d'une maison, d'un appartement ou d'une autre forme de résidence, en utilisant un vocabulaire approprié et en structurant mes idées de manière cohérente.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.spatial_description.description": "J'ai la capacité d'indiquer de manière simple et claire l'emplacement des personnes et des objets, en employant des expressions facilitant la compréhension de l'environnement et des relations spatiales.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.week_plans.description": "Je suis capable de relater mes plans pour la semaine de manière organisée, en utilisant un langage simple pour décrire mes engagements, activités et objectifs futurs.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.birthdate_description.description": "Je peux communiquer avec précision la date de mon anniversaire, en utilisant des expressions pour décrire le jour, le mois et l'année, et en contextualisant cette information si nécessaire.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.hobbies_description.description": "Je suis capable de parler de manière simple et engageante de mes loisirs, en décrivant les activités que je pratique et les centres d'intérêt que je cultive, afin que l'information soit claire et intéressante.",
+
+        "testtool.custom_course.ja.question.understanding.reading.hiragana_most.description": "Je suis capable de lire et de comprendre la plupart des caractères hiragana, ce qui me permet d’interpréter des textes simples et de reconnaître des mots de base avec facilité.",
+        "testtool.custom_course.ja.question.understanding.reading.hiragana_half.description": "Je peux identifier et lire au moins la moitié des caractères hiragana, me permettant ainsi de capter le sens général des textes écrits dans ce système.",
+        "testtool.custom_course.ja.question.understanding.reading.katakana_most.description": "J’ai la capacité de lire la plupart des mots écrits en katakana, facilitant ainsi la compréhension des termes étrangers et des expressions techniques présents dans l'écriture japonaise.",
+        "testtool.custom_course.ja.question.understanding.reading.katakana_some.description": "Je peux identifier et lire certains mots en katakana, ce qui m'aide à reconnaître des termes et des noms propres utilisant ce système d'écriture.",
 
         "testtool.end_questions.title": "Tout est prêt !",
         "testtool.end_questions.description": "Vous venez d'évaluer :",
@@ -554,6 +646,7 @@ export const ui = {
 
         "testtool.results.title": "Voici vos résultats, ",
         "testtool.results.average": "Moyenne Générale",
+        "testtool.results.result": "Résultat",
         "testtool.results.download": "Télécharger",
         "testtool.results.start_again": "Recommencer",
         "testtool.results.update_profile": "Mettre à jour le profil",
@@ -596,6 +689,9 @@ export const ui = {
         "testtool.result.writing.C1.conclusion": "Ils peuvent écrire des textes complexes dans un style adapté au lecteur visé.",
         "testtool.result.writing.C2.conclusion": "Ils peuvent écrire des textes détaillés et bien structurés sur des sujets complexes, atteignant un haut degré de style et de précision.",
         
+        "testtool.custom_course.result.pass": "Félicitations ! Vous avez démontré d'excellentes compétences et êtes prêt à vous inscrire à ce cours et à franchir une nouvelle étape dans votre parcours d'apprentissage. Profitez de cette opportunité pour enrichir vos connaissances et améliorer vos compétences !",
+        "testtool.custom_course.result.fail": "Malheureusement, vous n'avez pas atteint le nombre minimum de bonnes réponses requis pour ce cours. Mais ne vous découragez pas ! Nous vous suggérons d'explorer d'autres options de cours qui pourraient mieux correspondre à votre niveau actuel. Continuez à étudier et à vous perfectionner, l’apprentissage est un voyage continu, et chaque étape est un progrès !",
+
         "testtool.certificate.title": "Certificat d'Autoévaluation des Compétences Linguistiques",
         "testtool.certificate.logo_andifes": "Logo de l'Andifes",
         "testtool.certificate.heading": "Certificat d'Autoévaluation des Compétences Linguistiques",
