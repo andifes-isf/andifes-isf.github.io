@@ -11,6 +11,7 @@ const { t, lang } = Astro.props;
 
 const parentPath = getLangUrl(Astro.url.pathname, lang).split("/").slice(0, -1);
 const idiomaUrl = '/'+[...parentPath, "seletor-idioma"].join("/");
+const inicioPerguntasUrl = '/'+[...parentPath, "inicio-perguntas"].join("/");
 ---
 
 <div class="text-content">
@@ -21,7 +22,10 @@ const idiomaUrl = '/'+[...parentPath, "seletor-idioma"].join("/");
 	</p>
 </div>
 <div class="button-group">
-	<a class="btn btn-danger" href={idiomaUrl}>
+	<a class="btn btn-danger" id="normalStart" href={idiomaUrl}>
+		{t("testtool.home.start_button")}
+	</a>
+	<a class="btn btn-danger" id="customCourseStart" href={inicioPerguntasUrl} style={{ display: "none" }}>
 		{t("testtool.home.start_button")}
 	</a>
 </div>
@@ -61,3 +65,27 @@ const idiomaUrl = '/'+[...parentPath, "seletor-idioma"].join("/");
 		}
 	}
 </style>
+
+<script>
+    const url = new URL(window.location.href);
+    const params = url.searchParams;
+    const curso = params.get("curso");
+
+    if (curso) {
+        sessionStorage.setItem("curso", curso);
+        params.delete("curso");
+        window.history.replaceState({}, document.title, url.pathname + (params.toString() ? "?" + params.toString() : ""));
+		if (typeof window['updateLinks'] === "function")
+			window['updateLinks']();
+
+		document.getElementById("normalStart").style.display = "none";
+		document.getElementById("customCourseStart").style.display = "block";
+
+		sessionStorage.setItem(
+			"langChoosen",
+			JSON.stringify({ code: curso.split("-")[0] }),
+		)
+    } else {
+        sessionStorage.removeItem("curso");
+    }
+</script>

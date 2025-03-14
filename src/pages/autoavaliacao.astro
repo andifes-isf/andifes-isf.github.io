@@ -1,8 +1,9 @@
 ---
 ---
 <!DOCTYPE html>
-<body>
+<head>
     <script>
-        window.location.replace(`/autoavaliacao/inicio`)
+        const params = window.location.search; // Get existing query parameters
+        window.location.replace(`/autoavaliacao/inicio${params}`);
     </script>
-</body>
+</head>

@@ -73,6 +73,46 @@ export function buildQuestionsPath(t: T) {
     return globalPaths
 }
 
+export async function buildCoursePath(courseData: string, t: T) {
+    try {
+        const course = JSON.parse(courseData)
+
+        const globalPaths = []
+        let i = 0;
+        console.log(courseData)
+    
+        const areas = course.perguntas.map((pergunta: any) => `${pergunta.categoria}.${pergunta.subcategoria}`) as AreasType[]
+    
+        for (const area of areas) {
+            for (const pergunta of course.perguntas) {
+            if (area === `${pergunta.categoria}.${pergunta.subcategoria}`) {
+                const section_title = t(`testtool.question.${area}.section_title`) as string
+                const areaQuestions = []
+        
+                    const description = t(`testtool.custom_course.${course.idiomaI18nId}.question.${area}.${pergunta.perguntaI18nId}.description`) as string
+                    areaQuestions.push({
+                        id: pergunta.id as QuestionId,
+                        area,
+                        level: course.nivel,
+                        section_title,
+                        description,
+                    })
+                    
+                    const path = tree(areaQuestions)
+                    globalPaths.push({
+                        area,
+                        path,
+                    })
+                }
+            }
+        }
+    
+        return globalPaths
+    } catch(err) {
+        throw new Error("Invalid course data: " + err)
+    }
+}
+
 export function getQuestions(t: T) {
     const globalQuestions = []
     let i = 0;
@@ -128,6 +168,17 @@ export function getResults(t: T) {
     }
     const avg = Math.round(sum / Object.keys(categories).length)
     result['average'] = computeState(avg)
+
+    return result
+}
+
+export function getResultsCourse(t: T) {
+    const history = getPathHistory()
+    const total = history.length
+    const correct = history.filter((entry) => entry.resposta === 'S').length
+    const result = {
+        "result": correct + "/" + total,
+    }
 
     return result
 }

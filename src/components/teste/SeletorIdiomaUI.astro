@@ -80,3 +80,23 @@ const activeLang = lang
 		font-weight: bold;
 	}
 </style>
+
+<script>
+    function updateLinks() {
+		const containerSelector = ".container.language-tabs"; // Altere para o seletor do seu contêiner
+		const paramName = "curso";
+        const curso = sessionStorage.getItem(paramName);
+		console.log({curso})
+        if (!curso) return;
+
+        document.querySelectorAll(`${containerSelector} a`).forEach(tag => {
+			const link = tag as HTMLAnchorElement
+            const url = new URL(link.href, window.location.origin);
+            url.searchParams.set(paramName, curso);
+            link.href = url.toString();
+        });
+    }
+
+    window['updateLinks'] = updateLinks;
+
+</script>

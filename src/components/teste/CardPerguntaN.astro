@@ -1,28 +1,41 @@
 ---
 import { type T } from "../../i18n/utils";
+import { getCustomCourses } from "../../services/cursomCourses";
 import { getQuestions, type QuestionId } from "../../services/questions";
 
 interface Props {
 	t: T;
-	n: QuestionId;
+	n: QuestionId | string;
 }
 
 const { t, n } = Astro.props;
 
 const questions = getQuestions(t);
+const customCourses = await getCustomCourses()
+const [courseLang, courseId, courseQuestionIndex] = (typeof n === "string") ? n.split("-") : [];
+const course = courseLang ? customCourses.find(x => x.id === `${courseLang}-${courseId}`) : null;
+const pergunta = courseQuestionIndex ? course?.data.perguntas[+courseQuestionIndex - 1] : null
+
+const area = Number.isInteger(+n) ? questions[+n - 1].area : pergunta ? `${pergunta.categoria}.${pergunta.subcategoria}` : null;
+const id = Number.isInteger(+n) ? questions[+n - 1].id : pergunta ? pergunta.id : null;
+
+if (!area || !id) throw new Error("Invalid page data.");
+console.log({area, id})
+const title = t(`testtool.question.${area}.section_title`)
+const description = Number.isInteger(+n) ? questions[+n - 1].description : pergunta ? t(`testtool.custom_course.${course?.data.idiomaI18nId}.question.${area}.${pergunta.perguntaI18nId}.description`) : null;
 ---
 
-<div id="data" data-area={questions[n - 1].area} data-id={questions[n - 1].id}>
+<div id="data" data-area={area} data-id={id} data-course-id={course?.id} data-course-data={JSON.stringify(course?.data)}>
 </div>
 <div class="text-content marginbot">
 	<h3>
 		{t("testtool.question_n.title")}<span
-			class="skeleton"
-			style="width: 100px">[loading]</span
+			class={course ? "" : "skeleton"}
+			style="width: 100px">{course ? t(`language.list.${courseLang}`) : "[loading]"}</span
 		>?
 	</h3>
-	<p class="section-title">{questions[n - 1].section_title}</p>
-	<p>{questions[n - 1].description}</p>
+	<p class="section-title">{title}</p>
+	<p>{description}</p>
 </div>
 <div class="button-group">
 	<a class="btn btn-success disabled" data-continue="S" href="#">
@@ -41,6 +54,7 @@ const questions = getQuestions(t);
 	} from "../../i18n/utils";
 	import {
 		buildQuestionsPath,
+		buildCoursePath,
 		getPathHistory,
 		setPathHistory,
 		type Question,
@@ -50,7 +64,7 @@ const questions = getQuestions(t);
 
 	const dataTag = document.getElementById("data") as HTMLDivElement;
 	if (!dataTag) throw new Error("Data tag not found");
-	const { area, id } = dataTag.dataset as { area: AreasType; id: unknown };
+	const { area, id, courseId, courseData } = dataTag.dataset as { area: AreasType; id: unknown; courseId: string | null; courseData: string | null };
 
 	if (!area || !id) throw new Error("Invalid page data.");
 
@@ -80,7 +94,8 @@ const questions = getQuestions(t);
 
 	const pathHistory = getPathHistory();
 
-	const questionsPath = buildQuestionsPath(t);
+	const questionsPath = courseData ? (await buildCoursePath(courseData, t)) : buildQuestionsPath(t);
+	console.log(questionsPath);
 
 	function recurPathLookup(path: Path<Question>[]) {
 		for (const entry of path) {
@@ -104,7 +119,7 @@ const questions = getQuestions(t);
 		.filter((x) => !!x);
 
 	const nextPage = nextPathOptions.length
-		? `pergunta-${shuffle(nextPathOptions).at(0)?.pergunta.id}`
+		? ['pergunta', courseId, shuffle(nextPathOptions).at(0)?.pergunta.id].filter(Boolean).join("-")
 		: "fim-perguntas";
 
 	const btns = document.querySelectorAll(

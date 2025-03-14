@@ -1,6 +1,7 @@
 ---
 import type { Lang } from "../../i18n/ui";
 import { getLangUrl, type T } from "../../i18n/utils";
+import { getCustomCourses } from "../../services/cursomCourses";
 
 interface Props {
 	t: T;
@@ -13,6 +14,12 @@ const parentPath = getLangUrl(Astro.url.pathname, lang).split("/").slice(0, -1);
 const startUrl = "/" + [...parentPath, "inicio"].join("/");
 const certificateUrl = "/" + [...parentPath, "certificado"].join("/");
 const perfilUrl = "/" + [...parentPath, "dados-perfil"].join("/");
+
+const customCoursesData = await getCustomCourses().then(entries => {
+	return entries.reduce((prev, cur) => ({ ...prev, [cur.id]: {
+		title: t(`testtool.custom_course.${cur.data.idiomaI18nId}.${cur.data.cursoI18nId}.title`),
+ 	}}), {});
+})
 ---
 
 <div class="results-header">
@@ -98,6 +105,17 @@ const perfilUrl = "/" + [...parentPath, "dados-perfil"].join("/");
 			>
 			</div>
 		</div>
+		<div class="row bold" style={{ display: "none" }}>
+			<div class="col-sm-7">
+				{t("testtool.results.result")}
+			</div>
+			<div
+				class="col-sm-5 skeleton"
+				style="width: 3em"
+				data-result="result"
+			>
+			</div>
+		</div>
 	</div>
 	<p id="conclusion" class="skeleton"></p>
 </div>
@@ -115,10 +133,13 @@ const perfilUrl = "/" + [...parentPath, "dados-perfil"].join("/");
 </div>
 <iframe id="certificate" src={certificateUrl}></iframe>
 
+<script id="custom-courses-data" type="application/json" set:html={JSON.stringify({ customCoursesData })}></script>
+
 <script>
 	import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 	import {
 		getResults,
+		getResultsCourse,
 		type AreasType,
 		type LangCodeToEvaluate,
 		type LevelsType,
@@ -127,115 +148,183 @@ const perfilUrl = "/" + [...parentPath, "dados-perfil"].join("/");
 	const lang = getLangFromUrl(new URL(window.location.href));
 	const t = useTranslations(lang);
 
-	const resultado = getResults(t);
+	console.log('asd')
+	
+	const customCourse = sessionStorage.getItem("curso");
+	const data = JSON.parse(document.getElementById("custom-courses-data").textContent);
+	if (customCourse && data.customCoursesData[customCourse]) {
+		const resultado = getResultsCourse(t);
 
-	console.log(resultado);
+		console.log(resultado);
 
-	const nameElem = document.querySelector("h3 span") as HTMLSpanElement;
-	if (!nameElem) throw new Error("Name element not found.");
+		const nameElem = document.querySelector("h3 span") as HTMLSpanElement;
+		if (!nameElem) throw new Error("Name element not found.");
 
-	const languageElem = document.querySelector(
-		".language-header b",
-	) as HTMLElement;
-	if (!languageElem) throw new Error("Language element not found.");
+		const languageElem = document.querySelector(
+			".language-header b",
+		) as HTMLElement;
+		if (!languageElem) throw new Error("Language element not found.");
 
-	const conclusionElem = document.getElementById(
-		"conclusion",
-	) as HTMLParagraphElement;
-	if (!conclusionElem) throw new Error("Conclusion element not found.");
+		const conclusionElem = document.getElementById(
+			"conclusion",
+		) as HTMLParagraphElement;
+		if (!conclusionElem) throw new Error("Conclusion element not found.");
 
-	const linkElem = document.getElementById(
-		"print-results-link",
-	) as HTMLAnchorElement;
-	if (!linkElem) throw new Error("Print element not found.");
-
-	const certificateElem = document.getElementById(
-		"certificate",
-	) as HTMLIFrameElement;
-	if (!certificateElem) throw new Error("Certificate iframe not found.");
-
-	const profileStr = sessionStorage.getItem("profile");
-	if (!profileStr) throw new Error("Profile data not found.");
-	const profileData = JSON.parse(profileStr);
-	if (
-		!profileData.name ||
-		!profileData.country ||
-		typeof profileData.age !== "number"
-	)
-		throw new Error("Invalid profile data.");
-	nameElem.innerText = profileData.name;
-	nameElem.classList.remove("skeleton");
-
-	const langChoosenStr = sessionStorage.getItem("langChoosen");
-	if (!langChoosenStr) throw new Error("No language was choosen."); // TODO: redirect instead
-	const langChoosen = JSON.parse(langChoosenStr) as {
-		code?: LangCodeToEvaluate;
-		name?: string;
-	};
-	if (!langChoosen.code && !langChoosen.name)
-		throw new Error("Invalid choosen language.");
-	const langName = langChoosen.code
-		? t(`language.list.${langChoosen.code}`)
-		: langChoosen.name || "";
-	if (!langName) throw new Error("Invalid choosen language.");
-	languageElem.innerText = langName;
-	languageElem.classList.remove("skeleton");
-
-	let conclusionList = [] as string[];
-	const resultElemts = document.querySelectorAll(
-		"[data-result]",
-	) as NodeListOf<HTMLDivElement>;
-	for (const elem of resultElemts) {
-		const { result } = elem.dataset;
-		if (!result) throw new Error("Invalid result type.");
-		elem.innerText = resultado[result] || "--";
-		elem.classList.remove("skeleton");
-		conclusionList.push(
-			t(
-				`testtool.result.${result as AreasType}.${(resultado[result] as LevelsType) || "below"}.conclusion`,
-			),
-		);
-	}
-	const conclusion = conclusionList.join(" ").trim() || t("testtool.result.fail");
-	conclusionElem.innerText = conclusion;
-	conclusionElem.classList.remove("skeleton");
-
-	let loaded = false;
-	function setupIframe() {
+		const profileStr = sessionStorage.getItem("profile");
+		if (!profileStr) throw new Error("Profile data not found.");
+		const profileData = JSON.parse(profileStr);
 		if (
-			certificateElem.contentWindow &&
-			"loadData" in certificateElem.contentWindow &&
-			typeof certificateElem.contentWindow!.loadData === "function"
-		) {
-			certificateElem.contentWindow!.loadData({
-				userName: profileData.name,
-				country: profileData.country,
-				language: langName,
-				results: {
-					listening: resultado["understanding.listening"] || "--",
-					reading: resultado["understanding.reading"] || "--",
-					spokenInteraction:
-						resultado["speaking.spoken_interaction"] || "--",
-					spokenProduction:
-						resultado["speaking.spoken_production"] || "--",
-					writing: resultado["writing"] || "--",
-					average: resultado["average"] || "--",
-				},
-				conclusion,
-			});
-			loaded = true;
+			!profileData.name ||
+			!profileData.country ||
+			typeof profileData.age !== "number"
+		)
+			throw new Error("Invalid profile data.");
+		nameElem.innerText = profileData.name;
+		nameElem.classList.remove("skeleton");
+
+		languageElem.innerText = data.customCoursesData[customCourse].title;
+		languageElem.classList.remove("skeleton");
+		
+		let conclusionList = [] as string[];
+		const resultElemts = document.querySelectorAll(
+			"[data-result]",
+		) as NodeListOf<HTMLDivElement>;
+		for (const elem of resultElemts) {
+			const { result } = elem.dataset;
+			if (!result) throw new Error("Invalid result type.");
+			if (result !== "result") {
+				elem.closest(".row").style.display = "none";
+				continue
+			};
+			elem.closest(".row")?.removeAttribute("style")
+			elem.innerText = resultado[result] || "--";
+			elem.classList.remove("skeleton");
+			const [correct, total] = resultado[result].split("/")
+			const porcentage = +correct/+total
+			console.log({correct, total, porcentage})
+			conclusionList.push(
+				t(
+					`testtool.custom_course.result.${(porcentage > 0.5 ? "pass" : "fail")}`,
+				),
+			);
 		}
+		const conclusion = conclusionList.join(" ").trim() || t("testtool.result.fail");
+		conclusionElem.innerText = conclusion;
+		conclusionElem.classList.remove("skeleton");
+
+		// TODO: certificate
+	} else {
+
+		const resultado = getResults(t);
+
+		console.log(resultado);
+
+		const nameElem = document.querySelector("h3 span") as HTMLSpanElement;
+		if (!nameElem) throw new Error("Name element not found.");
+
+		const languageElem = document.querySelector(
+			".language-header b",
+		) as HTMLElement;
+		if (!languageElem) throw new Error("Language element not found.");
+
+		const conclusionElem = document.getElementById(
+			"conclusion",
+		) as HTMLParagraphElement;
+		if (!conclusionElem) throw new Error("Conclusion element not found.");
+
+		const linkElem = document.getElementById(
+			"print-results-link",
+		) as HTMLAnchorElement;
+		if (!linkElem) throw new Error("Print element not found.");
+
+		const certificateElem = document.getElementById(
+			"certificate",
+		) as HTMLIFrameElement;
+		if (!certificateElem) throw new Error("Certificate iframe not found.");
+
+		const profileStr = sessionStorage.getItem("profile");
+		if (!profileStr) throw new Error("Profile data not found.");
+		const profileData = JSON.parse(profileStr);
+		if (
+			!profileData.name ||
+			!profileData.country ||
+			typeof profileData.age !== "number"
+		)
+			throw new Error("Invalid profile data.");
+		nameElem.innerText = profileData.name;
+		nameElem.classList.remove("skeleton");
+
+		const langChoosenStr = sessionStorage.getItem("langChoosen");
+		if (!langChoosenStr) throw new Error("No language was choosen."); // TODO: redirect instead
+		const langChoosen = JSON.parse(langChoosenStr) as {
+			code?: LangCodeToEvaluate;
+			name?: string;
+		};
+		if (!langChoosen.code && !langChoosen.name)
+			throw new Error("Invalid choosen language.");
+		const langName = langChoosen.code
+			? t(`language.list.${langChoosen.code}`)
+			: langChoosen.name || "";
+		if (!langName) throw new Error("Invalid choosen language.");
+		languageElem.innerText = langName;
+		languageElem.classList.remove("skeleton");
+
+		let conclusionList = [] as string[];
+		const resultElemts = document.querySelectorAll(
+			"[data-result]",
+		) as NodeListOf<HTMLDivElement>;
+		for (const elem of resultElemts) {
+			const { result } = elem.dataset;
+			if (!result) throw new Error("Invalid result type.");
+			elem.innerText = resultado[result] || "--";
+			elem.classList.remove("skeleton");
+			conclusionList.push(
+				t(
+					`testtool.result.${result as AreasType}.${(resultado[result] as LevelsType) || "below"}.conclusion`,
+				),
+			);
+		}
+		const conclusion = conclusionList.join(" ").trim() || t("testtool.result.fail");
+		conclusionElem.innerText = conclusion;
+		conclusionElem.classList.remove("skeleton");
+
+		let loaded = false;
+		function setupIframe() {
+			if (
+				certificateElem.contentWindow &&
+				"loadData" in certificateElem.contentWindow &&
+				typeof certificateElem.contentWindow!.loadData === "function"
+			) {
+				certificateElem.contentWindow!.loadData({
+					userName: profileData.name,
+					country: profileData.country,
+					language: langName,
+					results: {
+						listening: resultado["understanding.listening"] || "--",
+						reading: resultado["understanding.reading"] || "--",
+						spokenInteraction:
+							resultado["speaking.spoken_interaction"] || "--",
+						spokenProduction:
+							resultado["speaking.spoken_production"] || "--",
+						writing: resultado["writing"] || "--",
+						average: resultado["average"] || "--",
+					},
+					conclusion,
+				});
+				loaded = true;
+			}
+		}
+
+		certificateElem.addEventListener("load", setupIframe);
+		if (certificateElem.contentDocument?.readyState === "complete")
+			setupIframe();
+
+		linkElem.addEventListener("click", (evt) => {
+			evt.preventDefault();
+			if (!loaded) setupIframe();
+			certificateElem.contentWindow!.print();
+		});
 	}
-
-	certificateElem.addEventListener("load", setupIframe);
-	if (certificateElem.contentDocument?.readyState === "complete")
-		setupIframe();
-
-	linkElem.addEventListener("click", (evt) => {
-		evt.preventDefault();
-		if (!loaded) setupIframe();
-		certificateElem.contentWindow!.print();
-	});
 </script>
 
 <style>

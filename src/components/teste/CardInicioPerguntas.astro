@@ -1,11 +1,19 @@
 ---
 import type { T } from "../../i18n/utils";
+import { getCustomCourses } from "../../services/cursomCourses";
 
 interface Props {
 	t: T;
 }
 
 const { t } = Astro.props;
+
+const customCoursesData = await getCustomCourses().then(entries => {
+	return entries.reduce((prev, cur) => ({ ...prev, [cur.id]: {
+		title: t(`testtool.custom_course.${cur.data.idiomaI18nId}.${cur.data.cursoI18nId}.title`),
+		questionCount: cur.data.perguntas.length,
+ 	}}), {});
+})
 ---
 
 <div class="text-content">
@@ -16,13 +24,15 @@ const { t } = Astro.props;
 		>
 	</p>
 	<p>{t("testtool.start_questions.description")}</p>
-	<input name="level_help" id="level_help" type="hidden" value="6" />
 </div>
 <div class="button-group">
 	<a class="btn btn-danger" id="continue_button" href="#">
 		{t("testtool.start_questions.continue_button")}
 	</a>
 </div>
+
+<script id="custom-courses-data" type="application/json" set:html={JSON.stringify({ customCoursesData })}></script>
+
 <script>
 	import {
 		getLangFromUrl,
@@ -38,23 +48,41 @@ const { t } = Astro.props;
 		...getLangUrl(window.location.pathname, lang).split("/").slice(0, -1),
 	].join("/");
 
-	const questionsPath = buildQuestionsPath(t);
+	const customCourse = sessionStorage.getItem("curso");
+	const data = JSON.parse(document.getElementById("custom-courses-data").textContent);
+	if (customCourse && data.customCoursesData[customCourse]) {
+		const highlight = document.querySelector(".text-content .highlight")
+		if (!highlight) throw new Error("Highlight element not found.");
+		highlight.innerHTML = data.customCoursesData[customCourse].questionCount + " " + t("testtool.start_questions.question_range").split(" ").pop();
 
-	const firstArea = shuffle(questionsPath).at(0);
-	if (!firstArea) throw new Error("Invalid path.");
+		const description = document.querySelector(".text-content p:last-child")
+		if (!description) throw new Error("Description element not found.");
+		description.innerHTML = t("testtool.custom_course.start_questions.description") + data.customCoursesData[customCourse].title;
 
-	const question =
-		firstArea.path.length > 1
-			? shuffle(firstArea.path).at(0)
-			: firstArea.path.at(0);
-	if (!question) throw new Error("Invalid path.");
+		const btn = document.getElementById("continue_button") as HTMLAnchorElement;
+		if (!btn) throw new Error("Link element not found.");
+		btn.href = `${parentPathname}/pergunta-${customCourse}-1`; // TODO
 
-	const btn = document.getElementById("continue_button") as HTMLAnchorElement;
-	if (!btn) throw new Error("Link element not found.");
+		sessionStorage.removeItem("path-history");
+	} else {
+		const questionsPath = buildQuestionsPath(t);
 
-	btn.href = `${parentPathname}/pergunta-${question.pergunta.id}`;
+		const firstArea = shuffle(questionsPath).at(0);
+		if (!firstArea) throw new Error("Invalid path.");
 
-	sessionStorage.removeItem("path-history");
+		const question =
+			firstArea.path.length > 1
+				? shuffle(firstArea.path).at(0)
+				: firstArea.path.at(0);
+		if (!question) throw new Error("Invalid path.");
+
+		const btn = document.getElementById("continue_button") as HTMLAnchorElement;
+		if (!btn) throw new Error("Link element not found.");
+
+		btn.href = `${parentPathname}/pergunta-${question.pergunta.id}`;
+
+		sessionStorage.removeItem("path-history");
+	}
 </script>
 
 <style>

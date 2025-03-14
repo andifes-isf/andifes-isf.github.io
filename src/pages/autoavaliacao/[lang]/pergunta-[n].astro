@@ -4,13 +4,21 @@ import { useTranslations, getLanguages } from "../../../i18n/utils";
 import SeletorIdiomaUI from "../../../components/teste/SeletorIdiomaUI.astro";
 import CardPerguntaN from "../../../components/teste/CardPerguntaN.astro";
 import type { QuestionId } from "../../../services/questions";
+import { getCustomCourses } from "../../../services/cursomCourses";
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
 	const result = [] as any[];
 	const langs = getLanguages();
-	for (let n = 1; n <= 30; n++) {
-		for (const lang of langs) {
+	const customCourses = await getCustomCourses()
+	for (const lang of langs) {
+		for (let n = 1; n <= 30; n++) {
 			result.push({ params: { lang, n: n as QuestionId } });
+		}
+
+		for (const course of customCourses) {
+			for (let i = 0; i < course.data.perguntas.length; i++) {
+				result.push({ params: { lang, n: course.id+'-'+(i+1) } });
+			}
 		}
 	}
 	return result;
