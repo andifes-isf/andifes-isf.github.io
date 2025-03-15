@@ -79,7 +79,6 @@ export async function buildCoursePath(courseData: string, t: T) {
 
         const globalPaths = []
         let i = 0;
-        console.log(courseData)
     
         const areas = course.perguntas.map((pergunta: any) => `${pergunta.categoria}.${pergunta.subcategoria}`) as AreasType[]
     

@@ -20,7 +20,7 @@ const area = Number.isInteger(+n) ? questions[+n - 1].area : pergunta ? `${pergu
 const id = Number.isInteger(+n) ? questions[+n - 1].id : pergunta ? pergunta.id : null;
 
 if (!area || !id) throw new Error("Invalid page data.");
-console.log({area, id})
+
 const title = t(`testtool.question.${area}.section_title`)
 const description = Number.isInteger(+n) ? questions[+n - 1].description : pergunta ? t(`testtool.custom_course.${course?.data.idiomaI18nId}.question.${area}.${pergunta.perguntaI18nId}.description`) : null;
 ---
@@ -95,7 +95,6 @@ const description = Number.isInteger(+n) ? questions[+n - 1].description : pergu
 	const pathHistory = getPathHistory();
 
 	const questionsPath = courseData ? (await buildCoursePath(courseData, t)) : buildQuestionsPath(t);
-	console.log(questionsPath);
 
 	function recurPathLookup(path: Path<Question>[]) {
 		for (const entry of path) {

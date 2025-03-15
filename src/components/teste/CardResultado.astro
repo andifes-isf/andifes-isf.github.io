@@ -148,8 +148,6 @@ const customCoursesData = await getCustomCourses().then(entries => {
 	const lang = getLangFromUrl(new URL(window.location.href));
 	const t = useTranslations(lang);
 
-	console.log('asd')
-	
 	const customCourse = sessionStorage.getItem("curso");
 	const data = JSON.parse(document.getElementById("custom-courses-data").textContent);
 	if (customCourse && data.customCoursesData[customCourse]) {
@@ -169,6 +167,16 @@ const customCoursesData = await getCustomCourses().then(entries => {
 			"conclusion",
 		) as HTMLParagraphElement;
 		if (!conclusionElem) throw new Error("Conclusion element not found.");
+
+		const linkElem = document.getElementById(
+			"print-results-link",
+		) as HTMLAnchorElement;
+		if (!linkElem) throw new Error("Print element not found.");
+
+		const certificateElem = document.getElementById(
+			"certificate",
+		) as HTMLIFrameElement;
+		if (!certificateElem) throw new Error("Certificate iframe not found.");
 
 		const profileStr = sessionStorage.getItem("profile");
 		if (!profileStr) throw new Error("Profile data not found.");
@@ -201,7 +209,7 @@ const customCoursesData = await getCustomCourses().then(entries => {
 			elem.classList.remove("skeleton");
 			const [correct, total] = resultado[result].split("/")
 			const porcentage = +correct/+total
-			console.log({correct, total, porcentage})
+
 			conclusionList.push(
 				t(
 					`testtool.custom_course.result.${(porcentage > 0.5 ? "pass" : "fail")}`,
@@ -212,7 +220,36 @@ const customCoursesData = await getCustomCourses().then(entries => {
 		conclusionElem.innerText = conclusion;
 		conclusionElem.classList.remove("skeleton");
 
-		// TODO: certificate
+		let loaded = false;
+		function setupIframe() {
+			if (
+				certificateElem.contentWindow &&
+				"loadData" in certificateElem.contentWindow &&
+				typeof certificateElem.contentWindow!.loadData === "function"
+			) {
+				certificateElem.contentWindow!.loadData({
+					userName: profileData.name,
+					country: profileData.country,
+					language: data.customCoursesData[customCourse].title,
+					results: {
+						result: resultado['result'],
+					},
+					conclusion,
+					customCourse: true,
+				});
+				loaded = true;
+			}
+		}
+
+		certificateElem.addEventListener("load", setupIframe);
+		if (certificateElem.contentDocument?.readyState === "complete")
+			setupIframe();
+
+		linkElem.addEventListener("click", (evt) => {
+			evt.preventDefault();
+			if (!loaded) setupIframe();
+			certificateElem.contentWindow!.print();
+		});
 	} else {
 
 		const resultado = getResults(t);

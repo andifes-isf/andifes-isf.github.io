@@ -358,6 +358,11 @@ const t = useTranslations(lang);
 								>--</span
 							>
 						</li>
+						<li class="bold" style="display: none">
+							<span>{t("testtool.results.result")}</span><span id="result"
+								>--</span
+							>
+						</li>
 					</ul>
 				</div>
 				<div class="conclusion">
@@ -393,20 +398,32 @@ const t = useTranslations(lang);
 					data.userName;
 				document.getElementById("country").textContent = data.country;
 				document.getElementById("language").textContent = data.language;
-				document.getElementById("result_listening").textContent =
-					data.results.listening;
-				document.getElementById("result_reading").textContent =
-					data.results.reading;
-				document.getElementById(
-					"result_spoken_interaction",
-				).textContent = data.results.spokenInteraction;
-				document.getElementById(
-					"result_spoken_production",
-				).textContent = data.results.spokenProduction;
-				document.getElementById("result_writing").textContent =
-					data.results.writing;
-				document.getElementById("average").textContent =
-					data.results.average;
+
+				if (data.customCourse) {
+					document.getElementById("result_listening").closest("li").style.display = "none"
+					document.getElementById("result_reading").closest("li").style.display = "none"
+					document.getElementById("result_spoken_interaction").closest("li").style.display = "none"
+					document.getElementById("result_spoken_production").closest("li").style.display = "none"
+					document.getElementById("result_writing").closest("li").style.display = "none"
+					document.getElementById("average").closest("li").style.display = "none"
+					document.getElementById("result").closest("li").removeAttribute("style")
+					document.getElementById("result").textContent = data.results.result;
+				} else {
+					document.getElementById("result_listening").textContent =
+						data.results.listening;
+					document.getElementById("result_reading").textContent =
+						data.results.reading;
+					document.getElementById(
+						"result_spoken_interaction",
+					).textContent = data.results.spokenInteraction;
+					document.getElementById(
+						"result_spoken_production",
+					).textContent = data.results.spokenProduction;
+					document.getElementById("result_writing").textContent =
+						data.results.writing;
+					document.getElementById("average").textContent =
+						data.results.average;
+				}
 				document.getElementById("conclusion").textContent =
 					data.conclusion;
 				// document.getElementById("date").textContent =

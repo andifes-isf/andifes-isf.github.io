@@ -1,6 +1,7 @@
 ---
 import type { Lang } from "../../i18n/ui";
 import { getLangUrl, type T } from "../../i18n/utils";
+import { getCustomCourses } from "../../services/cursomCourses";
 import { defaultLanguagesToEvaluate } from "../../services/questions";
 
 interface Props {
@@ -15,6 +16,19 @@ const languages = defaultLanguagesToEvaluate.map((lang) => ({
 }));
 const parentPath = getLangUrl(Astro.url.pathname, lang).split("/").slice(0, -1);
 const inicioPerguntasUrl = '/'+[...parentPath, "inicio-perguntas"].join("/");
+
+const customCoursesData = await getCustomCourses().then(entries => {
+	return entries.reduce((prev, cur) => ({
+		...prev,
+		[cur.data.idiomaI18nId]: [
+			...(prev[cur.data.idiomaI18nId] || []),
+			{
+				id: cur.id,
+				title: t(`testtool.custom_course.${cur.data.idiomaI18nId}.${cur.data.cursoI18nId}.title`),
+			},
+		],
+	}), {});
+})
 ---
 
 <div class="text-content">
@@ -28,6 +42,7 @@ const inicioPerguntasUrl = '/'+[...parentPath, "inicio-perguntas"].join("/");
 							type="radio"
 							name="lng"
 							value={lang.code}
+							data-name={lang.name}
 							required
 						/>{" "}
 						{lang.name}
@@ -44,11 +59,18 @@ const inicioPerguntasUrl = '/'+[...parentPath, "inicio-perguntas"].join("/");
 	>
 	<input type="text" class="form-control" id="newlng" />
 </div>
+<div class="courses-list" style={{ display: "none" }}>
+	<h3>{t("testtool.custom_course_selection.title")}</h3>
+	<div class="courses-container">
+	</div>
+</div>
 <div class="button-group">
 	<a class="btn btn-danger" id="continue_button" href={inicioPerguntasUrl}>
 		{t("testtool.language_selection.start_button")}
 	</a>
 </div>
+
+<script id="custom-courses-data" type="application/json" set:html={JSON.stringify({ customCoursesData })}></script>
 
 <script>
 	const langInputs = document.querySelectorAll(
@@ -63,20 +85,65 @@ const inicioPerguntasUrl = '/'+[...parentPath, "inicio-perguntas"].join("/");
 	if (!customLangInput)
 		throw new Error("Input field for custom language not found.");
 
+	const coursesList = document.querySelector(".courses-list") as HTMLElement;
+	if (!coursesList) throw new Error("Courses list element not found.");
+
+	const languagesContainer = coursesList.querySelector(".courses-container") as HTMLElement;
+	if (!languagesContainer) throw new Error("Languages container element not found.");
+
 	const btn = document.getElementById("continue_button") as HTMLAnchorElement;
 	if (!btn) throw new Error("Link element not found.");
+
+	const data = JSON.parse(document.getElementById("custom-courses-data").textContent);
+
+	function showCourses() {
+		const langSelectedInput = document.querySelector(
+			"[name=lng]:checked",
+		) as HTMLInputElement;
+
+		if (langSelectedInput) {
+			const langCodeChoosen = langSelectedInput.value;
+
+			if (data.customCoursesData[langCodeChoosen]) {
+				languagesContainer.innerHTML = [
+					{ id: "default", title: t("testtool.custom_course_selection.default_option") },
+					...data.customCoursesData[langCodeChoosen],
+				].map(course => `
+					<label>
+						<input
+							type="radio"
+							name="curso"
+							value="${course.id}"
+							required
+						/>
+						${course.title}
+					</label>
+				`).join("");
+
+				coursesList.style.display = "block";
+			} else {
+				languagesContainer.innerHTML = "";
+				coursesList.style.display = "none";
+			}
+		} else {
+			languagesContainer.innerHTML = "";
+			coursesList.style.display = "none";
+		}
+	}
 
 	langInputs.forEach((i) =>
 		i.addEventListener("change", () => {
 			customLangInput.value = "";
+			showCourses()
 		}),
 	);
 
-	customLangInput.addEventListener("change", () => {
-		langInputs.forEach((i) => (i.checked = false));
-		console.log(langInputs.length);
+	customLangInput.addEventListener("change", evt => {
+		let found = false
+		langInputs.forEach(i => found = found || (i.checked = i.getAttribute("data-name") === evt.target.value));
+		if (found) evt.target.value = ""
+		showCourses()
 	});
-	console.log(customLangInput);
 
 	btn.addEventListener("click", (evt) => {
 		evt.preventDefault();
@@ -104,6 +171,22 @@ const inicioPerguntasUrl = '/'+[...parentPath, "inicio-perguntas"].join("/");
 			);
 		}
 
+		if (languagesContainer.innerHTML) {
+			const courseSelectedInput = languagesContainer.querySelector(
+				"[name=curso]:checked",
+			) as HTMLInputElement;
+
+			if (courseSelectedInput) {
+				const value = courseSelectedInput.value
+				if (value !== "default") {
+					sessionStorage.setItem("curso", courseSelectedInput.value);
+				}
+			} else {
+				languagesContainer.querySelector("input")?.reportValidity()
+				return;
+			}
+		}
+
 		window.location.replace(elem.href);
 	});
 </script>
@@ -114,13 +197,24 @@ const inicioPerguntasUrl = '/'+[...parentPath, "inicio-perguntas"].join("/");
 		padding-right: 20px;
 	}
 
-	.languages-container {
+	.languages-container, .courses-container {
 		display: flex;
 		flex-wrap: wrap;
+	}
+	.courses-container {
+		flex-direction: column;
 	}
 
 	.languages-container label {
 		flex: 0 0 140px;
+		margin: 5px;
+		background-color: #0001;
+		transition: all 0.4s;
+		cursor: pointer;
+	}
+
+	.courses-container :global(label) {
+		flex: 1;
 		margin: 5px;
 		background-color: #0001;
 		transition: all 0.4s;
