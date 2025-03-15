@@ -22,6 +22,9 @@ export const ui = {
         "testtool.language_selection.choose_different": "Ou escolha um idioma diferente:",
         "testtool.language_selection.start_button": "Iniciar",
 
+        "testtool.custom_course_selection.title": "Selecione uma das seguintes avaliações:",
+        "testtool.custom_course_selection.default_option": "Avaliação geral",
+
         "testtool.auto_proficiency.title": "Quão bom você acha que é em ",
         "testtool.auto_proficiency.low_label": "não muito bom",
         "testtool.auto_proficiency.high_label": "muito bom",
@@ -196,6 +199,9 @@ export const ui = {
         "testtool.language_selection.title": "Assess yourself in one of the following languages:",
         "testtool.language_selection.choose_different": "Or choose a different language:",
         "testtool.language_selection.start_button": "Start",
+
+        "testtool.custom_course_selection.title": "Select one of the following assessments:",
+        "testtool.custom_course_selection.default_option": "General assessment",
 
         "testtool.auto_proficiency.title": "How good do you think you are in ",
         "testtool.auto_proficiency.low_label": "not too good",
@@ -373,6 +379,9 @@ export const ui = {
         "testtool.language_selection.choose_different": "O elige un idioma diferente:",
         "testtool.language_selection.start_button": "Comenzar",
 
+        "testtool.custom_course_selection.title": "Selecciona una de las siguientes evaluaciones:",
+        "testtool.custom_course_selection.default_option": "Evaluación general",
+
         "testtool.auto_proficiency.title": "¿Qué tan bueno crees que eres en ",
         "testtool.auto_proficiency.low_label": "no muy bueno",
         "testtool.auto_proficiency.high_label": "muy bueno",
@@ -548,6 +557,9 @@ export const ui = {
         "testtool.language_selection.title": "Évaluez-vous dans l'une des langues suivantes :",
         "testtool.language_selection.choose_different": "Ou choisissez une langue différente :",
         "testtool.language_selection.start_button": "Démarrer",
+
+        "testtool.custom_course_selection.title": "Selecciona una de las siguientes evaluaciones:",
+        "testtool.custom_course_selection.default_option": "Evaluación general",
 
         "testtool.auto_proficiency.title": "À quel point pensez-vous être bon en ",
         "testtool.auto_proficiency.low_label": "pas très bon",
