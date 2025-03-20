@@ -111,7 +111,7 @@ const customCoursesData = await getCustomCourses().then(entries => {
 
 			if (data.customCoursesData[langCodeChoosen]) {
 				languagesContainer.innerHTML = [
-					{ id: "default", title: t("testtool.custom_course_selection.default_option") },
+					// { id: "default", title: t("testtool.custom_course_selection.default_option") },
 					...data.customCoursesData[langCodeChoosen],
 				].map(course => `
 					<label>

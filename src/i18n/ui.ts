@@ -22,7 +22,7 @@ export const ui = {
         "testtool.language_selection.choose_different": "Ou escolha um idioma diferente:",
         "testtool.language_selection.start_button": "Iniciar",
 
-        "testtool.custom_course_selection.title": "Selecione uma das seguintes avaliações:",
+        "testtool.custom_course_selection.title": "Selecione uma das seguintes avaliações para o curso que deseja se inscrever:",
         "testtool.custom_course_selection.default_option": "Avaliação geral",
 
         "testtool.auto_proficiency.title": "Quão bom você acha que é em ",
@@ -200,7 +200,7 @@ export const ui = {
         "testtool.language_selection.choose_different": "Or choose a different language:",
         "testtool.language_selection.start_button": "Start",
 
-        "testtool.custom_course_selection.title": "Select one of the following assessments:",
+        "testtool.custom_course_selection.title": "Select one of the following assessments for the course you wish to enroll in:",
         "testtool.custom_course_selection.default_option": "General assessment",
 
         "testtool.auto_proficiency.title": "How good do you think you are in ",
@@ -379,7 +379,7 @@ export const ui = {
         "testtool.language_selection.choose_different": "O elige un idioma diferente:",
         "testtool.language_selection.start_button": "Comenzar",
 
-        "testtool.custom_course_selection.title": "Selecciona una de las siguientes evaluaciones:",
+        "testtool.custom_course_selection.title": "Seleccione una de las siguientes evaluaciones para el curso en el que desea inscribirse:",
         "testtool.custom_course_selection.default_option": "Evaluación general",
 
         "testtool.auto_proficiency.title": "¿Qué tan bueno crees que eres en ",
@@ -558,7 +558,7 @@ export const ui = {
         "testtool.language_selection.choose_different": "Ou choisissez une langue différente :",
         "testtool.language_selection.start_button": "Démarrer",
 
-        "testtool.custom_course_selection.title": "Selecciona una de las siguientes evaluaciones:",
+        "testtool.custom_course_selection.title": "Sélectionnez l'une des évaluations suivantes pour le cours auquel vous souhaitez vous inscrire:",
         "testtool.custom_course_selection.default_option": "Evaluación general",
 
         "testtool.auto_proficiency.title": "À quel point pensez-vous être bon en ",
