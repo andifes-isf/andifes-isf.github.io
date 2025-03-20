@@ -73,6 +73,11 @@ const customCoursesData = await getCustomCourses().then(entries => {
 <script id="custom-courses-data" type="application/json" set:html={JSON.stringify({ customCoursesData })}></script>
 
 <script>
+	import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+	const lang = getLangFromUrl(new URL(window.location.href));
+	const t = useTranslations(lang);
+
 	const langInputs = document.querySelectorAll(
 		"[name=lng]",
 	) as NodeListOf<HTMLInputElement>;
