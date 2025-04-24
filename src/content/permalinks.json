@@ -120,5 +120,9 @@
 	"permanent": true,
 	"slug": "ol/form-relatorio",
 	"target": "https://forms.office.com/r/iPb0st5TT2"
+}, {
+	"permanent": true,
+	"slug": "design/solicitacoes",
+	"target": "https://forms.gle/83QY7vThtowJhwJp8"
 }
 ]
