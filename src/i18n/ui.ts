@@ -124,6 +124,7 @@ export const ui = {
         "testtool.results.average": "Média Geral",
         "testtool.results.result": "Resultado",
         "testtool.results.download": "Baixar",
+        "testtool.results.print": "Imprimir",
         "testtool.results.start_again": "Começar novamente",
         "testtool.results.update_profile": "Atualizar perfil",
 
@@ -303,6 +304,7 @@ export const ui = {
         "testtool.results.average": "Overall Average",
         "testtool.results.result": "Result",
         "testtool.results.download": "Download",
+        "testtool.results.print": "Print",
         "testtool.results.start_again": "Start again",
         "testtool.results.update_profile": "Update profile",
 
@@ -482,6 +484,7 @@ export const ui = {
         "testtool.results.average": "Promedio General",
         "testtool.results.result": "Resultado",
         "testtool.results.download": "Descargar",
+        "testtool.results.print": "Imprimir",
         "testtool.results.start_again": "Empezar de nuevo",
         "testtool.results.update_profile": "Actualizar perfil",
 
@@ -660,6 +663,7 @@ export const ui = {
         "testtool.results.average": "Moyenne Générale",
         "testtool.results.result": "Résultat",
         "testtool.results.download": "Télécharger",
+        "testtool.results.print": "Imprimer",
         "testtool.results.start_again": "Recommencer",
         "testtool.results.update_profile": "Mettre à jour le profil",
 

@@ -154,6 +154,9 @@ export function getResults(t: T) {
     }), {} as { [id: number]: number })
 
     const history = getPathHistory()
+    
+    if (!history.length) return null
+
     const categories = history.reduce((prev, cur) => ({
         ...prev,
         [cur.area]: (prev[cur.area] || 0) | (cur.resposta === 'N' ? 0 : flagMap[cur.id])
