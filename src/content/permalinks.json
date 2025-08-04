@@ -47,25 +47,37 @@
 	"slug": "oc/2025-1/acompanhamento-adesao",
 	"target": "https://sinufscar.sharepoint.com/:x:/s/GESTOISF/EdezmkPdZ6RDg_MqcuihMz4BiA12cdiLf3bzJQu0csyraQ?e=HTfJ6V"
 }, {
+	"permanent": true,
+	"slug": "oc/2025-2/acompanhamento-adesao",
+	"target": "https://sinufscar.sharepoint.com/:x:/s/GESTOISF/EZ5mw03jf19DjZYN-0Kdmz8BTqWkdm7FO93_qY1RfNPxuQ?e=BagMlJ"
+}, {
 	"slug": "oc/acompanhamento-adesao",
-	"target": "/p/oc/2025-1/acompanhamento-adesao"
+	"target": "/p/oc/2025-2/acompanhamento-adesao"
 }, {
 	"permanent": true,
 	"slug": "oc/2025-1/form-adesao",
 	"target": "https://forms.office.com/r/P1uv97xnHQ"
 }, {
+	"permanent": true,
+	"slug": "oc/2025-2/form-adesao",
+	"target": "https://forms.office.com/r/bQyWwj91hs"
+}, {
 	"slug": "oc/form-adesao",
-	"target": "/p/oc/2025-1/form-adesao"
+	"target": "/p/oc/2025-2/form-adesao"
 }, {
 	"slug": "oc/form-adesao.",
-	"target": "/p/oc/2025-1/form-adesao"
+	"target": "/p/oc/2025-2/form-adesao"
 }, {
 	"permanent": true,
 	"slug": "oc/2025-1/calendario",
 	"target": "https://sinufscar.sharepoint.com/:b:/s/GESTOISF/ERdexeeM1tJLvq0q6qFvBwMBRrJQODQcL7VdSRJKxQD3HQ?e=CAug4I"
 }, {
+	"permanent": true,
+	"slug": "oc/2025-2/calendario",
+	"target": "https://sinufscar.sharepoint.com/:b:/s/GESTOISF/EcxVqrY_PlBMuqlcahT3k4cBqLGxYh8AqhQdm6jRQPin7g?e=RZv1aB"
+}, {
 	"slug": "oc/calendario",
-	"target": "/p/oc/2025-1/calendario"
+	"target": "/p/oc/2025-2/calendario"
 }, {
 	"permanent": true,
 	"slug": "oc/2025-1/quadro-de-vagas",
