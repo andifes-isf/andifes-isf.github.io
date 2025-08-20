@@ -83,8 +83,12 @@
 	"slug": "oc/2025-1/quadro-de-vagas",
 	"target": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTzVg21s1SCXe5hwb3ovlxfYHBCiVL96xW0sE9At8YqarMYEKEvzVT77YyaGkKhlBu4D_ygFZc8MVyk/pubhtml?gid=0&single=true"
 }, {
+	"permanent": true,
+	"slug": "oc/2025-2/quadro-de-vagas",
+	"target": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS-ak81au-vj2oaGrkKgmKK6w12gPvPUFtL9z40Y-HItstANl_OnnnQzB3Nj9zdr3Hjr59wsR2cmajE/pubhtml?gid=0&single=true"
+}, {
 	"slug": "oc/quadro-de-vagas",
-	"target": "/p/oc/2025-1/quadro-de-vagas"
+	"target": "/p/oc/2025-2/quadro-de-vagas"
 }, {
 	"slug": "oc/form-inscr/ALE",
 	"target": "/p/oc/2025-1/form-inscr/ALE"
