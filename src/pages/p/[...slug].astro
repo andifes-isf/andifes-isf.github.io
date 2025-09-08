@@ -17,10 +17,19 @@ export async function getStaticPaths() {
   const permalinks = await getCollection("permalinks");
   return await Promise.all(permalinks.map(async ({ id, data }) => {
     const meta = await fetchMeta(data.target)
+    let finalTarget;
+
+    try {
+      const targetUrl = new URL(data.target);
+      targetUrl.searchParams.set("utm_source", "conteudo.redeisf.pro.br");
+      finalTarget = targetUrl.toString();
+    } catch (err) {
+      finalTarget = data.target;
+    }
 
     return {
       params: { slug: data.slug },
-      props: { target: data.target, permanent: data.permanent, meta },
+      props: { target: finalTarget, permanent: data.permanent, meta },
     }
   }));
 }
