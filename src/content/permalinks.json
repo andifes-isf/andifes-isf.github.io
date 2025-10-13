@@ -30,14 +30,21 @@
 	"permanent": true,
 	"slug": "credenciamento/atualizacao",
 	"target": "https://forms.gle/oGghYmomGmgFx1xR7"
-},
-{
+},{
 	"permanent": true,
 	"slug": "oc/2024-2/feedback",
 	"target": "https://forms.gle/RQQHnqNSQKb5Jv7m7"
 }, {
+	"permanent": true,
+	"slug": "oc/2025-1/feedback",
+	"target": "https://forms.gle/Kihrjo5dfghBEAd27"
+}, {
+	"permanent": true,
+	"slug": "oc/2025-2/feedback",
+	"target": "https://forms.gle/JndFDsj1BvgUsBAz8"
+}, {
 	"slug": "oc/feedback",
-	"target": "/p/oc/2024-2/feedback"
+	"target": "/p/oc/2025-2/feedback"
 }, {
 	"permanent": true,
 	"slug": "oc/2024-2/acompanhamento-adesao",
