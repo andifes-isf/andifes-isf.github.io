@@ -36,6 +36,10 @@
 	"target": "https://forms.gle/RQQHnqNSQKb5Jv7m7"
 }, {
 	"permanent": true,
+	"slug": "oc/relatorio",
+	"target": "https://app.powerbi.com/view?r=eyJrIjoiMzc5ZjBhMDAtYzFjMy00ZmM2LWFmMTctOTg2NDNkOTAwZDVmIiwidCI6IjVjYTI0MTc0LWYxMzgtNGZlMS1iODY2LWFjZWFlOTRiZjk5MiJ9&pageName=9601065c07ecf37fa2d2"
+}, {
+	"permanent": true,
 	"slug": "oc/2025-1/feedback",
 	"target": "https://forms.gle/Kihrjo5dfghBEAd27"
 }, {
