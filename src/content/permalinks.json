@@ -16,10 +16,12 @@
 	"target": "https://sinufscar.sharepoint.com/:x:/s/GESTOISF/EbRHQ_wYtKpOhaJb8TJhJCgB5n6yOtctBvJIAs7TIW8Hyw?e=YpBlQt"
 },
 {
+	"permanent": true,
 	"slug": "credenciamento/especialista",
 	"target": "https://selecao.redeisf.pro.br/sagui/portal/processo-seletivo/tipo/processo-seletivo/5"
 },
 {
+	"permanent": true,
 	"slug": "credenciamento/especialista/termo",
 	"target": "https://drive.google.com/file/d/1FqTacYK0YFXvLFn11q4j0wvUOqpc2veM/view?usp=sharing"
 }, {
