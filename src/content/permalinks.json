@@ -63,6 +63,10 @@
 	"target": "/p/oc/2025-2/feedback"
 }, {
 	"permanent": true,
+	"slug": "oc/interesse",
+	"target": "https://docs.google.com/forms/d/e/1FAIpQLScLUJkDzq0FNHE_b03uquGkG-FJG4VKrAAeIs26Pc0qp2lPiQ/viewform"
+}, {
+	"permanent": true,
 	"slug": "oc/2024-2/acompanhamento-adesao",
 	"target": "https://sinufscar.sharepoint.com/:x:/s/GESTOISF/EbCyFP-yvy5AkXnconUI0SoBU7DWl24xhrHFhxbVE16Mmg?e=4sKDYJ"
 }, {
