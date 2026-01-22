@@ -16,8 +16,12 @@
 	"target": "https://sinufscar.sharepoint.com/:x:/s/GESTOISF/EbRHQ_wYtKpOhaJb8TJhJCgB5n6yOtctBvJIAs7TIW8Hyw?e=YpBlQt"
 }, {
 	"permanent": true,
+	"slug": "credenciamentos",
+	"target": "https://selecao.redeisf.pro.br/sagui/portal/processo-seletivo/tipo/rede-andifes-isf"
+}, {
+	"permanent": false,
 	"slug": "credenciamento/especialista",
-	"target": "https://selecao.redeisf.pro.br/sagui/portal/processo-seletivo/tipo/processo-seletivo/5"
+	"target": "https://selecao.redeisf.pro.br/sagui/portal/processo-seletivo/tipo/processo-seletivo/44"
 }, {
 	"permanent": true,
 	"slug": "credenciamento/especialista/termo",
