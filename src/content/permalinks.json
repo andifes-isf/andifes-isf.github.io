@@ -36,6 +36,10 @@
 	"target": "https://selecao.redeisf.pro.br/sagui/portal/processo-seletivo/tipo/processo-seletivo/6"
 }, {
 	"permanent": true,
+	"slug": "credenciamento/ies",
+	"target": "https://selecao.redeisf.pro.br/sagui/portal/processo-seletivo/tipo/processo-seletivo/6"
+}, {
+	"permanent": true,
 	"slug": "credenciamento/professor",
 	"target": "https://forms.office.com/r/Mp1BkirCT8"
 }, {
