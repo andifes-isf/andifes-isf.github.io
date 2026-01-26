@@ -19,7 +19,6 @@
 	"slug": "credenciamentos",
 	"target": "https://selecao.redeisf.pro.br/sagui/portal/processo-seletivo/tipo/rede-andifes-isf"
 }, {
-	"permanent": false,
 	"slug": "credenciamento/especialista",
 	"target": "https://selecao.redeisf.pro.br/sagui/portal/processo-seletivo/tipo/processo-seletivo/44"
 }, {
@@ -33,9 +32,8 @@
 }, {
 	"permanent": true,
 	"slug": "credenciamento/ifes",
-	"target": "https://selecao.redeisf.pro.br/sagui/portal/processo-seletivo/tipo/processo-seletivo/6"
+	"target": "/p/credenciamento/ies"
 }, {
-	"permanent": true,
 	"slug": "credenciamento/ies",
 	"target": "https://selecao.redeisf.pro.br/sagui/portal/processo-seletivo/tipo/processo-seletivo/6"
 }, {
