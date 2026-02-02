@@ -179,11 +179,18 @@
 	"target": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRdPYnAZDwozHGbfj5IUu_pEcq2nF-rH8SO2R2J2xZS1OI4kXL0iUCfijPyaQp2wJkGpVknWxaZ3opt/pubhtml?gid=339731180&single=true"
 }, {
 	"permanent": true,
+	"slug": "ofc/2026/por/cursos-disponiveis",
+	"target": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS0_nIS5m1AVGZVO8zeKiFXYb6fNGPiJq2jKtrY1lwGDCI4DB2laZurk7fgmeHd3ipnN9vvY4zNYVkC/pubhtml?gid=339731180&single=true"
+}, {
+	"permanent": true,
 	"slug": "tutorial/cred-ies",
 	"target": "https://youtu.be/z9RAKdiz2Zk"
 }, {
 	"permanent": true,
 	"slug": "encontro/happy-hour",
 	"target": "https://forms.gle/oU4FG2uvBWGqENy88"
+}, {
+	"slug": "equipe/comp/2026-1/inscricao",
+	"target": "https://forms.gle/"
 }
 ]
