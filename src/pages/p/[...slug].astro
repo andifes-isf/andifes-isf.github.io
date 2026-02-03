@@ -1,11 +1,13 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import { fetchMeta } from "../../utils/fetchMeta";
 import Redirecionamento from "../../components/Redirecionamento.astro"
 
 export type Props = {
+  slug: string;
   target: string;
   permanent: boolean;
+  bridgeLinks: string[];
   meta: {
     title?: string;
     description?: string;
@@ -15,26 +17,52 @@ export type Props = {
 
 export async function getStaticPaths() {
   const permalinks = await getCollection("permalinks");
-  return await Promise.all(permalinks.map(async ({ id, data }) => {
-    const meta = await fetchMeta(data.target)
-    let finalTarget;
+  const permalinkMap = new Map(permalinks.map(p => [p.data.slug, p]));
 
+  return await Promise.all(permalinks.map(async ({ id, data }) => {
+    let finalTarget = data.target;
+    let permanent = data.permanent;
+    const bridgeLinks: string[] = [];
+    
+    // Crawl through bridge links
+    while (finalTarget.startsWith("/p/")) {
+      const slug = finalTarget.substring(3); // Remove "/p/"
+      const nextLink = permalinkMap.get(slug);
+      
+      if (!nextLink) {
+        // Dead link, stop crawling
+        break;
+      }
+      
+      bridgeLinks.push(finalTarget);
+      
+      // If any intermediate link is not permanent, final result is not permanent
+      if (!nextLink.data.permanent) {
+        permanent = false;
+      }
+      
+      finalTarget = nextLink.data.target;
+    }
+
+    const meta = import.meta.env.PROD ? await fetchMeta(finalTarget) : {}
+
+    // Add UTM parameter if it's an external URL
     try {
-      const targetUrl = new URL(data.target);
+      const targetUrl = new URL(finalTarget);
       targetUrl.searchParams.set("utm_source", "conteudo.redeisf.pro.br");
       finalTarget = targetUrl.toString();
     } catch (err) {
-      finalTarget = data.target;
+      // Not a valid URL or relative path, keep as is
     }
 
     return {
       params: { slug: data.slug },
-      props: { target: finalTarget, permanent: data.permanent, meta },
+      props: { slug: data.slug, target: finalTarget, permanent, bridgeLinks, meta },
     }
   }));
 }
 
-const { target, permanent, meta } = Astro.props;
+const { slug, target, permanent, bridgeLinks, meta } = Astro.props;
 const redirectType = permanent ? "permanente" : "temporário";
 ---
 <!DOCTYPE html>
@@ -59,7 +87,17 @@ const redirectType = permanent ? "permanente" : "temporário";
     </Fragment>
 
     <Fragment slot="description">
-      Se você não for redirecionado, <a href={target}>clique aqui</a> ou copie manualmente o endereço <output>{target}</output>.
+      Se você não for redirecionado, <a href={target}>clique aqui</a> ou copie manualmente o endereço <span><strong><output>{target}</output></strong></span>.
+    </Fragment>
+
+    <Fragment slot="bridge-links">
+      {bridgeLinks.length > 0 && (<>
+            <li>/p/{slug}</li>
+            {bridgeLinks.map(link => (
+              <li>{link}</li>
+            ))}
+            <li>{target}</li>
+      </>)}
     </Fragment>
   </Redirecionamento>
 </body>

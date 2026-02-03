@@ -2,7 +2,9 @@ import { defineCollection, z } from "astro:content";
 import { file } from 'astro/loaders';
 
 const permalinksCollection = defineCollection({
-  loader: file("src/content/permalinks.json"),
+  loader: file("src/content/permalinks.json", {
+    parser: fileContent => JSON.parse(fileContent.replace(/\/\*[\s\S]*?\*\//g, ''))
+  }),
   schema: z.object({
     permanent: z.boolean().default(false),
     slug: z.string(),

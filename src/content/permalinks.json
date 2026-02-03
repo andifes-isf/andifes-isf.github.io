@@ -30,7 +30,7 @@
 	"slug": "equipe/comp/2026-1/inscricao",
 	"target": "https://forms.gle/Z4SMAjVcHDKeo19f6"
 },
-// ### CREDENCIAMENTOS ###
+/* ### CREDENCIAMENTOS ### */
 {
 	"permanent": true,
 	"slug": "credenciamentos",
@@ -67,7 +67,7 @@
 	"target": "https://docs.google.com/document/u/1/d/e/2PACX-1vSGTkar_Xi-x9XzfR0BbVvfMhJpDoM0by-3lEFoIPxxA58wV6ZZ7kPsglYJkVVVFa3FOlVfcl8WqlhG/pub"
 },
 
-// ### OFERTA COLETIVA ###
+/* ### OFERTA COLETIVA ### */
 {
 	"permanent": true,
 	"slug": "oc/interesse",
@@ -116,7 +116,7 @@
 	"slug": "oc/relatorio",
 	"target": "https://app.powerbi.com/view?r=eyJrIjoiMzc5ZjBhMDAtYzFjMy00ZmM2LWFmMTctOTg2NDNkOTAwZDVmIiwidCI6IjVjYTI0MTc0LWYxMzgtNGZlMS1iODY2LWFjZWFlOTRiZjk5MiJ9&pageName=9601065c07ecf37fa2d2"
 }, 
-// ### OFERTA COLETIVA - 2024/2 ###
+/* ### OFERTA COLETIVA - 2024/2 ### */
 {
 	"permanent": true,
 	"slug": "oc/2024-2/acompanhamento-adesao",
@@ -126,7 +126,7 @@
 	"slug": "oc/2024-2/feedback",
 	"target": "https://forms.gle/RQQHnqNSQKb5Jv7m7"
 }, 
-// ### OFERTA COLETIVA - 2025/1 ###
+/* ### OFERTA COLETIVA - 2025/1 ### */
 {
 	"permanent": true,
 	"slug": "oc/2025-1/calendario",
@@ -169,7 +169,7 @@
 	"slug": "oc/2025-1/feedback",
 	"target": "https://forms.gle/Kihrjo5dfghBEAd27"
 }, 
-// ### OFERTA COLETIVA - 2025/2 ###
+/* ### OFERTA COLETIVA - 2025/2 ### */
 {
 	"permanent": true,
 	"slug": "oc/2025-2/calendario",
@@ -191,15 +191,15 @@
 	"slug": "oc/2025-2/feedback",
 	"target": "https://forms.gle/JndFDsj1BvgUsBAz8"
 }, 
-// ### OFERTA COLETIVA - 2026/1 ###
+/* ### OFERTA COLETIVA - 2026/1 ### */
 
-// ### OFERTA LOCAL ###
+/* ### OFERTA LOCAL ### */
 {
 	"permanent": true,
 	"slug": "ol/form-relatorio",
 	"target": "https://forms.office.com/r/iPb0st5TT2"
 }, 
-// ### OFERTA EM FLUXO CONTÍNUO ###
+/* ### OFERTA EM FLUXO CONTÍNUO ### */
 {
 	"permanent": true,
 	"slug": "ofc/2025/por/cursos-disponiveis",
