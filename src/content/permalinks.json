@@ -74,10 +74,10 @@
 	"target": "https://docs.google.com/forms/d/e/1FAIpQLScLUJkDzq0FNHE_b03uquGkG-FJG4VKrAAeIs26Pc0qp2lPiQ/viewform"
 }, {
 	"slug": "oc/calendario",
-	"target": "/p/oc/2025-2/calendario"
+	"target": "/p/oc/2026-1/calendario"
 }, {
 	"slug": "oc/form-adesao",
-	"target": "/p/oc/2025-2/form-adesao"
+	"target": "/p/oc/2026-1/form-adesao"
 }, {
 	"slug": "oc/form-adesao.",
 	"target": "/p/oc/form-adesao"
@@ -192,7 +192,19 @@
 	"target": "https://forms.gle/JndFDsj1BvgUsBAz8"
 }, 
 /* ### OFERTA COLETIVA - 2026/1 ### */
-
+{
+	"permanent": true,
+	"slug": "oc/2026-1/calendario",
+	"target": "https://sinufscar.sharepoint.com/:b:/s/GESTOISF/IQACF2S3hfX7Qr-NGXxeDSX8AWXV56arnfSQbRWhJqkAVS0?e=N17mcZ"
+}, {
+	"permanent": true,
+	"slug": "oc/2026-1/form-adesao",
+	"target": "https://forms.office.com/r/wz4wVYRJU8"
+}, {
+	"permanent": true,
+	"slug": "oc/2026-1/acompanhamento-adesao",
+	"target": "https://sinufscar.sharepoint.com/:x:/s/GESTOISF/IQD9GZDpLwJ_Spx5PQe9CuM0AZknDAUlbneayAC1710v5qM?e=I1ot0Y"
+}, 
 /* ### OFERTA LOCAL ### */
 {
 	"permanent": true,
