@@ -86,28 +86,28 @@
 	"target": "/p/oc/2026-1/acompanhamento-adesao"
 }, {
 	"slug": "oc/form-inscr/ALE",
-	"target": "/p/oc/2025-1/form-inscr/ALE"
+	"target": "/p/oc/2026-1/form-inscr/ALE"
 }, {
 	"slug": "oc/form-inscr/ESP",
-	"target": "/p/oc/2025-1/form-inscr/ESP"
+	"target": "/p/oc/2026-1/form-inscr/ESP"
 }, {
 	"slug": "oc/form-inscr/FRA",
-	"target": "/p/oc/2025-1/form-inscr/FRA"
+	"target": "/p/oc/2026-1/form-inscr/FRA"
 }, {
 	"slug": "oc/form-inscr/ING",
-	"target": "/p/oc/2025-1/form-inscr/ING"
+	"target": "/p/oc/2026-1/form-inscr/ING"
 }, {
 	"slug": "oc/form-inscr/ITA",
-	"target": "/p/oc/2025-1/form-inscr/ITA"
+	"target": "/p/oc/2026-1/form-inscr/ITA"
 }, {
 	"slug": "oc/form-inscr/JAP",
-	"target": "/p/oc/2025-1/form-inscr/JAP"
+	"target": "/p/oc/2026-1/form-inscr/JAP"
 }, {
 	"slug": "oc/form-inscr/POR",
-	"target": "/p/oc/2025-1/form-inscr/POR"
+	"target": "/p/oc/2026-1/form-inscr/POR"
 }, {
 	"slug": "oc/quadro-de-vagas",
-	"target": "/p/oc/2025-2/quadro-de-vagas"
+	"target": "/p/oc/2026-1/quadro-de-vagas"
 }, {
 	"slug": "oc/feedback",
 	"target": "/p/oc/2025-2/feedback"
@@ -204,7 +204,32 @@
 	"permanent": true,
 	"slug": "oc/2026-1/acompanhamento-adesao",
 	"target": "https://sinufscar.sharepoint.com/:x:/s/GESTOISF/IQD9GZDpLwJ_Spx5PQe9CuM0AZknDAUlbneayAC1710v5qM?e=6mpnZ8&nav=MTVfezgzOTY4QzQ1LUFCRkEtNDUwRi1CRTg4LURFRjI3NzI1MUNBMH0"
-}, 
+}, {
+	"slug": "oc/2026-1/form-inscr/ALE",
+	"target": "https://forms.gle/LqJw5tuGeCAwUecVA"
+}, {
+	"slug": "oc/2026-1/form-inscr/ESP",
+	"target": "https://forms.gle/aqZw8RgZmvkbQRYZ8"
+}, {
+	"slug": "oc/2026-1/form-inscr/FRA",
+	"target": "https://forms.gle/c1dGMyd1g3g52wLt7"
+}, {
+	"slug": "oc/2026-1/form-inscr/ING",
+	"target": "https://forms.gle/jcP9PakK1XY2AjG9A"
+}, {
+	"slug": "oc/2026-1/form-inscr/ITA",
+	"target": "https://forms.gle/53wRBmNfT31PmPHZA"
+}, {
+	"slug": "oc/2026-1/form-inscr/JAP",
+	"target": "https://forms.gle/xkcrcNp9GmHEFLvu8"
+}, {
+	"slug": "oc/2026-1/form-inscr/POR",
+	"target": "https://forms.gle/pv3Y6xUi6oiHRYVt9"
+}, {
+	"permanent": true,
+	"slug": "oc/2026-1/quadro-de-vagas",
+	"target": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSfwCpC2NqMOl-R4j4i6lQF5LONHvAJkkUsWfQNIsd4ghB1S43PEx_9oOffTzBZefOekvVpBFyWhbjR/pubhtml?gid=0&single=true"
+},
 /* ### OFERTA LOCAL ### */
 {
 	"permanent": true,
