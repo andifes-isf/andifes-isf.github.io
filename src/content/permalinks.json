@@ -229,7 +229,16 @@
 	"permanent": true,
 	"slug": "oc/2026-1/quadro-de-vagas",
 	"target": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSfwCpC2NqMOl-R4j4i6lQF5LONHvAJkkUsWfQNIsd4ghB1S43PEx_9oOffTzBZefOekvVpBFyWhbjR/pubhtml?gid=0&single=true"
-},
+}, {
+	"slug": "autoavaliacao/JAP/JFAAM",
+	"target": "https://forms.office.com/r/mHARNNjQGh"
+}, {
+	"slug": "autoavaliacao/JAP/JFAP",
+	"target": "https://forms.office.com/r/87eKZb6TnH"
+}, {
+	"slug": "autoavaliacao/JAP/JFAV",
+	"target": "https://forms.office.com/r/UiXGs5nwvj"
+}
 /* ### OFERTA LOCAL ### */
 {
 	"permanent": true,
