@@ -13,6 +13,7 @@ const { t, n } = Astro.props;
 const questions = getQuestions(t);
 const customCourses = await getCustomCourses()
 const [courseLang, courseId, courseQuestionIndex] = (typeof n === "string") ? n.split("-") : [];
+const isCustomCourse = !!courseLang
 const course = courseLang ? customCourses.find(x => x.id === `${courseLang}-${courseId}`) : null;
 const pergunta = courseQuestionIndex ? course?.data.perguntas[+courseQuestionIndex - 1] : null
 
@@ -65,6 +66,7 @@ const description = Number.isInteger(+n) ? questions[+n - 1].description : pergu
 	const dataTag = document.getElementById("data") as HTMLDivElement;
 	if (!dataTag) throw new Error("Data tag not found");
 	const { area, id, courseId, courseData } = dataTag.dataset as { area: AreasType; id: unknown; courseId: string | null; courseData: string | null };
+	const isCustomCourse = !!courseData
 
 	if (!area || !id) throw new Error("Invalid page data.");
 
@@ -118,21 +120,21 @@ const description = Number.isInteger(+n) ? questions[+n - 1].description : pergu
 		.filter((x) => !!x);
 
 	const nextPage = nextPathOptions.length
-		? ['pergunta', courseId, shuffle(nextPathOptions).at(0)?.pergunta.id].filter(Boolean).join("-")
+		? ['pergunta', courseId, isCustomCourse ? (+id + 1) : shuffle(nextPathOptions).at(0)?.pergunta.id].filter(Boolean).join("-")
 		: "fim-perguntas";
 
 	const btns = document.querySelectorAll(
 		"a[data-continue]",
 	) as NodeListOf<HTMLAnchorElement>;
 	btns.forEach((btn) => {
-		btn.href = `${parentPathname}/${nextPage}`;
+		btn.href = `${parentPathname}/${btn.dataset.continue === "N" ? "fim-perguntas" : nextPage}`;
 		btn.classList.remove("disabled");
 		btn.addEventListener("click", (evt) => {
 			evt.preventDefault();
 			const elem = evt.target as HTMLAnchorElement;
 			const { continue: cont } = elem.dataset;
 
-			pathHistory.push({ area, id: +id, resposta: cont as "S" | "N" });
+			pathHistory.push({ area, id: +id, resposta: cont as "S" | "N", perguntaI18nId: courseData ? JSON.parse(courseData).perguntas[+id-1].perguntaI18nId : undefined });
 			setPathHistory(pathHistory);
 			window.location.replace(elem.href);
 		});

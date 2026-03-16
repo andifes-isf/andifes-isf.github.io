@@ -1,4 +1,106 @@
 [{
+    "id": "ja-MULTI",
+    "idiomaI18nId": "ja",
+    "cursoI18nId": "J-MULTI",
+    "nivel": "A0",
+    "perguntas": [{
+        "categoria": "understanding",
+        "subcategoria": "reading",
+        "perguntaI18nId": "hiragana_all",
+        "cursoResultado": "JFAPC"
+    }, {
+        "categoria": "speaking",
+        "subcategoria": "spoken_interaction",
+        "perguntaI18nId": "basic_greetings",
+        "cursoResultado": "JFAPC"
+    }, {
+        "categoria": "speaking",
+        "subcategoria": "spoken_interaction",
+        "perguntaI18nId": "thanks_apologies",
+        "cursoResultado": "JFAPC"
+    }, {
+        "categoria": "speaking",
+        "subcategoria": "spoken_interaction",
+        "perguntaI18nId": "language_comprehension",
+        "cursoResultado": "JFAPC"
+    }, {
+        "categoria": "speaking",
+        "subcategoria": "spoken_interaction",
+        "perguntaI18nId": "ask_how_to_say",
+        "cursoResultado": "JFAPC"
+    }, {
+        "categoria": "speaking",
+        "subcategoria": "spoken_production",
+        "perguntaI18nId": "self_introduction_basic",
+        "cursoResultado": "JFAPC"
+    }, {
+        "categoria": "writing",
+        "subcategoria": null,
+        "perguntaI18nId": "write_name_katakana",
+        "cursoResultado": "JFAPC"
+    }, {
+        "categoria": "speaking",
+        "subcategoria": "spoken_production",
+        "perguntaI18nId": "talk_about_family",
+        "cursoResultado": "JFAPC"
+    }, {
+        "categoria": "speaking",
+        "subcategoria": "spoken_interaction",
+        "perguntaI18nId": "food_drink_preferences",
+        "cursoResultado": "JFAAM"
+    }, {
+        "categoria": "speaking",
+        "subcategoria": "spoken_interaction",
+        "perguntaI18nId": "order_fast_food",
+        "cursoResultado": "JFAAM"
+    }, {
+        "categoria": "understanding",
+        "subcategoria": "listening",
+        "perguntaI18nId": "understand_house_layout",
+        "cursoResultado": "JFAAM"
+    }, {
+        "categoria": "speaking",
+        "subcategoria": "spoken_production",
+        "perguntaI18nId": "talk_about_residence",
+        "cursoResultado": "JFAAM"
+    }, {
+        "categoria": "speaking",
+        "subcategoria": "spoken_production",
+        "perguntaI18nId": "say_someone_is_at_location",
+        "cursoResultado": "JFAAM"
+    }, {
+        "categoria": "speaking",
+        "subcategoria": "spoken_production",
+        "perguntaI18nId": "describe_object_person_location",
+        "cursoResultado": "JFAAM"
+    }, {
+        "categoria": "understanding",
+        "subcategoria": "reading",
+        "perguntaI18nId": "katakana_all",
+        "cursoResultado": "JFAAM"
+    }, {
+        "categoria": "speaking",
+        "subcategoria": "spoken_production",
+        "perguntaI18nId": "talk_about_week_plans",
+        "cursoResultado": "JFAP"
+    }, {
+        "categoria": "speaking",
+        "subcategoria": "spoken_production",
+        "perguntaI18nId": "say_birthday_date",
+        "cursoResultado": "JFAP"
+    }, {
+        "categoria": "speaking",
+        "subcategoria": "spoken_production",
+        "perguntaI18nId": "talk_about_hobbies",
+        "cursoResultado": "JFAP"
+    }, {
+        "categoria": "speaking",
+        "subcategoria": "spoken_interaction",
+        "perguntaI18nId": "invite_to_event",
+        "cursoResultado": "JFAV"
+    }]
+}, {
+    "disabled": true,
     "id": "ja-JFACJ",
     "idiomaI18nId": "ja",
     "cursoI18nId": "JFACJ",
@@ -73,6 +175,7 @@
         "perguntaI18nId": "invitation"
     }]
 }, {
+    "disabled": true,
     "id": "ja-JFAMRJ",
     "idiomaI18nId": "ja",
     "cursoI18nId": "JFAMRJ",
@@ -123,6 +226,7 @@
         "perguntaI18nId": "fast_food_order"
     }]
 }, {
+    "disabled": true,
     "id": "ja-JFAPC",
     "idiomaI18nId": "ja",
     "cursoI18nId": "JFAPC",

@@ -18,7 +18,9 @@ const parentPath = getLangUrl(Astro.url.pathname, lang).split("/").slice(0, -1);
 const inicioPerguntasUrl = '/'+[...parentPath, "inicio-perguntas"].join("/");
 
 const customCoursesData = await getCustomCourses().then(entries => {
-	return entries.reduce((prev, cur) => ({
+	return entries
+		.filter((entry) => !entry.data.disabled)
+		.reduce((prev, cur) => ({
 		...prev,
 		[cur.data.idiomaI18nId]: [
 			...(prev[cur.data.idiomaI18nId] || []),
@@ -110,10 +112,15 @@ const customCoursesData = await getCustomCourses().then(entries => {
 			const langCodeChoosen = langSelectedInput.value;
 
 			if (data.customCoursesData[langCodeChoosen]) {
-				languagesContainer.innerHTML = [
+				const courses = [
 					// { id: "default", title: t("testtool.custom_course_selection.default_option") },
 					...data.customCoursesData[langCodeChoosen],
-				].map(course => `
+				]
+
+				if (courses.length === 1) {
+					sessionStorage.setItem("curso", courses[0].id);
+				} else {
+					languagesContainer.innerHTML = courses.map(course => `
 					<label>
 						<input
 							type="radio"
@@ -123,9 +130,10 @@ const customCoursesData = await getCustomCourses().then(entries => {
 						/>
 						${course.title}
 					</label>
-				`).join("");
-
-				coursesList.style.display = "block";
+					`).join("");
+					
+					coursesList.style.display = "block";
+				}
 			} else {
 				languagesContainer.innerHTML = "";
 				coursesList.style.display = "none";

@@ -291,10 +291,18 @@ const t = useTranslations(lang);
           document.getElementById("average").closest("li").style.display =
             "none";
           document
-            .getElementById("result")
-            .closest("li")
-            .removeAttribute("style");
-          document.getElementById("result").textContent = data.results.result;
+            .getElementById("result").closest("li").style.display =
+            "none";
+
+          for (const result of Object.entries(data.results.customResult)) {
+            const item = document.getElementById("result_listening").closest("li").cloneNode(true)
+            item.style.display = "flex"
+            item.querySelector("span:first-child").textContent = result[0]
+            item.querySelector("span:last-child").textContent = result[1]
+            document.querySelector("div.results ul").appendChild(item)
+          }
+            
+          // document.getElementById("result").textContent = data.results.result;
         } else {
           document.getElementById("result_listening").textContent =
             data.results.listening;

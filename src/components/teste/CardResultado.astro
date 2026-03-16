@@ -18,6 +18,15 @@ const perfilUrl = "/" + [...parentPath, "dados-perfil"].join("/");
 const customCoursesData = await getCustomCourses().then(entries => {
 	return entries.reduce((prev, cur) => ({ ...prev, [cur.id]: {
 		title: t(`testtool.custom_course.${cur.data.idiomaI18nId}.${cur.data.cursoI18nId}.title`),
+		resultados: cur.data.perguntas
+			.map(p => p.cursoResultado)
+			.filter((r, i, a) => a.indexOf(r) === i)
+			.reduce((prev, resultado) => ({
+				...prev,
+				[resultado || ""]: cur.data.perguntas
+					.filter((p, i) => p.cursoResultado === resultado || cur.data.perguntas.find((p2, i2) => i2 < i && p2.cursoResultado === resultado))
+					.map(p => p.perguntaI18nId)
+			}), {}),
  	}}), {});
 })
 ---
@@ -155,9 +164,10 @@ const customCoursesData = await getCustomCourses().then(entries => {
 	const customCourse = sessionStorage.getItem("curso");
 	const data = JSON.parse(document.getElementById("custom-courses-data").textContent);
 	if (customCourse && data.customCoursesData[customCourse]) {
+		const courseData = data.customCoursesData[customCourse]
 		const resultado = getResultsCourse(t);
 
-		window.alert(JSON.stringify(resultado));
+		console.log(JSON.stringify(resultado), { courseData:data.customCoursesData});
 
 		const nameElem = document.querySelector("h3 span") as HTMLSpanElement;
 		if (!nameElem) throw new Error("Name element not found.");
@@ -199,33 +209,42 @@ const customCoursesData = await getCustomCourses().then(entries => {
 		nameElem.innerText = profileData.name;
 		nameElem.classList.remove("skeleton");
 
-		languageElem.innerText = data.customCoursesData[customCourse].title;
+		languageElem.innerText = "Japonês";
 		languageElem.classList.remove("skeleton");
 		
 		let conclusionList = [] as string[];
 		const resultElemts = document.querySelectorAll(
 			"[data-result]",
 		) as NodeListOf<HTMLDivElement>;
-		for (const elem of resultElemts) {
-			const { result } = elem.dataset;
-			if (!result) throw new Error("Invalid result type.");
-			if (result !== "result") {
-				elem.closest(".row").style.display = "none";
-				continue
-			};
-			elem.closest(".row")?.removeAttribute("style")
-			elem.innerText = resultado[result] || "--";
-			elem.classList.remove("skeleton");
-			const [correct, total] = resultado[result].split("/")
-			const porcentage = +correct/+total
+		let firstRow, parentElement
 
-			conclusionList.push(
-				t(
-					`testtool.custom_course.result.${(porcentage > 0.5 ? "pass" : "fail")}`,
-				),
-			);
+		for (const elem of resultElemts) {
+			const row = elem.closest(".row")
+			if (!firstRow) {
+				firstRow = row?.outerHTML;
+				parentElement = row?.parentElement
+			}
+			if (row)
+				row.parentElement?.removeChild(row);
 		}
-		const conclusion = conclusionList.join(" ").trim() || t("testtool.result.fail");
+		let failed = true
+		let customResult = {}
+		for (const courseKey in courseData.resultados) {
+			console.log(courseKey)
+			if (parentElement) {
+				const passed = courseData.resultados[courseKey].includes(resultado.lastQuestion)
+				if (passed) failed = false
+				const row = new DOMParser().parseFromString(firstRow || "", "text/html").body.firstChild as HTMLDivElement;
+				const col1 = row.querySelector(".col-sm-7") as HTMLDivElement;
+				const col2 = row.querySelector(".col-sm-5") as HTMLDivElement;
+				col1.innerText = t(`testtool.custom_course.ja.${courseKey}.title`); // TODO: para outros idiomas além do japones
+				col2.innerText = passed ? "✅" : "❌️";
+				col2.classList.remove("skeleton");
+				customResult[col1.innerText] = col2.innerText
+				parentElement.appendChild(row);
+			}
+		}
+		const conclusion = failed ? t("testtool.result.fail") : t("testtool.result.JA.pass");
 		conclusionElem.innerText = conclusion;
 		conclusionElem.classList.remove("skeleton");
 
@@ -239,9 +258,10 @@ const customCoursesData = await getCustomCourses().then(entries => {
 				certificateElem.contentWindow!.loadData({
 					userName: profileData.name,
 					country: profileData.country,
-					language: data.customCoursesData[customCourse].title,
+					language: courseData.title,
 					results: {
 						result: resultado['result'],
+						customResult,
 					},
 					conclusion,
 					customCourse: true,
@@ -260,7 +280,7 @@ const customCoursesData = await getCustomCourses().then(entries => {
 			certificateElem.contentWindow!.print();
 		});
 
-		downloadElem.addEventListener("click", (evt) => {console.log(1)
+		downloadElem.addEventListener("click", (evt) => {
 			evt.preventDefault();
 			if (!loaded) setupIframe();
 			const img = certificateElem.contentWindow!.getImage();
@@ -353,11 +373,9 @@ const customCoursesData = await getCustomCourses().then(entries => {
 			if (!result) throw new Error("Invalid result type.");
 			elem.innerText = resultado[result] || "--";
 			elem.classList.remove("skeleton");
-			conclusionList.push(
-				t(
-					`testtool.result.${result as AreasType}.${(resultado[result] as LevelsType) || "below"}.conclusion`,
-				),
-			);
+			const key = `testtool.result.${result as AreasType}.${(resultado[result] as LevelsType) || "below"}.conclusion`
+			const text = t(key);
+			if (text !== key) conclusionList.push(text);
 		}
 		const conclusion = conclusionList.join(" ").trim() || t("testtool.result.fail");
 		conclusionElem.innerText = conclusion;

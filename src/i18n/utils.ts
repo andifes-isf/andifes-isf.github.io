@@ -10,7 +10,7 @@ export function useTranslations(lang: keyof typeof ui) {
     return function t(key: keyof typeof ui[typeof lang], data?: string[]) {
         const text = key in ui[lang] ? ui[lang][key] : ui[defaultLang][key]
         // return typeof text === 'function' ? text(data || []) : text; // Para quando precisa fazer interpolação de dados no texto, mas deve-se evitar
-        return text
+        return text === undefined ? key : text
     }
 }
 

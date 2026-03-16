@@ -85,6 +85,10 @@ export const ui = {
         "testtool.custom_course.ja.JFACJ.title": "Japonês para fins acadêmicos: Conhecendo o Japão",
         "testtool.custom_course.ja.JFAMRJ.title": "Japonês para fins acadêmicos: Minha Rotina no Japão",
         "testtool.custom_course.ja.JFAPC.title": "Japonês para fins acadêmicos: Primeiros contatos",
+        "testtool.custom_course.ja.JFAAM.title": "Japonês para Fins Acadêmicos: Alimentação e Moradia",
+        "testtool.custom_course.ja.JFAP.title": "Japonês para Fins Acadêmicos: Passatempos",
+        "testtool.custom_course.ja.JFAV.title": "Japonês para Fins Acadêmicos: Viagens",
+        "testtool.custom_course.ja.J-MULTI.title": "Japonês para fins acadêmicos: Primeiros contatos / Alimentação e Moradia / Passatempos / Viagens",
         
         "testtool.custom_course.ja.question.speaking.spoken_interaction.basic_greetings.description": "Sou capaz de realizar cumprimentos básicos do dia a dia com naturalidade, utilizando expressões como 'bom dia', 'boa tarde' e 'boa noite' de forma adequada a cada contexto e situação social.",
         "testtool.custom_course.ja.question.speaking.spoken_interaction.thanks_apologies.description": "Tenho a habilidade de agradecer e pedir desculpas de maneira apropriada e cordial, demonstrando respeito e consideração em diversas interações cotidianas.",
@@ -108,6 +112,23 @@ export const ui = {
         "testtool.custom_course.ja.question.understanding.reading.katakana_most.description": "Possuo aptidão para ler a maioria das palavras escritas em katakana, facilitando a compreensão de termos estrangeiros e expressões técnicas presentes na escrita japonesa.",
         "testtool.custom_course.ja.question.understanding.reading.katakana_some.description": "Consigo identificar e ler algumas palavras em katakana, o que me auxilia no reconhecimento de termos e nomes próprios que utilizam esse sistema de escrita.",
 
+        "testtool.custom_course.ja.question.understanding.reading.hiragana_all.description": "Sou capaz de reconhecer e ler todos os caracteres do sistema hiragana, o que me permite identificar palavras básicas e compreender textos simples escritos nesse alfabeto.",
+        "testtool.custom_course.ja.question.writing.null.write_name_katakana.description": "Sou capaz de escrever meu próprio nome utilizando o sistema katakana, respeitando as regras básicas desse sistema de escrita.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.talk_about_week_plans.description": "Consigo falar em japonês sobre meus planos para a semana, mencionando atividades do dia a dia e os horários aproximados em que pretendo realizá-las.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.self_introduction_basic.description": "Consigo me apresentar em japonês de forma simples, fornecendo informações básicas como meu nome, de onde venho e outras informações pessoais iniciais.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.talk_about_residence.description": "Consigo falar de forma simples sobre minha residência em japonês, mencionando se moro em casa, apartamento ou outro tipo de moradia.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.food_drink_preferences.description": "Tenho a capacidade de perguntar e responder sobre preferências de comidas e bebidas em japonês, participando de diálogos simples sobre gostos pessoais.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.describe_object_person_location.description": "Consigo descrever de forma simples onde pessoas e objetos estão localizados, utilizando expressões básicas de posição em japonês.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.ask_how_to_say.description": "Sou capaz de perguntar como se diz determinada palavra ou expressão em japonês e compreender a resposta recebida.",
+        "testtool.custom_course.ja.question.understanding.reading.katakana_all.description": "Sou capaz de reconhecer e ler todos os caracteres do sistema katakana, identificando palavras e termos frequentemente utilizados nesse sistema de escrita.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.invite_to_event.description": "Sou capaz de convidar alguém em japonês para participar de um evento ou atividade, especificando informações como local e horário do encontro.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.say_birthday_date.description": "Sou capaz de dizer em japonês a data do meu aniversário, utilizando corretamente as expressões de dia, mês e números.",
+        "testtool.custom_course.ja.question.speaking.spoken_interaction.order_fast_food.description": "Sou capaz de fazer um pedido em japonês em um restaurante fast-food, comunicando de forma clara o que desejo consumir.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.say_someone_is_at_location.description": "Sou capaz de dizer em japonês se uma pessoa está ou não em determinado local, utilizando expressões simples de localização.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.talk_about_family.description": "Consigo falar de forma simples sobre minha família em japonês, mencionando membros familiares e fornecendo informações básicas sobre eles.",
+        "testtool.custom_course.ja.question.speaking.spoken_production.talk_about_hobbies.description": "Consigo falar de forma simples em japonês sobre meus hobbies e atividades que gosto de realizar no tempo livre.",
+        "testtool.custom_course.ja.question.understanding.listening.understand_house_layout.description": "Sou capaz de ouvir e compreender, em japonês, uma explicação simples sobre a estrutura de uma residência, como a quantidade de cômodos ou a disposição dos espaços.",
+
         "testtool.end_questions.title": "Tudo pronto!",
         "testtool.end_questions.description": "Você acabou de avaliar:",
         "testtool.end_questions.call_to_action": "Vamos ver os resultados?",
@@ -129,6 +150,7 @@ export const ui = {
         "testtool.results.update_profile": "Atualizar perfil",
 
         "testtool.result.fail": "Atualmente, o teste indica que você pode ter dificuldades em compreensão e produção na língua avaliada. No entanto, isso é apenas o começo! Com prática e dedicação, você pode desenvolver suas habilidades e avançar nos níveis. Considere iniciar com conteúdos básicos e, se possível, buscar apoio de um professor ou materiais educativos.",
+        "testtool.result.JA.pass": "Estes são os cursos de japonês para fins acadêmicos disponíveis para você. Utilize este certificado como garantia do seu nível de proficiência e aproveite os cursos para aprimorar suas habilidades linguísticas!",
 
         "testtool.result.understanding.listening.below.conclusion": "Indivíduos neste nível têm dificuldade em entender até mesmo frases faladas simples e geralmente dependem de gestos.",
         "testtool.result.understanding.listening.A1.conclusion": "Indivíduos neste nível conseguem entender instruções básicas e perguntas simples.",
@@ -359,6 +381,31 @@ export const ui = {
         "testtool.certificate.scores": "Scores",
         "testtool.certificate.logo_andifes_isf": "Andifes logo next to the Idiomas Without Borders program logo",
         "testtool.certificate.learn_more": "Learn more about the Andifes-IsF group at",
+
+"testtool.custom_course.ja.JFAAM.title": "Japanese for Academic Purposes: Food and Housing",
+"testtool.custom_course.ja.JFAP.title": "Japanese for Academic Purposes: Hobbies",
+"testtool.custom_course.ja.JFAV.title": "Japanese for Academic Purposes: Travel",
+"testtool.custom_course.ja.J-MULTI.title": "Japanese for Academic Purposes: First Contacts / Food and Housing / Hobbies / Travel",
+
+"testtool.custom_course.ja.question.understanding.reading.hiragana_all.description": "I am able to recognize and read all characters of the hiragana system, which allows me to identify basic words and understand simple texts written in this alphabet.",
+"testtool.custom_course.ja.question.writing.null.write_name_katakana.description": "I am able to write my own name using the katakana writing system, following the basic rules of this script.",
+"testtool.custom_course.ja.question.speaking.spoken_production.talk_about_week_plans.description": "I can talk in Japanese about my plans for the week, mentioning everyday activities and the approximate times I intend to carry them out.",
+"testtool.custom_course.ja.question.speaking.spoken_production.self_introduction_basic.description": "I can introduce myself in Japanese in a simple way, providing basic information such as my name, where I come from, and other initial personal details.",
+"testtool.custom_course.ja.question.speaking.spoken_production.talk_about_residence.description": "I can talk in a simple way about my residence in Japanese, mentioning whether I live in a house, apartment, or another type of dwelling.",
+"testtool.custom_course.ja.question.speaking.spoken_interaction.food_drink_preferences.description": "I am able to ask and answer questions about food and drink preferences in Japanese, participating in simple conversations about personal tastes.",
+"testtool.custom_course.ja.question.speaking.spoken_production.describe_object_person_location.description": "I can describe in a simple way where people and objects are located, using basic expressions of position in Japanese.",
+"testtool.custom_course.ja.question.speaking.spoken_interaction.ask_how_to_say.description": "I am able to ask how to say a particular word or expression in Japanese and understand the response given.",
+"testtool.custom_course.ja.question.understanding.reading.katakana_all.description": "I am able to recognize and read all characters of the katakana system, identifying words and terms frequently written in this script.",
+"testtool.custom_course.ja.question.speaking.spoken_interaction.invite_to_event.description": "I am able to invite someone in Japanese to participate in an event or activity, specifying information such as the meeting place and time.",
+"testtool.custom_course.ja.question.speaking.spoken_production.say_birthday_date.description": "I am able to say my birthday date in Japanese, correctly using expressions for day, month, and numbers.",
+"testtool.custom_course.ja.question.speaking.spoken_interaction.order_fast_food.description": "I am able to place an order in Japanese at a fast-food restaurant, clearly communicating what I want to consume.",
+"testtool.custom_course.ja.question.speaking.spoken_production.say_someone_is_at_location.description": "I am able to say in Japanese whether a person is or is not in a specific location, using simple location expressions.",
+"testtool.custom_course.ja.question.speaking.spoken_production.talk_about_family.description": "I can talk in a simple way about my family in Japanese, mentioning family members and providing basic information about them.",
+"testtool.custom_course.ja.question.speaking.spoken_production.talk_about_hobbies.description": "I can talk in a simple way in Japanese about my hobbies and activities that I enjoy doing in my free time.",
+"testtool.custom_course.ja.question.understanding.listening.understand_house_layout.description": "I am able to listen to and understand, in Japanese, a simple explanation about the layout of a residence, such as the number of rooms or the arrangement of spaces.",
+
+"testtool.result.JA.pass": "These are the Japanese for Academic Purposes courses available to you. Use this certificate as proof of your proficiency level and take advantage of the courses to improve your language skills!"
+
     },
     es: {
         "language.current.code": "es",
@@ -538,7 +585,32 @@ export const ui = {
         "testtool.certificate.completed": "ha completado una prueba de autoevaluación de habilidades lingüísticas en",
         "testtool.certificate.scores": "Resultados",
         "testtool.certificate.logo_andifes_isf": "Logo de Andifes junto al logo del programa Idiomas Sin Fronteras",
-        "testtool.certificate.learn_more": "Aprenda más sobre el grupo Andifes-IsF en"
+        "testtool.certificate.learn_more": "Aprenda más sobre el grupo Andifes-IsF en",
+
+    "testtool.custom_course.ja.JFAAM.title": "Japonés para Fines Académicos: Alimentación y Vivienda",
+"testtool.custom_course.ja.JFAP.title": "Japonés para Fines Académicos: Pasatiempos",
+"testtool.custom_course.ja.JFAV.title": "Japonés para Fines Académicos: Viajes",
+"testtool.custom_course.ja.J-MULTI.title": "Japonés para Fines Académicos: Primeros Contactos / Alimentación y Vivienda / Pasatiempos / Viajes",
+
+"testtool.custom_course.ja.question.understanding.reading.hiragana_all.description": "Soy capaz de reconocer y leer todos los caracteres del sistema hiragana, lo que me permite identificar palabras básicas y comprender textos simples escritos en este alfabeto.",
+"testtool.custom_course.ja.question.writing.null.write_name_katakana.description": "Soy capaz de escribir mi propio nombre utilizando el sistema de escritura katakana, respetando las reglas básicas de este sistema.",
+"testtool.custom_course.ja.question.speaking.spoken_production.talk_about_week_plans.description": "Puedo hablar en japonés sobre mis planes para la semana, mencionando actividades cotidianas y los horarios aproximados en los que pienso realizarlas.",
+"testtool.custom_course.ja.question.speaking.spoken_production.self_introduction_basic.description": "Puedo presentarme en japonés de forma sencilla, proporcionando información básica como mi nombre, de dónde vengo y otros datos personales iniciales.",
+"testtool.custom_course.ja.question.speaking.spoken_production.talk_about_residence.description": "Puedo hablar de forma sencilla sobre mi residencia en japonés, mencionando si vivo en una casa, apartamento u otro tipo de vivienda.",
+"testtool.custom_course.ja.question.speaking.spoken_interaction.food_drink_preferences.description": "Soy capaz de preguntar y responder sobre preferencias de comidas y bebidas en japonés, participando en diálogos simples sobre gustos personales.",
+"testtool.custom_course.ja.question.speaking.spoken_production.describe_object_person_location.description": "Puedo describir de forma sencilla dónde se encuentran las personas y los objetos, utilizando expresiones básicas de posición en japonés.",
+"testtool.custom_course.ja.question.speaking.spoken_interaction.ask_how_to_say.description": "Soy capaz de preguntar cómo se dice una palabra o expresión en japonés y comprender la respuesta recibida.",
+"testtool.custom_course.ja.question.understanding.reading.katakana_all.description": "Soy capaz de reconocer y leer todos los caracteres del sistema katakana, identificando palabras y términos que se utilizan con frecuencia en este sistema de escritura.",
+"testtool.custom_course.ja.question.speaking.spoken_interaction.invite_to_event.description": "Soy capaz de invitar a alguien en japonés a participar en un evento o actividad, especificando información como el lugar y la hora del encuentro.",
+"testtool.custom_course.ja.question.speaking.spoken_production.say_birthday_date.description": "Soy capaz de decir en japonés la fecha de mi cumpleaños, utilizando correctamente las expresiones de día, mes y números.",
+"testtool.custom_course.ja.question.speaking.spoken_interaction.order_fast_food.description": "Soy capaz de hacer un pedido en japonés en un restaurante de comida rápida, comunicando claramente lo que deseo consumir.",
+"testtool.custom_course.ja.question.speaking.spoken_production.say_someone_is_at_location.description": "Soy capaz de decir en japonés si una persona está o no en un lugar determinado, utilizando expresiones simples de localización.",
+"testtool.custom_course.ja.question.speaking.spoken_production.talk_about_family.description": "Puedo hablar de forma sencilla sobre mi familia en japonés, mencionando a los miembros de la familia y proporcionando información básica sobre ellos.",
+"testtool.custom_course.ja.question.speaking.spoken_production.talk_about_hobbies.description": "Puedo hablar de forma sencilla en japonés sobre mis pasatiempos y las actividades que me gusta realizar en mi tiempo libre.",
+"testtool.custom_course.ja.question.understanding.listening.understand_house_layout.description": "Soy capaz de escuchar y comprender en japonés una explicación simple sobre la estructura de una vivienda, como la cantidad de habitaciones o la disposición de los espacios.",
+
+"testtool.result.JA.pass": "Estos son los cursos de japonés para fines académicos disponibles para usted. Utilice este certificado como prueba de su nivel de competencia y aproveche los cursos para mejorar sus habilidades lingüísticas."
+
     },
     "fr": {
         "language.current.code": "fr",
@@ -717,7 +789,32 @@ export const ui = {
         "testtool.certificate.completed": "a complété un test d'autoévaluation des compétences linguistiques en",
         "testtool.certificate.scores": "Résultats",
         "testtool.certificate.logo_andifes_isf": "Logo de l'Andifes à côté du logo du programme Langues Sans Frontières",
-        "testtool.certificate.learn_more": "En savoir plus sur le groupe Andifes-IsF à"
+        "testtool.certificate.learn_more": "En savoir plus sur le groupe Andifes-IsF à",
+
+"testtool.custom_course.ja.JFAAM.title": "Japonais à des Fins Académiques : Alimentation et Logement",
+"testtool.custom_course.ja.JFAP.title": "Japonais à des Fins Académiques : Loisirs",
+"testtool.custom_course.ja.JFAV.title": "Japonais à des Fins Académiques : Voyages",
+"testtool.custom_course.ja.J-MULTI.title": "Japonais à des Fins Académiques : Premiers Contacts / Alimentation et Logement / Loisirs / Voyages",
+
+"testtool.custom_course.ja.question.understanding.reading.hiragana_all.description": "Je suis capable de reconnaître et de lire tous les caractères du système hiragana, ce qui me permet d’identifier des mots de base et de comprendre des textes simples écrits dans cet alphabet.",
+"testtool.custom_course.ja.question.writing.null.write_name_katakana.description": "Je suis capable d’écrire mon propre nom en utilisant le système d’écriture katakana, en respectant les règles de base de ce système.",
+"testtool.custom_course.ja.question.speaking.spoken_production.talk_about_week_plans.description": "Je peux parler en japonais de mes projets pour la semaine, en mentionnant les activités quotidiennes et les horaires approximatifs auxquels je prévois de les réaliser.",
+"testtool.custom_course.ja.question.speaking.spoken_production.self_introduction_basic.description": "Je peux me présenter en japonais de manière simple, en fournissant des informations de base telles que mon nom, mon origine et d’autres informations personnelles initiales.",
+"testtool.custom_course.ja.question.speaking.spoken_production.talk_about_residence.description": "Je peux parler de manière simple de mon lieu de résidence en japonais, en mentionnant si j’habite dans une maison, un appartement ou un autre type de logement.",
+"testtool.custom_course.ja.question.speaking.spoken_interaction.food_drink_preferences.description": "Je suis capable de poser des questions et de répondre sur les préférences alimentaires et de boissons en japonais, en participant à des dialogues simples sur les goûts personnels.",
+"testtool.custom_course.ja.question.speaking.spoken_production.describe_object_person_location.description": "Je peux décrire de manière simple où se trouvent les personnes et les objets, en utilisant des expressions de position de base en japonais.",
+"testtool.custom_course.ja.question.speaking.spoken_interaction.ask_how_to_say.description": "Je suis capable de demander comment dire un mot ou une expression en japonais et de comprendre la réponse donnée.",
+"testtool.custom_course.ja.question.understanding.reading.katakana_all.description": "Je suis capable de reconnaître et de lire tous les caractères du système katakana, en identifiant les mots et termes fréquemment écrits dans ce système.",
+"testtool.custom_course.ja.question.speaking.spoken_interaction.invite_to_event.description": "Je suis capable d’inviter quelqu’un en japonais à participer à un événement ou une activité, en précisant des informations telles que le lieu et l’heure du rendez-vous.",
+"testtool.custom_course.ja.question.speaking.spoken_production.say_birthday_date.description": "Je suis capable de dire en japonais la date de mon anniversaire, en utilisant correctement les expressions pour le jour, le mois et les nombres.",
+"testtool.custom_course.ja.question.speaking.spoken_interaction.order_fast_food.description": "Je suis capable de passer une commande en japonais dans un restaurant de restauration rapide, en communiquant clairement ce que je souhaite consommer.",
+"testtool.custom_course.ja.question.speaking.spoken_production.say_someone_is_at_location.description": "Je suis capable de dire en japonais si une personne se trouve ou non dans un lieu spécifique, en utilisant des expressions simples de localisation.",
+"testtool.custom_course.ja.question.speaking.spoken_production.talk_about_family.description": "Je peux parler de manière simple de ma famille en japonais, en mentionnant les membres de ma famille et en donnant des informations de base à leur sujet.",
+"testtool.custom_course.ja.question.speaking.spoken_production.talk_about_hobbies.description": "Je peux parler de manière simple en japonais de mes loisirs et des activités que j’aime pratiquer pendant mon temps libre.",
+"testtool.custom_course.ja.question.understanding.listening.understand_house_layout.description": "Je suis capable d’écouter et de comprendre en japonais une explication simple sur la structure d’une résidence, comme le nombre de pièces ou la disposition des espaces.",
+
+"testtool.result.JA.pass": "Voici les cours de japonais à des fins académiques disponibles pour vous. Utilisez ce certificat comme preuve de votre niveau de compétence et profitez des cours pour améliorer vos compétences linguistiques !"
+
     }
 } as const;
 

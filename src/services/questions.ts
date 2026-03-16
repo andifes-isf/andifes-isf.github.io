@@ -19,7 +19,7 @@ export type Question = {
     description: string,
 }
 
-export type HistoryEntry = { area: AreasType, id: number, resposta: 'S' | 'N' }
+export type HistoryEntry = { area: AreasType, id: number, resposta: 'S' | 'N', perguntaI18nId?: string }
 
 export const FLAGS = {
     COMPLETE: 1 << 0,
@@ -180,6 +180,7 @@ export function getResultsCourse(t: T) {
     const correct = history.filter((entry) => entry.resposta === 'S').length
     const result = {
         "result": correct + "/" + total,
+        "lastQuestion": history[history.length - 1]?.perguntaI18nId,
     }
 
     return result
