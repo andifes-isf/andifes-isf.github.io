@@ -127,7 +127,7 @@ const description = Number.isInteger(+n) ? questions[+n - 1].description : pergu
 		"a[data-continue]",
 	) as NodeListOf<HTMLAnchorElement>;
 	btns.forEach((btn) => {
-		btn.href = `${parentPathname}/${btn.dataset.continue === "N" ? "fim-perguntas" : nextPage}`;
+		btn.href = `${parentPathname}/${(isCustomCourse && btn.dataset.continue === "N") ? "fim-perguntas" : nextPage}`;
 		btn.classList.remove("disabled");
 		btn.addEventListener("click", (evt) => {
 			evt.preventDefault();
