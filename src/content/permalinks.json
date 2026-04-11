@@ -265,8 +265,11 @@
 },
 /* ### OFERTA OFICINA ### */
 {
-	"permanent": true,
 	"slug": "oo/quadro-de-vagas",
+	"target": "/p/oo/2026/quadro-de-vagas"
+}, {
+	"permanent": true,
+	"slug": "oo/2026/quadro-de-vagas",
 	"target": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRD-DH3BVthY8enQdpG8BzwmK5131QmvlD8NS1Yz6mYX-10F2U8fmbT29C6OppiVguNMQ3wRUyg5PrL/pubhtml?gid=0&single=true"
 }
 ]
