@@ -262,5 +262,11 @@
 	"permanent": true,
 	"slug": "ofc/2026/por/cursos-disponiveis",
 	"target": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS0_nIS5m1AVGZVO8zeKiFXYb6fNGPiJq2jKtrY1lwGDCI4DB2laZurk7fgmeHd3ipnN9vvY4zNYVkC/pubhtml?gid=339731180&single=true"
+},
+/* ### OFERTA OFICINA ### */
+{
+	"permanent": true,
+	"slug": "oo/quadro-de-vagas",
+	"target": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRD-DH3BVthY8enQdpG8BzwmK5131QmvlD8NS1Yz6mYX-10F2U8fmbT29C6OppiVguNMQ3wRUyg5PrL/pubhtml?gid=0&single=true"
 }
 ]
