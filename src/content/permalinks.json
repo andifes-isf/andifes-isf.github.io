@@ -247,6 +247,9 @@
 }, 
 /* ### OFERTA EM FLUXO CONTÍNUO ### */
 {
+	"slug": "ofc/por/cursos-disponiveis",
+	"target": "/p/ofc/2026/por/cursos-disponiveis"
+}, {
 	"permanent": true,
 	"slug": "ofc/2025/por/divulgacao",
 	"target": "https://forms.cloud.microsoft/r/ESXdaKVYQP"
