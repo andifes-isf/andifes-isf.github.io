@@ -110,7 +110,7 @@
 	"target": "/p/oc/2026-1/quadro-de-vagas"
 }, {
 	"slug": "oc/feedback",
-	"target": "/p/oc/2025-2/feedback"
+	"target": "/p/oc/2026-1/feedback"
 }, {
 	"permanent": true,
 	"slug": "oc/relatorio",
@@ -238,7 +238,11 @@
 }, {
 	"slug": "autoavaliacao/JAP/JFAV",
 	"target": "https://conteudo.redeisf.pro.br/autoavaliacao/?curso=ja-MULTI"
-},
+}, {
+	"permanent": true,
+	"slug": "oc/2026-1/feedback",
+	"target": "https://forms.gle/uoxQ4vH4jKDyxiWc9"
+}, 
 /* ### OFERTA LOCAL ### */
 {
 	"permanent": true,
