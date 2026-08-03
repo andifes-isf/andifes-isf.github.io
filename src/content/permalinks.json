@@ -243,6 +243,12 @@
 	"slug": "oc/2026-1/feedback",
 	"target": "https://forms.gle/uoxQ4vH4jKDyxiWc9"
 }, 
+	/* ### OFERTA COLETIVA - 2026/2 ### */
+{
+    "permanent": true,
+    "slug": "oc/2026-2/form-adesao",
+    "target": "https://forms.cloud.microsoft/Pages/DesignPageV2.aspx?origin=NeoPortalPage&subpage=design&id=dEGiXDjx4U-4Zqzq6Uv5kspH9G7i7oJFjjz89MV4kddURjNRMzUzTFA1U05GWU43WkhHSFNDTEYzSiQlQCN0PWcu"
+},
 /* ### OFERTA LOCAL ### */
 {
 	"permanent": true,
