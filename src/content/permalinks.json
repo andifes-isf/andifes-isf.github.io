@@ -77,13 +77,13 @@
 	"target": "/p/oc/2026-1/calendario"
 }, {
 	"slug": "oc/form-adesao",
-	"target": "/p/oc/2026-1/form-adesao"
+	"target": "/p/oc/2026-2/form-adesao"
 }, {
 	"slug": "oc/form-adesao.",
 	"target": "/p/oc/form-adesao"
 }, {
 	"slug": "oc/acompanhamento-adesao",
-	"target": "/p/oc/2026-1/acompanhamento-adesao"
+	"target": "/p/oc/2026-2/acompanhamento-adesao"
 }, {
 	"slug": "oc/form-inscr/ALE",
 	"target": "/p/oc/2026-1/form-inscr/ALE"
@@ -248,6 +248,10 @@
     "permanent": true,
     "slug": "oc/2026-2/form-adesao",
     "target": "https://forms.cloud.microsoft/Pages/DesignPageV2.aspx?origin=NeoPortalPage&subpage=design&id=dEGiXDjx4U-4Zqzq6Uv5kspH9G7i7oJFjjz89MV4kddURjNRMzUzTFA1U05GWU43WkhHSFNDTEYzSiQlQCN0PWcu"
+}, {
+	"permanent": true,
+	"slug": "oc/2026-2/acompanhamento-adesao",
+	"target": "https://sinufscar.sharepoint.com/:x:/s/GESTOISF/IQBZyTXQB_MxTZfQVvqKoN--Aafbr8JZsoBYPS0kRYFiOBI?e=vjnkji"
 },
 /* ### OFERTA LOCAL ### */
 {
