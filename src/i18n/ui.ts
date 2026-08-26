@@ -82,13 +82,13 @@ export const ui = {
 
         "testtool.custom_course.start_questions.description": "para verificar suas habilidades linguísticas para o seguinte curso: ",
 
-        "testtool.custom_course.ja.JFACJ.title": "Japonês para fins acadêmicos: Conhecendo o Japão",
-        "testtool.custom_course.ja.JFAMRJ.title": "Japonês para fins acadêmicos: Minha Rotina no Japão",
-        "testtool.custom_course.ja.JFAPC.title": "Japonês para fins acadêmicos: Primeiros contatos",
-        "testtool.custom_course.ja.JFAAM.title": "Japonês para Fins Acadêmicos: Alimentação e Moradia",
-        "testtool.custom_course.ja.JFAP.title": "Japonês para Fins Acadêmicos: Passatempos",
-        "testtool.custom_course.ja.JFAV.title": "Japonês para Fins Acadêmicos: Viagens",
-        "testtool.custom_course.ja.J-MULTI.title": "Japonês para fins acadêmicos: Primeiros contatos / Alimentação e Moradia / Passatempos / Viagens",
+        "testtool.custom_course.ja.JFACJ.title": "Conversação em Japonês: Conhecendo o Japão",
+        "testtool.custom_course.ja.JFAMRJ.title": "Conversação em Japonês: Minha Rotina no Japão",
+        "testtool.custom_course.ja.JFAPC.title": "Conversação em Japonês: Primeiros contatos",
+        "testtool.custom_course.ja.JFAAM.title": "Conversação em Japonês: Alimentação e Moradia",
+        "testtool.custom_course.ja.JFAP.title": "Conversação em Japonês: Passatempos",
+        "testtool.custom_course.ja.JFAV.title": "Conversação em Japonês: Viagens",
+        "testtool.custom_course.ja.J-MULTI.title": "Conversação em Japonês: Primeiros contatos / Alimentação e Moradia / Passatempos / Viagens",
         
         "testtool.custom_course.ja.question.speaking.spoken_interaction.basic_greetings.description": "Sou capaz de realizar cumprimentos básicos do dia a dia com naturalidade, utilizando expressões como 'bom dia', 'boa tarde' e 'boa noite' de forma adequada a cada contexto e situação social.",
         "testtool.custom_course.ja.question.speaking.spoken_interaction.thanks_apologies.description": "Tenho a habilidade de agradecer e pedir desculpas de maneira apropriada e cordial, demonstrando respeito e consideração em diversas interações cotidianas.",
@@ -150,7 +150,7 @@ export const ui = {
         "testtool.results.update_profile": "Atualizar perfil",
 
         "testtool.result.fail": "Atualmente, o teste indica que você pode ter dificuldades em compreensão e produção na língua avaliada. No entanto, isso é apenas o começo! Com prática e dedicação, você pode desenvolver suas habilidades e avançar nos níveis. Considere iniciar com conteúdos básicos e, se possível, buscar apoio de um professor ou materiais educativos.",
-        "testtool.result.JA.pass": "Estes são os cursos de japonês para fins acadêmicos disponíveis para você. Utilize este certificado como garantia do seu nível de proficiência e aproveite os cursos para aprimorar suas habilidades linguísticas!",
+        "testtool.result.JA.pass": "Estes são os cursos de conversação em Japonês disponíveis para você. Utilize este certificado como garantia do seu nível de proficiência e aproveite os cursos para aprimorar suas habilidades linguísticas!",
 
         "testtool.result.understanding.listening.below.conclusion": "Indivíduos neste nível têm dificuldade em entender até mesmo frases faladas simples e geralmente dependem de gestos.",
         "testtool.result.understanding.listening.A1.conclusion": "Indivíduos neste nível conseguem entender instruções básicas e perguntas simples.",
