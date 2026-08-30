@@ -256,6 +256,27 @@
 	"permanent": true,
     "slug": "oc/2026-2/quadro-de-vagas",
     "target": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTIhltmqF26GTGmEe6T3Qb-U0C1Qet9pZOzD-FhHs4QCYPwZuL89VpCNb7hato-TmU4mPxiOTZCT-w1/pubhtml?gid=0&single=true"
+}, {
+	"slug": "oc/2026-2/form-inscr/ALE",
+	"target": "https://forms.gle/LTycRd7VCYUt4BH89"
+}, {
+	"slug": "oc/2026-2/form-inscr/ESP",
+	"target": "https://forms.gle/1JitqHpUQcgGDYCu5"
+}, {
+	"slug": "oc/2026-2/form-inscr/FRA",
+	"target": "https://forms.gle/eDgJbQnpTaXbnGHt7"
+}, {
+	"slug": "oc/2026-2/form-inscr/ING",
+	"target": "https://forms.gle/iTTVDhvn2346Zi9i9"
+}, {
+	"slug": "oc/2026-2/form-inscr/ITA",
+	"target": "https://forms.gle/F26zVPxGmhezg5z19"
+}, {
+	"slug": "oc/2026-2/form-inscr/JAP",
+	"target": "https://forms.gle/f74AdRS52D9BFEZM6"
+}, {
+	"slug": "oc/2026-2/form-inscr/POR",
+	"target": "https://forms.gle/WBAZhbdWdvx9zxVn6"
 },
 /* ### OFERTA LOCAL ### */
 {
