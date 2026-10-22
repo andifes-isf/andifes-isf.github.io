@@ -277,6 +277,10 @@
 }, {
 	"slug": "oc/2026-2/form-inscr/POR",
 	"target": "https://forms.gle/WBAZhbdWdvx9zxVn6"
+}, {
+	"permanent": true,
+	"slug": "oc/2026-2/feedback",
+	"target": "https://forms.cloud.microsoft/r/t6E1vEfGg5"
 },
 /* ### OFERTA LOCAL ### */
 {
